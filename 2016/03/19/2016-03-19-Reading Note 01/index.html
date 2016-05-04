@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>《Objective-C 高级编程》第一章读书笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
+自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
+在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Objective-C 高级编程》第一章读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/19/2016-03-19-Reading Note 01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
+自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
+在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
+<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Objective-C 高级编程》第一章读书笔记">
+<meta name="twitter:description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
+自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
+在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-03-19-Reading Note 01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/19/2016-03-19-Reading Note 01/" class="article-date">
+  <time datetime="2016-03-18T21:15:24.000Z" itemprop="datePublished">2016-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《Objective-C 高级编程》第一章读书笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。</p>
+<h3 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h3><p>自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。</p>
+<p>在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助于平时编程。</p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><ul>
+<li><p>当使用 alloc/new/copy/mutableCopy 或 前缀有这些关键字的方法时自己生成并持有对象，当调用系统提供的如NSMutableArray的类方法array，属于持有非自己生成的对象。类方法内部返回对象时会将对象注册到autoreleasepool。</p>
+</li>
+<li><p>autorelease 不立即释放，而是注册到autoreleasepool，当pool结束时对对象调用release</p>
+</li>
+<li><p>[obj autorelease]; 这句话取得但不持有对象，可用obj传递对象</p>
+</li>
+<li><p>NSZone 是一个历史遗留，基本上都不用，它通过多重区域来防止内存碎片化，但目前系统的内存管理以极具效率，再用这个反而造成干扰，一般批量使用内存并批量释放的情况才会考虑自己调用NSZone</p>
+</li>
+<li><p>引用计数采用散列表管理方式，key为内存地址，value为retain count，使用这种方式比较高效，可以通过内存地址追溯到内存块。</p>
+</li>
+<li><p>ARC 下，一般在需要及时释放大内存时使用autoreleasepool，例如大量的图像处理</p>
+</li>
+<li><p>autoreleasepool内部用数组来维护注册到autoreleasepool的对象，当pool结束时，遍历数组对每个对象发送release</p>
+</li>
+<li><p>对象作为返回值会被编译器自动注册到autoreleasepool</p>
+</li>
+</ul>
+<ul>
+<li><h4 id="strong"><a href="#strong" class="headerlink" title="__strong"></a>__strong</h4><p> ARC下默认用该关键字修饰变量，当变量超出作用域，强引用便失效，通过release释放变量</p>
+<p>以下是一个初始化方法例子</p>
+<pre><code>{
+    id __strong obj = [[NSObject alloc] init];
+}
+
+以上代码的编译器的模拟代码如下
+
+id obj = objc_msgSend(NSObject, @selector(alloc));
+objc_msgSend(obj, @selector(init));
+objc_releease(obj);
+</code></pre><p>当我们使用类方法初始化会如何呢？</p>
+<pre><code>{
+    id __strong obj = [NSMutableArray array];
+}
+
+以上代码的编译器的模拟代码如下
+
+id obj = objc_msgSend(NSMutableArray, @selector(array));
+objc_retainAutoreleaseReturnValue(obj);
+objc_releease(obj);
+</code></pre><p>我们可以看到最后都是调用了objc_releease()方法，但是调类方法的时候多了一句objc_retainAutoreleaseReturnValue()，这有什么用呢？我们先来看看类方法内部实现。</p>
+<pre><code>+ (instancetype)array {
+    return [[NSMutableArray array] init];
+}
+
+以上代码的编译器的模拟代码如下
+
+id obj = objc_msgSend(NSObNSMutableArrayject, @selector(alloc));
+objc_msgSend(obj, @selector(init));
+return objc_autoreleaseReturnValue(obj);
+</code></pre><p>objc_autoreleaseReturnValue()，这个方法是返回注册到autoreleasepool的对象，除此之外它会检查执行命令列表，如果后面紧接着调用了objc_retainAutoreleaseReturnValue()，那么返回的对象就不注册到autoreleasepool，而是直接返回。objc_retainAutoreleaseReturnValue()这个方法即便是没有注册到autoreleasepool的对象也能正确地获取，这两个方法以此来实现直接传递，不用去autoreleasepool绕一圈，算是一种优化。</p>
+</li>
+<li><h4 id="weak"><a href="#weak" class="headerlink" title="__weak"></a>__weak</h4><ul>
+<li>weak使用一个散列表来维护(类似引用计数表)。对象被废弃时，在weak表中获取废弃对象为键值的记录，将记录中的对象置为nil；从weak表中删除该记录，从引用计数表中删除废弃对象的记录。</li>
+<li><p>不改变对象的retainCount，但使用时会将对象retain(使用objc_loadWeakRetain方法)并注册到autoreleasepool，用完后马上释放(使用几次就注册几次，所以不要频繁使用weak对象，会增加开销)。这是为了确保weak变量在使用时是存在的。看下面这段代码。</p>
+<pre><code>id obj = [[NSObject alloc] init];
+id __weak obj1= nil;
+
+obj1 = obj;
+
+NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj),CFGetRetainCount((__bridge CFTypeRef)obj1));
+ NSLog(@&quot;obj1 retainCount = %ld，obj retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj1),CFGetRetainCount((__bridge CFTypeRef)obj));
+ NSLog(@&quot;obj retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj));
+ NSLog(@&quot;obj1 retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj1));CFTypeRef)obj1));
+
+你将看到如下输出
+
+2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2，obj1 retainCount = 3
+2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3，obj retainCount = 3
+2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2
+2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3
+
+可以看到weak 对象使用时还是会改变retainCount
+</code></pre></li>
+</ul>
+</li>
+<li><h4 id="autoreleasing"><a href="#autoreleasing" class="headerlink" title="__autoreleasing"></a>__autoreleasing</h4><p>等同于 ARC无效时调用对象的autorelease方法。</p>
+</li>
+<li><h4 id="Toll-Free-Bridge"><a href="#Toll-Free-Bridge" class="headerlink" title="Toll-Free Bridge"></a>Toll-Free Bridge</h4><p>在OC对象和CF对象互相转换时更改对象的被持有状况</p>
+<p>__brideg_retain 和 CFBridgingRetain 等同于retain操作</p>
+<p>__bridge_transfer 和 CFBridgeRelease 等同于release操作</p>
+<p>__bridge 不更改所有权情况，单纯的转换。</p>
+</li>
+</ul>
+<p>###引用致谢<br>《Objective-C 高级编程》</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/19/2016-03-19-Reading Note 01/" data-id="cinstfobu00021jl7o4hpdnr7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/23/2016-03-23-Computer Networking 01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          计算机网络知识归纳《一》
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/12/2016-03-11-Code Coverage/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Code Coverage 杂谈</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/22/2016-04-23-Fix Contributions/">煮熟的Contributions飞了？</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/2016-04-17-Swift Note 01/">入坑Swift</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/06/2016-04-06-Computer Networking 02/">计算机网络知识归纳《二》</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/28/2016-03-28-Runtime/">关于Runtime的一些知识</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
