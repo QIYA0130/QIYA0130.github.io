@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Networking," />
 
 
 
@@ -80,58 +80,16 @@
 
 
 
-<meta name="description" content="计算机网络自顶向下分层
-应用层
-运输层
-网络层
-链路层
-物理层
-
-这五层，我主要学习是前三层：应用层、运输层、网络层，因为下面两层是比较偏硬件的内容。
-对这三层目前我自己的一个笼统的认识：
-
-应用层产生的报文分组，传给运输层
-运输层对报文加上运输层首部，封装成运输层的分组报文段运输层将报文段传给网络层
-网络层对报文段加上网络层首部，封装成网络层分组数据报，再传递到下一层。
-
-因特网构成描述在互联">
+<meta name="description" content="计算机网络的知识再来一发 Round Two">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络知识归纳《二》">
 <meta property="og:url" content="http://yoursite.com/2016/04/06/2016-04-06-Computer Networking 02/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计算机网络自顶向下分层
-应用层
-运输层
-网络层
-链路层
-物理层
-
-这五层，我主要学习是前三层：应用层、运输层、网络层，因为下面两层是比较偏硬件的内容。
-对这三层目前我自己的一个笼统的认识：
-
-应用层产生的报文分组，传给运输层
-运输层对报文加上运输层首部，封装成运输层的分组报文段运输层将报文段传给网络层
-网络层对报文段加上网络层首部，封装成网络层分组数据报，再传递到下一层。
-
-因特网构成描述在互联">
-<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="计算机网络的知识再来一发 Round Two">
+<meta property="og:updated_time" content="2016-05-04T14:28:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络知识归纳《二》">
-<meta name="twitter:description" content="计算机网络自顶向下分层
-应用层
-运输层
-网络层
-链路层
-物理层
-
-这五层，我主要学习是前三层：应用层、运输层、网络层，因为下面两层是比较偏硬件的内容。
-对这三层目前我自己的一个笼统的认识：
-
-应用层产生的报文分组，传给运输层
-运输层对报文加上运输层首部，封装成运输层的分组报文段运输层将报文段传给网络层
-网络层对报文段加上网络层首部，封装成网络层分组数据报，再传递到下一层。
-
-因特网构成描述在互联">
+<meta name="twitter:description" content="计算机网络的知识再来一发 Round Two">
 
 
 
@@ -144,15 +102,15 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
 
-  <title> 计算机网络知识归纳《二》 | Hexo </title>
+  <title> 计算机网络知识归纳《二》 | DEMO </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -180,7 +138,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">DEMO</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -207,7 +165,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -217,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -227,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -280,7 +238,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-06T09:25:24+08:00" content="2016-04-06">
               2016-04-06
             </time>
@@ -309,8 +267,7 @@
       
 
       
-        <hr>
-<h3 id="计算机网络自顶向下分层"><a href="#计算机网络自顶向下分层" class="headerlink" title="计算机网络自顶向下分层"></a>计算机网络自顶向下分层</h3><ul>
+        <h3 id="计算机网络自顶向下分层"><a href="#计算机网络自顶向下分层" class="headerlink" title="计算机网络自顶向下分层"></a>计算机网络自顶向下分层</h3><ul>
 <li>应用层</li>
 <li>运输层</li>
 <li>网络层</li>
@@ -328,7 +285,7 @@
 <p>分组交换机的作用是转发分组，一般分为路由器和链路层交换机。<br>路由器会涉及到三层（物理层、链路层、网络层），链路层交换机会涉及到两层（物理层、链路层）。因此路由器会有一个转发表（将目的地址映射到输出链路，用以选择链路，即所谓的选路协议）。</p>
 <p>ISP（因特网服务提供商）包含多个交换机和多段通信链路，运行IP协议</p>
 <p>链路和交换机移动数据的方式：电路交换，分组交换。两者主要区别可以类比成去餐馆吃饭是否需要预定位子，前者需要，后者不需要。</p>
-<p>####电路交换<br>每条链路规定N条电路（对应一个连接），宽带限制为1/N，在这种情况下，即使别人没在使用带宽，你依然只能使用到1/N的带宽，造成极大的一种浪费</p>
+<h4 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h4><p>每条链路规定N条电路（对应一个连接），宽带限制为1/N，在这种情况下，即使别人没在使用带宽，你依然只能使用到1/N的带宽，造成极大的一种浪费</p>
 <p>电路交换分频多路复用</p>
 <ul>
 <li>时分多路复用 ： 以时间为单位，周期性获得所有带宽</li>
@@ -347,7 +304,7 @@
 <p>传播VS传输 ：为了具象的描述两者的不同，用收费站和车辆来做类比<br>车队（很多车辆） -&gt; 分组<br>传输 ： 收费站处理一辆车收费的时间<br>传播 ： 车从A收费站开到B收费站的时间</p>
 <h4 id="流量强度"><a href="#流量强度" class="headerlink" title="流量强度"></a>流量强度</h4><p>公式 = La/R (L分组的比特长度、R传输速度、a每秒到达队列的分组的个数)</p>
 <p>流量强度 大于1时，排队时延会趋向于无穷大</p>
-<p>同事流量强度越大代表着丢包现象越严重，因为缓存区内存固定 </p>
+<p>同事流量强度越大代表着丢包现象越严重，因为缓存区内存固定</p>
 <h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p>一个链路上对数据传输的速度，取决于数据流过的链路的最小传输速度</p>
 <h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>网络应用程序及应用层协议存留的地方</p>
 <p>主要协议</p>
@@ -429,6 +386,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Networking/" rel="tag">#Networking</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
@@ -493,10 +456,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -505,20 +468,27 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -544,7 +514,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络自顶向下分层"><span class="nav-number">1.</span> <span class="nav-text">计算机网络自顶向下分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#因特网构成描述"><span class="nav-number">2.</span> <span class="nav-text">因特网构成描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分组交换"><span class="nav-number">2.1.</span> <span class="nav-text">分组交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流量强度"><span class="nav-number">2.2.</span> <span class="nav-text">流量强度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#吞吐量"><span class="nav-number">2.3.</span> <span class="nav-text">吞吐量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">3.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie技术"><span class="nav-number">3.1.1.</span> <span class="nav-text">cookie技术</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Web缓存"><span class="nav-number">3.1.2.</span> <span class="nav-text">Web缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FTP"><span class="nav-number">3.2.</span> <span class="nav-text">FTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SMTP"><span class="nav-number">3.3.</span> <span class="nav-text">SMTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS"><span class="nav-number">3.4.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见端口"><span class="nav-number">3.5.</span> <span class="nav-text">常见端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">4.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络自顶向下分层"><span class="nav-number">1.</span> <span class="nav-text">计算机网络自顶向下分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#因特网构成描述"><span class="nav-number">2.</span> <span class="nav-text">因特网构成描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电路交换"><span class="nav-number">2.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组交换"><span class="nav-number">2.2.</span> <span class="nav-text">分组交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流量强度"><span class="nav-number">2.3.</span> <span class="nav-text">流量强度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#吞吐量"><span class="nav-number">2.4.</span> <span class="nav-text">吞吐量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">3.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie技术"><span class="nav-number">3.1.1.</span> <span class="nav-text">cookie技术</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Web缓存"><span class="nav-number">3.1.2.</span> <span class="nav-text">Web缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FTP"><span class="nav-number">3.2.</span> <span class="nav-text">FTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SMTP"><span class="nav-number">3.3.</span> <span class="nav-text">SMTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS"><span class="nav-number">3.4.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见端口"><span class="nav-number">3.5.</span> <span class="nav-text">常见端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">4.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>
@@ -567,15 +537,15 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

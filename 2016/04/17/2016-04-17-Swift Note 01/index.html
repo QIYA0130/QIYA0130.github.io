@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Swift," />
 
 
 
@@ -80,49 +80,16 @@
 
 
 
-<meta name="description" content="上周正式入坑Swift，于是总结一下Swift相关的编程
-###面向协议
-大家都说Swift是适合面向协议编程，而不是OC的面向对象。
-那么为什么这么说
-我自己想想大概是基于Swift以下几个特性：
-
-协议能被枚举、结构体、类实现
-协议能够被扩展，提供默认实现
-枚举，结构体基本都能实现一个类能实现的功能，并且都能被扩展
-
-那么说一下我目前用到的面向协议编程的实战
-首先App有一个设置页面，设置页">
+<meta name="description" content="正式入坑Swift，感想一二三">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入坑Swift">
 <meta property="og:url" content="http://yoursite.com/2016/04/17/2016-04-17-Swift Note 01/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="上周正式入坑Swift，于是总结一下Swift相关的编程
-###面向协议
-大家都说Swift是适合面向协议编程，而不是OC的面向对象。
-那么为什么这么说
-我自己想想大概是基于Swift以下几个特性：
-
-协议能被枚举、结构体、类实现
-协议能够被扩展，提供默认实现
-枚举，结构体基本都能实现一个类能实现的功能，并且都能被扩展
-
-那么说一下我目前用到的面向协议编程的实战
-首先App有一个设置页面，设置页">
-<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="正式入坑Swift，感想一二三">
+<meta property="og:updated_time" content="2016-05-04T14:29:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入坑Swift">
-<meta name="twitter:description" content="上周正式入坑Swift，于是总结一下Swift相关的编程
-###面向协议
-大家都说Swift是适合面向协议编程，而不是OC的面向对象。
-那么为什么这么说
-我自己想想大概是基于Swift以下几个特性：
-
-协议能被枚举、结构体、类实现
-协议能够被扩展，提供默认实现
-枚举，结构体基本都能实现一个类能实现的功能，并且都能被扩展
-
-那么说一下我目前用到的面向协议编程的实战
-首先App有一个设置页面，设置页">
+<meta name="twitter:description" content="正式入坑Swift，感想一二三">
 
 
 
@@ -135,15 +102,15 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
 
-  <title> 入坑Swift | Hexo </title>
+  <title> 入坑Swift | DEMO </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -171,7 +138,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">DEMO</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -198,7 +165,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -208,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -218,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -271,7 +238,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-17T08:25:24+08:00" content="2016-04-17">
               2016-04-17
             </time>
@@ -300,10 +267,8 @@
       
 
       
-        <hr>
-<p>上周正式入坑Swift，于是总结一下Swift相关的编程</p>
-<p>###面向协议</p>
-<p>大家都说Swift是适合面向协议编程，而不是OC的面向对象。</p>
+        <p>上周正式入坑Swift，于是总结一下Swift相关的编程</p>
+<h3 id="面向协议"><a href="#面向协议" class="headerlink" title="面向协议"></a>面向协议</h3><p>大家都说Swift是适合面向协议编程，而不是OC的面向对象。</p>
 <p>那么为什么这么说</p>
 <p>我自己想想大概是基于Swift以下几个特性：</p>
 <ul>
@@ -314,68 +279,19 @@
 <p>那么说一下我目前用到的面向协议编程的实战</p>
 <p>首先App有一个设置页面，设置页面大家应该很熟，一个<code>TableView</code>，<code>Cell</code>里两个<code>UILabel</code> + 一个<code>Switch</code></p>
 <p>在面向对象编程中，一般会对<code>Cell</code>做一个<code>configure</code>配置方法如下</p>
-<pre><code>func configure(title: String, 
-          titleColor: UIColor,
-         description: String, 
-    descriptionColor: UIColor,
-            switchOn: Bool, 
-       switchHandler: switchTogglerHandlerType? = nil) {
-
-    // 根据参数配置视图
-
- }
-</code></pre><p>这个<code>configure</code>方法，还没考虑字体啥的，而且还用到了Swift默认值特性简化了一下<code>switchTogglerHandlerType</code>。但<code>configure</code>依然会写得很长很臃肿，在调用的时候写成一坨，不好看又麻烦啊。这个时候，聪明如你，你会说把参数封成一个Model，然后在Model里设置完这些东西呗，这样就只有一个参数了。那么Switch开关的操作呢？Switch开关所对应的操作要操作数据库不同的字段balabala</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">configure</span><span class="params">(title: String,</span><br><span class="line">          titleColor: UIColor,</span><br><span class="line">         description: String,</span><br><span class="line">    descriptionColor: UIColor,</span><br><span class="line">            switchOn: Bool,</span><br><span class="line">       switchHandler: switchTogglerHandlerType? = <span class="literal">nil</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据参数配置视图</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个<code>configure</code>方法，还没考虑字体啥的，而且还用到了Swift默认值特性简化了一下<code>switchTogglerHandlerType</code>。但<code>configure</code>依然会写得很长很臃肿，在调用的时候写成一坨，不好看又麻烦啊。这个时候，聪明如你，你会说把参数封成一个Model，然后在Model里设置完这些东西呗，这样就只有一个参数了。那么Switch开关的操作呢？Switch开关所对应的操作要操作数据库不同的字段balabala</p>
 <p>这个时候我们再来想一个问题，这种样式的Cell在App中很常见，你很可能要在其他界面复用这个Cell，只是颜色不完全一样，开关要操作的东西不一样，这个时候你初始化Model的时候同样要写一长串代码来设置属性。</p>
 <p>为了考虑这个情况，面向对象的想法下，你可能会抽一个基Model，派生不同样式配置和开关操作的Model；或者给Model加一个Type的枚举字段，在Model内部根据枚举来做默认配置。但是Swift很不建议大量使用Class，建议多使用协议还有结构体这种值类型</p>
 <p>我们来看一下面向协议编程的解决方案，我们来写面向协议的Model。</p>
 <p>首先我们定义一个协议 <code>LabelWithSwitchCellProtocol</code></p>
-<pre><code>protocol LabelWithSwitchCellProtocol {
-    var title: String { get }
-    var titleColor: UIColor { get }
-    var description: String { get }
-    var descriptionColor: UIColor { get }
-
-    var switchOn: Bool { get }
-
-    func switchToggle(on: Bool)
-}
-</code></pre><p>然后我们可以扩展协议做一些默认实现，如下</p>
-<pre><code>extension LabelWithSwitchCellProtocol {
-    var titleColor: UIColor {
-        return .blackColor()
-    }
-
-    var descriptionColor: UIColor {
-        return .lightGrayColor()
-    }
-}
-</code></pre><p>然后在Cell里的configure方法我们这样写</p>
-<pre><code>func configure(delegate: LabelWithSwitchCellProtocol)
-
-{
-    // 在这里配置方法
-}
-</code></pre><p>然后我们开始写Model，如下</p>
-<pre><code>struct PhoneSettingCellViewModel: LabelWithSwitchCellProtocol {
-
-    var title = &quot;Phone&quot;
-    var description = &quot;Setting Phone Switch&quot;
-
-    var switchOn = true
-
-    func switchToggle(on: Bool) {
-        if on {
-            print(&quot;The phone is On&quot;)
-        } else {
-            print(&quot;The phone is Off&quot;)
-        }
-    }
-}
-</code></pre><p>调用如下</p>
-<pre><code>cell.configure(PhoneSettingCellViewModel())
-</code></pre><p>当然我们还可以写其他地方要复用到Cell的不同功能的ViewModel，同时亦可以LabelWithSwitchCellProtocol拆成两个协议：<code>DataSource</code>和<code>Delegate</code>来分离实现，提高代码可读性等等</p>
-<p>#####这样的写法有什么好处？个人认为以下几点</p>
-<ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">LabelWithSwitchCellProtocol</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> title: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">  <span class="keyword">var</span> titleColor: <span class="type">UIColor</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"><span class="keyword">var</span> description: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">  <span class="keyword">var</span> descriptionColor: <span class="type">UIColor</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> switchOn: <span class="type">Bool</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">switchToggle</span><span class="params">(on: Bool)</span></span></span><br><span class="line">&#125;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">然后我们可以扩展协议做一些默认实现，如下</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">LabelWithSwitchCellProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> titleColor: <span class="type">UIColor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> .blackColor()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> descriptionColor: <span class="type">UIColor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> .lightGrayColor()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在Cell里的configure方法我们这样写</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">configure</span><span class="params">(delegate: LabelWithSwitchCellProtocol)</span></span>  </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在这里配置方法</span></span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">然后我们开始写<span class="type">Model</span>，如下</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PhoneSettingCellViewModel</span>: <span class="title">LabelWithSwitchCellProtocol</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> title = <span class="string">"Phone"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> description = <span class="string">"Setting Phone Switch"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> switchOn = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">switchToggle</span><span class="params">(on: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> on &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"The phone is On"</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"The phone is Off"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用如下</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cell.configure(<span class="type">PhoneSettingCellViewModel</span>())</span><br></pre></td></tr></table></figure>
+<p>当然我们还可以写其他地方要复用到Cell的不同功能的ViewModel，同时亦可以LabelWithSwitchCellProtocol拆成两个协议：<code>DataSource</code>和<code>Delegate</code>来分离实现，提高代码可读性等等</p>
+<h5 id="这样的写法有什么好处？个人认为以下几点"><a href="#这样的写法有什么好处？个人认为以下几点" class="headerlink" title="这样的写法有什么好处？个人认为以下几点"></a>这样的写法有什么好处？个人认为以下几点</h5><ul>
 <li>Cell不用关心具体用的是哪一种Model，只要Model遵循了Cell的协议就可以</li>
 <li>扩展性比较好，设计师随时要加一种样式，我加一种ViewModel就可以无缝连接，不用改原来的代码</li>
 <li>Cell复用起来比较方便</li>
@@ -385,36 +301,13 @@
 <p>那么，我们再来考虑一下一个场景，上面那个例子是Cell有UILabel和Switch。可能另一个界面的一个View也是这样，有UILabl和Switch，唉我是不是要在定义View的协议，然后一套再来一遍？</p>
 <p>这个时候我们可以考虑更细化下去，创建标签协议，比如标题Label协议（<code>TitleTextPresentable</code>），描述Label协议(<code>DescriptionTextPresentable</code>)，Switch协议(<code>SwitchPresentable</code>)。</p>
 <p>然后我们的View或Cell的ViewModel按需扩展协议。</p>
-<pre><code>extension SwitchWithTextViewModel: TitleTextPresentable {
-    var title: String { return &quot;title&quot; }
-    var titleColor: UIColor { return .blackColor() }
-    var font: UIFont { return .systemFontOfSize(17.0) }
-}
-
-extension SwitchWithTextViewModel: SwitchPresentable   {
-
-    var switchOn: Bool { return false }
-    var switchColor: UIColor { return .yellowColor() }
-
-    func onSwitchToggleOn(on: Bool) {
-        if on {
-            print(&quot;On!&quot;)
-        } else {
-            print(&quot;Off&quot;)
-        }
-    }
-}
-</code></pre><p>View中我们这么写</p>
-<pre><code>class SwitchWithTextView&lt;T where T: TitleTextPresentable, T: SwitchPresentable&gt;: UIView {
-
-    func configure(delegate: T) {
-        // 在这里配置视图
-    }
-}
-</code></pre><p>这里用到了泛型，因为View实在不用关心传进来的Model具体是什么，只需关心这个Model是否实现了该实现的东西。Cell也是如此，用三个拆开的协议代替了Cell本身的协议。这样这些协议的定义达到了高度的复用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SwitchWithTextViewModel</span>: <span class="title">TitleTextPresentable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span> &#123; <span class="keyword">return</span> <span class="string">"title"</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> titleColor: <span class="type">UIColor</span> &#123; <span class="keyword">return</span> .blackColor() &#125;</span><br><span class="line">    <span class="keyword">var</span> font: <span class="type">UIFont</span> &#123; <span class="keyword">return</span> .systemFontOfSize(<span class="number">17.0</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SwitchWithTextViewModel</span>: <span class="title">SwitchPresentable</span>   </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> switchOn: <span class="type">Bool</span> &#123; <span class="keyword">return</span> <span class="literal">false</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> switchColor: <span class="type">UIColor</span> &#123; <span class="keyword">return</span> .yellowColor() &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">onSwitchToggleOn</span><span class="params">(on: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> on &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"On!"</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Off"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>View中我们这么写</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SwitchWithTextView</span>&lt;<span class="title">T</span> <span class="title">where</span> <span class="title">T</span>: <span class="title">TitleTextPresentable</span>, <span class="title">T</span>: <span class="title">SwitchPresentable</span>&gt;: <span class="title">UIView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">configure</span><span class="params">(delegate: T)</span></span> &#123;</span><br><span class="line">        <span class="comment">// 在这里配置视图</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里用到了泛型，因为View实在不用关心传进来的Model具体是什么，只需关心这个Model是否实现了该实现的东西。Cell也是如此，用三个拆开的协议代替了Cell本身的协议。这样这些协议的定义达到了高度的复用。</p>
 <p>这样子是否会让你觉得有点好用呢？反正我觉得有点，23333</p>
 <p>关于面向协议编程要讲的暂时就到此为止了，初学者还在继续摸索。。。。</p>
-<p>###协议<br>这里主要讲一下protocol具体的一些语法注意事项</p>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>这里主要讲一下protocol具体的一些语法注意事项</p>
 <p>在属性声明后写上{ get set }表示属性为可读写的。{ get }用来表示属性为可读的。即使你为可读的属性实现了setter方法，它也不会出错</p>
 <p>用类来实现协议时，使用<code>class</code>关键字来表示该属性为类成员；用结构体或枚举实现协议时，则使用<code>static</code>关键字来表示</p>
 <p>函数前缀加上<code>mutating</code>关键字来表示该函数允许改变该实例和其属性的类型，用class实现协议中的<code>mutating</code>方法时，不用写<code>mutating</code>关键字；用结构体，枚举实现协议中的<code>mutating</code>方法时，必须写<code>mutating</code>关键字</p>
@@ -422,8 +315,7 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
 <p>可选协议只能在含有<code>@objc</code>前缀的协议中生效,且<code>@objc</code>的协议只能被类遵循。可选协议含有可选成员，其遵循者可以选择是否实现这些成员。在协议中使用<code>@optional</code>关键字作为前缀来定义可选成员</p>
 <p>多个协议别名成一个协议<br><code>typealias SettingCellPresentable = protocol&lt;                                                 TitleTextPresentable, DescriptionTextPresentable, SwitchPresentable&gt;</code></p>
 <p>扩展协议来实现提供默认方法</p>
-<p>###值类型VS引用类型</p>
-<p>值类型(value types)，每个值类型的实例都拥有各自唯一的数据，通常它们是结构体，枚举或元组；</p>
+<h3 id="值类型VS引用类型"><a href="#值类型VS引用类型" class="headerlink" title="值类型VS引用类型"></a>值类型VS引用类型</h3><p>值类型(value types)，每个值类型的实例都拥有各自唯一的数据，通常它们是结构体，枚举或元组；</p>
 <p>引用类型(reference types)，引用类型的实例共享它们的数据，通常是一个类。</p>
 <p>我理解值类型复制时是深拷贝；而引用类型是浅拷贝，即指针拷贝</p>
 <p>Swift建议使用值类型来保证安全性，以避免不必要的数据共享造成的bug</p>
@@ -439,7 +331,7 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
 <li>当使用===运算符判断两个对象是否引用同一个对象实例的时候。</li>
 <li>当上下文需要创建一个共享的、可变的对象时。</li>
 </ul>
-<p>###引用致谢<br><a href="http://letsswift.com/2014/06/protocols/" target="_blank" rel="external">协议 http://letsswift.com/2014/06/protocols/</a></p>
+<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p><a href="http://letsswift.com/2014/06/protocols/" target="_blank" rel="external">协议 http://letsswift.com/2014/06/protocols/</a></p>
 <p><a href="http://letsswift.com/2014/08/value-type-and-reference-type/" target="_blank" rel="external">值类型与引用类型 http://letsswift.com/2014/08/value-type-and-reference-type/</a></p>
 
       
@@ -459,6 +351,12 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+        </div>
       
 
       
@@ -524,10 +422,10 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -536,20 +434,27 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -575,7 +480,7 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向协议"><span class="nav-number">1.</span> <span class="nav-text">面向协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这样的写法有什么好处？个人认为以下几点"><span class="nav-number">1.0.1.</span> <span class="nav-text">这样的写法有什么好处？个人认为以下几点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议"><span class="nav-number">2.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#值类型VS引用类型"><span class="nav-number">3.</span> <span class="nav-text">值类型VS引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">4.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>
@@ -598,15 +503,15 @@ extension SwitchWithTextViewModel: SwitchPresentable   {
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

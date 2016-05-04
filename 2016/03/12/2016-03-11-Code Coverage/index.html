@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CodeCoverage," />
 
 
 
@@ -80,19 +80,16 @@
 
 
 
-<meta name="description" content="iOS Code Coverage 调研有感
-Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
+<meta name="description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Code Coverage 杂谈">
 <meta property="og:url" content="http://yoursite.com/2016/03/12/2016-03-11-Code Coverage/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="iOS Code Coverage 调研有感
-Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
-<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
+<meta property="og:updated_time" content="2016-05-04T14:15:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Code Coverage 杂谈">
-<meta name="twitter:description" content="iOS Code Coverage 调研有感
-Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
+<meta name="twitter:description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
 
 
 
@@ -105,15 +102,15 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
 
-  <title> Code Coverage 杂谈 | Hexo </title>
+  <title> Code Coverage 杂谈 | DEMO </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -141,7 +138,7 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">DEMO</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -168,7 +165,7 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -178,7 +175,7 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -188,7 +185,7 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -241,7 +238,7 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-03-12T01:31:24+08:00" content="2016-03-12">
               2016-03-12
             </time>
@@ -270,38 +267,32 @@ Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个
       
 
       
-        <h2 id="iOS-Code-Coverage-调研有感"><a href="#iOS-Code-Coverage-调研有感" class="headerlink" title="iOS Code Coverage 调研有感"></a>iOS Code Coverage 调研有感</h2><hr>
-<h3 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h3><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
+        <h2 id="iOS-Code-Coverage-调研有感"><a href="#iOS-Code-Coverage-调研有感" class="headerlink" title="iOS Code Coverage 调研有感"></a>iOS Code Coverage 调研有感</h2><h3 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h3><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
 <p>于是就有了现在这篇Blog。</p>
-<h3 id="Xcode7里的Code-Coverage"><a href="#Xcode7里的Code-Coverage" class="headerlink" title="Xcode7里的Code Coverage"></a>Xcode7里的Code Coverage</h3><p>从 Xcode 7 以来便自带了Code Coverage功能，苹果官方的WWDC Session里演示了Unit Test发起Code Coverage的操作。这个操作可以说是很方便很简单（当然是你本身就有写单元测试习惯的前提下，我没这习惯也不太会啊、摔），将项目的Test Scheme中的Gather coverage data选项勾起来，然后跑单元测试即可。</p>
+<h3 id="Xcode7里的Code-Coverage"><a href="#Xcode7里的Code-Coverage" class="headerlink" title="Xcode7里的Code Coverage"></a>Xcode7里的Code Coverage</h3><p>从 Xcode 7 以来便自带了Code Coverage功能，苹果官方的WWDC Session里演示了Unit Test发起Code Coverage的操作。这个操作可以说是很方便很简单（当然是你本身就有写单元测试习惯的前提下，我没这习惯也不太会啊、摔），将项目的Test Scheme中的<code>Gather coverage data</code>选项勾起来，然后跑单元测试即可。</p>
 <p>由于本人不太会写单元测试，于是下了别人写的例子，实际跑了跑，结果发现这个并不准啊，一些用到的函数硬生生的没覆盖到，显示次数为0。这坑啊，可能是功能刚出来，Xcode 7 还存在bug？我猜想是这样。</p>
 <p>由于 Xcode 7 还有一个新功能叫UITest，有Test这个后缀，嗯、感觉也能跑Code Coverage，所以立马实验起来。实验结果同样不尽如人意啊，Bug更大的感觉，一些用Xib绑定起来的方法完全没覆盖上额。</p>
 <p>综上，用 Xocde 7 自带的功能看来是败了。其实就算 Xcode 7 的自带功能没有bug，估计也不会被采用，毕竟最终目标是测试人员真机测试的时候记录覆盖率，测完之后从真机里拿到生成的覆盖率文件，所以不太可能让测试人员连着 Xcode 7 做测试，不太实际。于是转战其他方法。</p>
-<h3 id="GCOV"><a href="#GCOV" class="headerlink" title="GCOV"></a>GCOV</h3><p>有一本书叫做《移动App测试实战》，书中第五章辅助测试方法中第二节代码覆盖率分析中讲解了iOS代码覆盖率技术方案。<br>主要使用了gcno和gcda文件来生成覆盖率数据文件，gcno包含了重建基本块图和相应的块的源码的行号的信息，gcda包含了弧跳变的次数和其他的概要信息，通过GCOV工具将两者结合，能直观的看到那些代码被覆盖到。</p>
+<h3 id="GCOV"><a href="#GCOV" class="headerlink" title="GCOV"></a>GCOV</h3><p>有一本书叫做《移动App测试实战》，书中第五章辅助测试方法中第二节代码覆盖率分析中讲解了iOS代码覆盖率技术方案。<br>主要使用了<code>gcno</code>和<code>gcda</code>文件来生成覆盖率数据文件，<code>gcno</code>包含了重建基本块图和相应的块的源码的行号的信息，<code>gcda</code>包含了弧跳变的次数和其他的概要信息，通过GCOV工具将两者结合，能直观的看到那些代码被覆盖到。</p>
 <p>关于GCOV工具，我是用Homebrew安装的，后来找到不用写命令行的CoverStory工具。</p>
 <p>步骤书中很详细，以下简单做了介绍。</p>
 <ul>
 <li>在项目info.plist里增加Application supports iTunes file sharing，设为YES。这一步是为了能通过iTunes共享文件拿到真机中的gcda文件。</li>
-<li><p>如果App不涉及跨App跳转，那么在info.plist设置Application does not run in background为YES，这样App不会后台运行，每次按Home键便会写入gcda文件；如果涉及那边不用设置，而是为App增加一个写gcda文件的功能按钮，写入以下代码，在要更新覆盖率文件时便点击按钮。</p>
-<pre><code>extern void __gcov_flush(void);
-__gcov_flush();
-</code></pre></li>
-<li><p>在项目的Build Setting中将以下两项设置为YES。</p>
-<pre><code>Instrument Program Flow
-Generation Legacy Test Coverage Files
-</code></pre></li>
-<li><p>如果是真机测试，需要在main.m 的 main函数中 </p>
-<pre><code>return UIApplicationMain
-</code></pre><p>这行代码前加以下代码，作用是讲gcda文件生成在iTunes共享文件中，以便获取。</p>
-<pre><code>const char * prefix = &quot;GCOV_PREFIX&quot;;
-const char * prefixValue = [[NSHomeDirectory() stringByAppendingPathComponent:@&quot;Documents/coverageData&quot;] cStringUsingEncoding:NSASCIIStringEncoding];
-const char * prefixStrip = &quot;GCOV_PREFIX_STRIP&quot;;
-const char * prefixStripValue = &quot;1&quot;;
-setenv(prefix, prefixValue, 1);
-setenv(prefixStrip, prefixStripValue, 1);
-</code></pre></li>
-<li><p>以上设置完毕就可以开始实际测试，build项目，在Mac上获取gcno文件，如果模拟器测试，会在同一位置获得gcda文件，如果是真机，那么真机连上电脑，会在iTunes中拿到gcda文件。</p>
-</li>
+<li>如果App不涉及跨App跳转，那么在info.plist设置Application does not run in background为YES，这样App不会后台运行，每次按Home键便会写入gcda文件；如果涉及那边不用设置，而是为App增加一个写gcda文件的功能按钮，写入以下代码，在要更新覆盖率文件时便点击按钮。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extern void __gcov_flush(void);</span><br><span class="line">__gcov_flush();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在项目的Build Setting中将以下两项设置为YES。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Instrument Program Flow</span><br><span class="line">Generation Legacy Test Coverage Files</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果是真机测试，需要在main.m 的 main函数中</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="built_in">UIApplicationMain</span></span><br></pre></td></tr></table></figure>
+<p>  这行代码前加以下代码，作用是讲<code>gcda</code>文件生成在iTunes共享文件中，以便获取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const char * prefix = &quot;GCOV_PREFIX&quot;;</span><br><span class="line">const char * prefixValue = [[NSHomeDirectory() stringByAppendingPathComponent:@&quot;Documents/coverageData&quot;] cStringUsingEncoding:NSASCIIStringEncoding];</span><br><span class="line">const char * prefixStrip = &quot;GCOV_PREFIX_STRIP&quot;;</span><br><span class="line">const char * prefixStripValue = &quot;1&quot;;</span><br><span class="line">setenv(prefix, prefixValue, 1);</span><br><span class="line">setenv(prefixStrip, prefixStripValue, 1);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上设置完毕就可以开始实际测试，build项目，在Mac上获取gcno文件，如果模拟器测试，会在同一位置获得gcda文件，如果是真机，那么真机连上电脑，会在iTunes中拿到gcda文件。</li>
 <li>拿到gcno和gcda文件，放在同一个文件夹中，就剩下将两者合并的工作，可以用lcov命令行操作也可以装CoverStory这个工具直接查看。</li>
 </ul>
 <p>至此所有流程完毕，但在Xcode 7上还是有Bug，最终文件的line data列的覆盖次数显示得不对，是非常奇怪的数字，Xcode 6就不会如此，猜测Xcode 7 为了支持自带的Covreage功能做了什么修改。</p>
@@ -327,6 +318,12 @@ setenv(prefixStrip, prefixStripValue, 1);
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CodeCoverage/" rel="tag">#CodeCoverage</a>
+          
+        </div>
       
 
       
@@ -392,10 +389,10 @@ setenv(prefixStrip, prefixStripValue, 1);
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -404,20 +401,27 @@ setenv(prefixStrip, prefixStripValue, 1);
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -466,15 +470,15 @@ setenv(prefixStrip, prefixStripValue, 1);
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

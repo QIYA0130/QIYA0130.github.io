@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Networking," />
 
 
 
@@ -80,34 +80,16 @@
 
 
 
-<meta name="description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
-本篇内容主要与HTTPS和TCP相关。
-归纳
-数字证书 由权威机构颁布，包含公钥，证书信息等
-数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
-https = http + TLS/SSL 
-客户端发送支持的SSL">
+<meta name="description" content="补一下计算机网络的知识 Round One">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络知识归纳《一》">
 <meta property="og:url" content="http://yoursite.com/2016/03/23/2016-03-23-Computer Networking 01/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
-本篇内容主要与HTTPS和TCP相关。
-归纳
-数字证书 由权威机构颁布，包含公钥，证书信息等
-数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
-https = http + TLS/SSL 
-客户端发送支持的SSL">
-<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="补一下计算机网络的知识 Round One">
+<meta property="og:updated_time" content="2016-05-04T14:27:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络知识归纳《一》">
-<meta name="twitter:description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
-本篇内容主要与HTTPS和TCP相关。
-归纳
-数字证书 由权威机构颁布，包含公钥，证书信息等
-数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
-https = http + TLS/SSL 
-客户端发送支持的SSL">
+<meta name="twitter:description" content="补一下计算机网络的知识 Round One">
 
 
 
@@ -120,15 +102,15 @@ https = http + TLS/SSL
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
 
-  <title> 计算机网络知识归纳《一》 | Hexo </title>
+  <title> 计算机网络知识归纳《一》 | DEMO </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -156,7 +138,7 @@ https = http + TLS/SSL
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">DEMO</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -183,7 +165,7 @@ https = http + TLS/SSL
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -193,7 +175,7 @@ https = http + TLS/SSL
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -203,7 +185,7 @@ https = http + TLS/SSL
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -256,7 +238,7 @@ https = http + TLS/SSL
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-03-23T13:25:24+08:00" content="2016-03-23">
               2016-03-23
             </time>
@@ -285,13 +267,12 @@ https = http + TLS/SSL
       
 
       
-        <hr>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。</p>
 <p>本篇内容主要与HTTPS和TCP相关。</p>
 <h3 id="归纳"><a href="#归纳" class="headerlink" title="归纳"></a>归纳</h3><ul>
 <li>数字证书 由权威机构颁布，包含公钥，证书信息等</li>
 <li>数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方</li>
-<li>https = http + TLS/SSL <ul>
+<li>https = http + TLS/SSL<ul>
 <li>客户端发送支持的SSL协议、加密算法、产生的随机数</li>
 <li>服务端选择SSL协议、加密算法、并将证书和随机数发给客户端</li>
 <li>客户端验证证书有效性，随机生成一个“对称密码”，用服务端证书中的公钥加密生成“预主密码”，将“预主密码”发给客户端</li>
@@ -338,6 +319,12 @@ https = http + TLS/SSL
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Networking/" rel="tag">#Networking</a>
+          
+        </div>
       
 
       
@@ -403,10 +390,10 @@ https = http + TLS/SSL
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -415,20 +402,27 @@ https = http + TLS/SSL
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -477,15 +471,15 @@ https = http + TLS/SSL
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

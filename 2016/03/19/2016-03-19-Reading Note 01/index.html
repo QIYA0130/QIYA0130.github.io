@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OC," />
 
 
 
@@ -80,22 +80,16 @@
 
 
 
-<meta name="description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
-自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
-在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
+<meta name="description" content="《Objective-C 高级编程》第一章读书笔记，一本看了不知道几遍的神书">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Objective-C 高级编程》第一章读书笔记">
 <meta property="og:url" content="http://yoursite.com/2016/03/19/2016-03-19-Reading Note 01/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
-自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
-在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
-<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="《Objective-C 高级编程》第一章读书笔记，一本看了不知道几遍的神书">
+<meta property="og:updated_time" content="2016-05-04T14:25:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Objective-C 高级编程》第一章读书笔记">
-<meta name="twitter:description" content="前言每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。
-自动引用计数自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。
-在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助">
+<meta name="twitter:description" content="《Objective-C 高级编程》第一章读书笔记，一本看了不知道几遍的神书">
 
 
 
@@ -108,15 +102,15 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
 
-  <title> 《Objective-C 高级编程》第一章读书笔记 | Hexo </title>
+  <title> 《Objective-C 高级编程》第一章读书笔记 | DEMO </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -144,7 +138,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">DEMO</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -171,7 +165,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -181,7 +175,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -191,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -244,7 +238,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-03-19T05:15:24+08:00" content="2016-03-19">
               2016-03-19
             </time>
@@ -273,95 +267,36 @@
       
 
       
-        <hr>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。</p>
 <h3 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h3><p>自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。</p>
 <p>在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助于平时编程。</p>
 <h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><ul>
-<li><p>当使用 alloc/new/copy/mutableCopy 或 前缀有这些关键字的方法时自己生成并持有对象，当调用系统提供的如NSMutableArray的类方法array，属于持有非自己生成的对象。类方法内部返回对象时会将对象注册到autoreleasepool。</p>
+<li><p>当使用 <code>alloc</code>/<code>new</code>/<code>copy</code>/<code>mutableCopy</code> 或 前缀有这些关键字的方法时自己生成并持有对象，当调用系统提供的如<code>NSMutableArray</code>的类方法<code>array</code>，属于持有非自己生成的对象。类方法内部返回对象时会将对象注册到<code>autoreleasepool</code>。</p>
 </li>
-<li><p>autorelease 不立即释放，而是注册到autoreleasepool，当pool结束时对对象调用release</p>
+<li><p><code>autorelease</code> 不立即释放，而是注册到<code>autoreleasepool</code>，当pool结束时对对象调用release</p>
 </li>
 <li><p>[obj autorelease]; 这句话取得但不持有对象，可用obj传递对象</p>
 </li>
 <li><p>NSZone 是一个历史遗留，基本上都不用，它通过多重区域来防止内存碎片化，但目前系统的内存管理以极具效率，再用这个反而造成干扰，一般批量使用内存并批量释放的情况才会考虑自己调用NSZone</p>
 </li>
-<li><p>引用计数采用散列表管理方式，key为内存地址，value为retain count，使用这种方式比较高效，可以通过内存地址追溯到内存块。</p>
+<li><p>引用计数采用散列表管理方式，key为内存地址，value为<code>retain count</code>，使用这种方式比较高效，可以通过内存地址追溯到内存块。</p>
 </li>
-<li><p>ARC 下，一般在需要及时释放大内存时使用autoreleasepool，例如大量的图像处理</p>
+<li><p>ARC 下，一般在需要及时释放大内存时使用<code>autoreleasepool</code>，例如大量的图像处理</p>
 </li>
-<li><p>autoreleasepool内部用数组来维护注册到autoreleasepool的对象，当pool结束时，遍历数组对每个对象发送release</p>
+<li><p><code>autoreleasepool</code>内部用数组来维护注册到<code>autoreleasepool</code>的对象，当pool结束时，遍历数组对每个对象发送<code>release</code></p>
 </li>
-<li><p>对象作为返回值会被编译器自动注册到autoreleasepool</p>
+<li><p>对象作为返回值会被编译器自动注册到<code>autoreleasepool</code></p>
 </li>
 </ul>
-<ul>
-<li><h4 id="strong"><a href="#strong" class="headerlink" title="__strong"></a>__strong</h4><p> ARC下默认用该关键字修饰变量，当变量超出作用域，强引用便失效，通过release释放变量</p>
+<h4 id="strong"><a href="#strong" class="headerlink" title="__strong"></a><code>__strong</code></h4><p>ARC下默认用该关键字修饰变量，当变量超出作用域，强引用便失效，通过release释放变量</p>
 <p>以下是一个初始化方法例子</p>
-<pre><code>{
-    id __strong obj = [[NSObject alloc] init];
-}
-
-以上代码的编译器的模拟代码如下
-
-id obj = objc_msgSend(NSObject, @selector(alloc));
-objc_msgSend(obj, @selector(init));
-objc_releease(obj);
-</code></pre><p>当我们使用类方法初始化会如何呢？</p>
-<pre><code>{
-    id __strong obj = [NSMutableArray array];
-}
-
-以上代码的编译器的模拟代码如下
-
-id obj = objc_msgSend(NSMutableArray, @selector(array));
-objc_retainAutoreleaseReturnValue(obj);
-objc_releease(obj);
-</code></pre><p>我们可以看到最后都是调用了objc_releease()方法，但是调类方法的时候多了一句objc_retainAutoreleaseReturnValue()，这有什么用呢？我们先来看看类方法内部实现。</p>
-<pre><code>+ (instancetype)array {
-    return [[NSMutableArray array] init];
-}
-
-以上代码的编译器的模拟代码如下
-
-id obj = objc_msgSend(NSObNSMutableArrayject, @selector(alloc));
-objc_msgSend(obj, @selector(init));
-return objc_autoreleaseReturnValue(obj);
-</code></pre><p>objc_autoreleaseReturnValue()，这个方法是返回注册到autoreleasepool的对象，除此之外它会检查执行命令列表，如果后面紧接着调用了objc_retainAutoreleaseReturnValue()，那么返回的对象就不注册到autoreleasepool，而是直接返回。objc_retainAutoreleaseReturnValue()这个方法即便是没有注册到autoreleasepool的对象也能正确地获取，这两个方法以此来实现直接传递，不用去autoreleasepool绕一圈，算是一种优化。</p>
-</li>
-<li><h4 id="weak"><a href="#weak" class="headerlink" title="__weak"></a>__weak</h4><ul>
-<li>weak使用一个散列表来维护(类似引用计数表)。对象被废弃时，在weak表中获取废弃对象为键值的记录，将记录中的对象置为nil；从weak表中删除该记录，从引用计数表中删除废弃对象的记录。</li>
-<li><p>不改变对象的retainCount，但使用时会将对象retain(使用objc_loadWeakRetain方法)并注册到autoreleasepool，用完后马上释放(使用几次就注册几次，所以不要频繁使用weak对象，会增加开销)。这是为了确保weak变量在使用时是存在的。看下面这段代码。</p>
-<pre><code>id obj = [[NSObject alloc] init];
-id __weak obj1= nil;
-
-obj1 = obj;
-
-NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj),CFGetRetainCount((__bridge CFTypeRef)obj1));
- NSLog(@&quot;obj1 retainCount = %ld，obj retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj1),CFGetRetainCount((__bridge CFTypeRef)obj));
- NSLog(@&quot;obj retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj));
- NSLog(@&quot;obj1 retainCount = %ld&quot;,CFGetRetainCount((__bridge CFTypeRef)obj1));CFTypeRef)obj1));
-
-你将看到如下输出
-
-2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2，obj1 retainCount = 3
-2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3，obj retainCount = 3
-2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2
-2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3
-
-可以看到weak 对象使用时还是会改变retainCount
-</code></pre></li>
-</ul>
-</li>
-<li><h4 id="autoreleasing"><a href="#autoreleasing" class="headerlink" title="__autoreleasing"></a>__autoreleasing</h4><p>等同于 ARC无效时调用对象的autorelease方法。</p>
-</li>
-<li><h4 id="Toll-Free-Bridge"><a href="#Toll-Free-Bridge" class="headerlink" title="Toll-Free Bridge"></a>Toll-Free Bridge</h4><p>在OC对象和CF对象互相转换时更改对象的被持有状况</p>
-<p>__brideg_retain 和 CFBridgingRetain 等同于retain操作</p>
-<p>__bridge_transfer 和 CFBridgeRelease 等同于release操作</p>
-<p>__bridge 不更改所有权情况，单纯的转换。</p>
-</li>
-</ul>
-<p>###引用致谢<br>《Objective-C 高级编程》</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">id</span> __<span class="keyword">strong</span> obj = [[<span class="built_in">NSObject</span> alloc] init];</span><br><span class="line">&#125;</span><br><span class="line">```	    </span><br><span class="line">以上代码的编译器的模拟代码如下</span><br><span class="line"></span><br><span class="line">```Objectivec</span><br><span class="line"><span class="keyword">id</span> obj = objc_msgSend(<span class="built_in">NSObject</span>, <span class="keyword">@selector</span>(alloc));</span><br><span class="line">objc_msgSend(obj, <span class="keyword">@selector</span>(init));</span><br><span class="line">objc_releease(obj);</span><br></pre></td></tr></table></figure>
+<p>当我们使用类方法初始化会如何呢？<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">id</span> __<span class="keyword">strong</span> obj = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码的编译器的模拟代码如下</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> obj = objc_msgSend(<span class="built_in">NSMutableArray</span>, <span class="keyword">@selector</span>(array));</span><br><span class="line">objc_retainAutoreleaseReturnValue(obj);</span><br><span class="line">objc_releease(obj);</span><br></pre></td></tr></table></figure>
+<p>我们可以看到最后都是调用了<code>objc_releease()</code>方法，但是调类方法的时候多了一句<code>objc_retainAutoreleaseReturnValue()</code>，这有什么用呢？我们先来看看类方法内部实现。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (instancetype)array &#123;</span><br><span class="line">	<span class="keyword">return</span> [[<span class="built_in">NSMutableArray</span> array] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码的编译器的模拟代码如下<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> obj = objc_msgSend(<span class="built_in">NSObNSMutableArrayject</span>, <span class="keyword">@selector</span>(alloc));</span><br><span class="line">objc_msgSend(obj, <span class="keyword">@selector</span>(init));</span><br><span class="line"><span class="keyword">return</span> objc_autoreleaseReturnValue(obj);</span><br><span class="line">```    </span><br><span class="line">objc_autoreleaseReturnValue()，这个方法是返回注册到autoreleasepool的对象，除此之外它会检查执行命令列表，如果后面紧接着调用了objc_retainAutoreleaseReturnValue()，那么返回的对象就不注册到autoreleasepool，而是直接返回。objc_retainAutoreleaseReturnValue()这个方法即便是没有注册到autoreleasepool的对象也能正确地获取，这两个方法以此来实现直接传递，不用去autoreleasepool绕一圈，算是一种优化。</span><br><span class="line"></span><br><span class="line"><span class="meta">#### `__weak`</span></span><br><span class="line">* <span class="keyword">weak</span>使用一个散列表来维护(类似引用计数表)。对象被废弃时，在<span class="keyword">weak</span>表中获取废弃对象为键值的记录，将记录中的对象置为<span class="literal">nil</span>；从<span class="keyword">weak</span>表中删除该记录，从引用计数表中删除废弃对象的记录。</span><br><span class="line">* 不改变对象的retainCount，但使用时会将对象retain(使用objc_loadWeakRetain方法)并注册到autoreleasepool，用完后马上释放(使用几次就注册几次，所以不要频繁使用<span class="keyword">weak</span>对象，会增加开销)。这是为了确保<span class="keyword">weak</span>变量在使用时是存在的。看下面这段代码。</span><br><span class="line"></span><br><span class="line">```Objectivec</span><br><span class="line"><span class="keyword">id</span> obj = [[<span class="built_in">NSObject</span> alloc] init];</span><br><span class="line"><span class="keyword">id</span> __<span class="keyword">weak</span> obj1= <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">obj1 = obj;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"obj retainCount = %ld，obj1 retainCount = %ld"</span>,<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj),<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj1));</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"obj1 retainCount = %ld，obj retainCount = %ld"</span>,<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj1),<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj));</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"obj retainCount = %ld"</span>,<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj));</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"obj1 retainCount = %ld"</span>,<span class="built_in">CFGetRetainCount</span>((__bridge <span class="built_in">CFTypeRef</span>)obj1));<span class="built_in">CFTypeRef</span>)obj1));</span><br><span class="line">```        </span><br><span class="line">你将看到如下输出</span><br><span class="line">```        </span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-19</span> <span class="number">13</span>:<span class="number">40</span>:<span class="number">04.050</span> DEMO[<span class="number">71249</span>:<span class="number">2320432</span>] obj retainCount = <span class="number">2</span>，obj1 retainCount = <span class="number">3</span></span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-19</span> <span class="number">13</span>:<span class="number">40</span>:<span class="number">04.050</span> DEMO[<span class="number">71249</span>:<span class="number">2320432</span>] obj1 retainCount = <span class="number">3</span>，obj retainCount = <span class="number">3</span></span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-19</span> <span class="number">13</span>:<span class="number">40</span>:<span class="number">04.050</span> DEMO[<span class="number">71249</span>:<span class="number">2320432</span>] obj retainCount = <span class="number">2</span></span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-19</span> <span class="number">13</span>:<span class="number">40</span>:<span class="number">04.050</span> DEMO[<span class="number">71249</span>:<span class="number">2320432</span>] obj1 retainCount = <span class="number">3</span></span><br><span class="line">```		</span><br><span class="line">可以看到<span class="keyword">weak</span> 对象使用时还是会改变retainCount</span><br><span class="line"></span><br><span class="line"><span class="meta">#### `__autoreleasing`</span></span><br><span class="line"></span><br><span class="line">等同于 ARC无效时调用对象的autorelease方法。</span><br><span class="line"></span><br><span class="line"><span class="meta">#### Toll-Free Bridge</span></span><br><span class="line"></span><br><span class="line">在OC对象和CF对象互相转换时更改对象的被持有状况</span><br><span class="line">```Objectivec</span><br><span class="line">__brideg_retain 和 <span class="built_in">CFBridgingRetain</span> 等同于retain操作</span><br><span class="line"></span><br><span class="line">__bridge_transfer 和 <span class="built_in">CFBridgeRelease</span> 等同于release操作</span><br><span class="line"></span><br><span class="line">__bridge 不更改所有权情况，单纯的转换。</span><br></pre></td></tr></table></figure></p>
+<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p>《Objective-C 高级编程》</p>
 
       
     </div>
@@ -380,6 +315,12 @@ NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCou
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OC/" rel="tag">#OC</a>
+          
+        </div>
       
 
       
@@ -445,10 +386,10 @@ NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCou
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -457,20 +398,27 @@ NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCou
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -496,7 +444,7 @@ NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCou
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动引用计数"><span class="nav-number">2.</span> <span class="nav-text">自动引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#strong"><span class="nav-number">3.1.</span> <span class="nav-text">__strong</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weak"><span class="nav-number">3.2.</span> <span class="nav-text">__weak</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autoreleasing"><span class="nav-number">3.3.</span> <span class="nav-text">__autoreleasing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Toll-Free-Bridge"><span class="nav-number">3.4.</span> <span class="nav-text">Toll-Free Bridge</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动引用计数"><span class="nav-number">2.</span> <span class="nav-text">自动引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#strong"><span class="nav-number">3.1.</span> <span class="nav-text">__strong</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">4.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>
@@ -519,15 +467,15 @@ NSLog(@&quot;obj retainCount = %ld，obj1 retainCount = %ld&quot;,CFGetRetainCou
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
