@@ -80,16 +80,19 @@
 
 
 
-<meta name="description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
+<meta name="description" content="Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。
+于是就有了现在这篇Bl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Code Coverage 杂谈">
 <meta property="og:url" content="http://yoursite.com/2016/03/12/2016-03-11-Code Coverage/index.html">
 <meta property="og:site_name" content="DEMO">
-<meta property="og:description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
-<meta property="og:updated_time" content="2016-05-04T14:15:47.000Z">
+<meta property="og:description" content="Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。
+于是就有了现在这篇Bl">
+<meta property="og:updated_time" content="2016-05-04T14:51:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Code Coverage 杂谈">
-<meta name="twitter:description" content="iOS Code Coverage 调研有感Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以">
+<meta name="twitter:description" content="Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。
+于是就有了现在这篇Bl">
 
 
 
@@ -101,7 +104,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6280845448856995000,
       author: '博主'
     }
   };
@@ -267,7 +270,7 @@
       
 
       
-        <h2 id="iOS-Code-Coverage-调研有感"><a href="#iOS-Code-Coverage-调研有感" class="headerlink" title="iOS Code Coverage 调研有感"></a>iOS Code Coverage 调研有感</h2><h3 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h3><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
+        <h3 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h3><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
 <p>于是就有了现在这篇Blog。</p>
 <h3 id="Xcode7里的Code-Coverage"><a href="#Xcode7里的Code-Coverage" class="headerlink" title="Xcode7里的Code Coverage"></a>Xcode7里的Code Coverage</h3><p>从 Xcode 7 以来便自带了Code Coverage功能，苹果官方的WWDC Session里演示了Unit Test发起Code Coverage的操作。这个操作可以说是很方便很简单（当然是你本身就有写单元测试习惯的前提下，我没这习惯也不太会啊、摔），将项目的Test Scheme中的<code>Gather coverage data</code>选项勾起来，然后跑单元测试即可。</p>
 <p>由于本人不太会写单元测试，于是下了别人写的例子，实际跑了跑，结果发现这个并不准啊，一些用到的函数硬生生的没覆盖到，显示次数为0。这坑啊，可能是功能刚出来，Xcode 7 还存在bug？我猜想是这样。</p>
@@ -458,7 +461,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-Code-Coverage-调研有感"><span class="nav-number">1.</span> <span class="nav-text">iOS Code Coverage 调研有感</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Coverage-简介"><span class="nav-number">1.1.</span> <span class="nav-text">Code Coverage 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xcode7里的Code-Coverage"><span class="nav-number">1.2.</span> <span class="nav-text">Xcode7里的Code Coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCOV"><span class="nav-number">1.3.</span> <span class="nav-text">GCOV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">1.5.</span> <span class="nav-text">引用致谢</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Coverage-简介"><span class="nav-number">1.</span> <span class="nav-text">Code Coverage 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xcode7里的Code-Coverage"><span class="nav-number">2.</span> <span class="nav-text">Xcode7里的Code Coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCOV"><span class="nav-number">3.</span> <span class="nav-text">GCOV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">5.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>

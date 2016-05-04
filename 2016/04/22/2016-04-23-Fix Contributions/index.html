@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/22/2016-04-23-Fix Contributions/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
-<meta property="og:updated_time" content="2016-05-04T14:12:24.000Z">
+<meta property="og:updated_time" content="2016-05-04T14:52:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="煮熟的Contributions飞了？">
 <meta name="twitter:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
@@ -101,7 +101,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6280845448856995000,
       author: '博主'
     }
   };
@@ -267,7 +267,79 @@
       
 
       
-        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这篇主要讲一下我遇到的问题和如何解决：一直在github上写blog，最近发现我每次提交，竟然没有被算contributions，也就是没有出现绿方块，这让我有点郁闷啊，虽说写blog不是会了哪几个绿色方块，但是该有的还是得有啊，没有绿色方块也不方便看自己更新的情况啊。。。。。</span><br><span class="line"></span><br><span class="line">### 怎么样才会被算Contributions?</span><br><span class="line"></span><br><span class="line">关于这个Github官方的解释在这里</span><br><span class="line">[Why are my contributions not showing up on my profile?](https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/)</span><br><span class="line"></span><br><span class="line">不过呢，是英文的，23333，勉强能看懂，简单翻译一下</span><br><span class="line"></span><br><span class="line">#### Issues and pull requests</span><br><span class="line"></span><br><span class="line">* 一年之内执行的</span><br><span class="line">* Fork的仓库不算，要独立的仓库</span><br><span class="line"></span><br><span class="line">#### Commits</span><br><span class="line"></span><br><span class="line">* 一年之内Commit的操作</span><br><span class="line"></span><br><span class="line">* Commit的Email的地址与Github关联</span><br><span class="line"></span><br><span class="line">* 在一个独立仓库提交，Fork的不行</span><br><span class="line"></span><br><span class="line">* 提交的分支：</span><br><span class="line">    * 默认分支（一般是`master`）</span><br><span class="line">    * `gh-pages`分支（包含`Project Pages sites`的仓库）</span><br><span class="line"></span><br><span class="line">另外，至少满足以下条件中的一个（主要针对对不是你创建的仓库的Commit）：</span><br><span class="line"></span><br><span class="line">* 仓库的协作者，或者是仓库的组织中的一员</span><br><span class="line"></span><br><span class="line">* Fork的仓库</span><br><span class="line"></span><br><span class="line">* 对这个仓库发起过Pull Request或者Issue</span><br><span class="line"></span><br><span class="line">* Star这个仓库</span><br><span class="line"></span><br><span class="line">#### Contributions没被计算的常见原因</span><br><span class="line">* 进行Commits的Email没有被关联到Github帐号。</span><br><span class="line"></span><br><span class="line">* 没在仓库的默认分支进行Commit。</span><br><span class="line"></span><br><span class="line">* 不是对独立仓库Commit而是一个Fork仓库</span><br><span class="line"></span><br><span class="line">* 提交合并和压合的Pull Request</span><br><span class="line"></span><br><span class="line">### 找回我煮熟的Contributions</span><br><span class="line"></span><br><span class="line">#### 定位原因</span><br><span class="line">根据Github官方的解释，我很快找到我的Contributions飞走的原因，那就是Commit的Email地址不对，我的Email为`XXX@XX.Local`，这样的Email自然Github不认识了。</span><br><span class="line"></span><br><span class="line">#### 对症下药</span><br><span class="line">首先为了以后的Commits能被正确计算，我先改掉我提交的Eamil地址。</span><br><span class="line"></span><br><span class="line">* 可以用Github Desktop的GUI界面更改，在偏好设置里</span><br><span class="line">* 可以命令行直接改</span><br><span class="line">```          </span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">那么以前的Contributions怎么办？绝不能就这样让他们飞了啊，想要找回之前的Contributions，就要改掉之前提交记录的Email。</span><br><span class="line"></span><br><span class="line">Github官方也有解决方案[Changing author info](https://help.github.com/articles/changing-author-info/) ，嗯，同样是英文的。。。</span><br><span class="line"></span><br><span class="line">##### 使用脚本更改仓库的Git历史</span><br><span class="line"></span><br><span class="line">* 打开Terminal</span><br><span class="line"></span><br><span class="line">* 对你的仓库创建一个新的Clone，并前往目录</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">        git clone --bare https://github.com/user/repo.git</span><br><span class="line">        cd repo.git</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">* 复制粘贴以下脚本，根据你的信息修改以下变量</span><br><span class="line">`OLD_EMAIL`,`CORRECT_NAME`,`CORRECT_EMAIL`</span><br><span class="line"></span><br><span class="line">    ```</span><br><span class="line">    #!/bin/sh</span><br><span class="line"></span><br><span class="line">    git filter-branch --env-filter &apos;</span><br><span class="line"></span><br><span class="line">    OLD_EMAIL=&quot;your-old-email@example.com&quot;</span><br><span class="line"></span><br><span class="line">    CORRECT_NAME=&quot;Your Correct Name&quot;</span><br><span class="line"></span><br><span class="line">    CORRECT_EMAIL=&quot;your-correct-email@example.com&quot;</span><br><span class="line"></span><br><span class="line">    if [ &quot;$GIT_COMMITTER_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span><br><span class="line"></span><br><span class="line">    then</span><br><span class="line"></span><br><span class="line">        export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span><br><span class="line"></span><br><span class="line">        export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span><br><span class="line"></span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">        if [ &quot;$GIT_AUTHOR_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span><br><span class="line"></span><br><span class="line">    then</span><br><span class="line"></span><br><span class="line">        export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span><br><span class="line">        export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span><br><span class="line"></span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    &apos; --tag-name-filter cat -- --branches --tags</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">* 按Enter键运行脚本</span><br><span class="line"></span><br><span class="line">* 查看更改后的Git历史有没有错误</span><br><span class="line"></span><br><span class="line">* 把正确的历史 Push 到 Github</span><br><span class="line">```</span><br><span class="line">git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```        </span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br><span class="line"></span><br><span class="line">  ```</span><br><span class="line">	cd ..</span><br><span class="line">rm -rf repo.git</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">### 结语</span><br><span class="line">按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰~~</span><br></pre></td></tr></table></figure></p>
+        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录</p>
+<p>这篇主要讲一下我遇到的问题和如何解决：一直在github上写blog，最近发现我每次提交，竟然没有被算contributions，也就是没有出现绿方块，这让我有点郁闷啊，虽说写blog不是会了哪几个绿色方块，但是该有的还是得有啊，没有绿色方块也不方便看自己更新的情况啊。。。。。</p>
+<h3 id="怎么样才会被算Contributions"><a href="#怎么样才会被算Contributions" class="headerlink" title="怎么样才会被算Contributions?"></a>怎么样才会被算Contributions?</h3><p>关于这个Github官方的解释在这里<br><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
+<p>不过呢，是英文的，23333，勉强能看懂，简单翻译一下</p>
+<h4 id="Issues-and-pull-requests"><a href="#Issues-and-pull-requests" class="headerlink" title="Issues and pull requests"></a>Issues and pull requests</h4><ul>
+<li>一年之内执行的</li>
+<li>Fork的仓库不算，要独立的仓库</li>
+</ul>
+<h4 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h4><ul>
+<li><p>一年之内Commit的操作</p>
+</li>
+<li><p>Commit的Email的地址与Github关联</p>
+</li>
+<li><p>在一个独立仓库提交，Fork的不行</p>
+</li>
+<li><p>提交的分支：</p>
+<ul>
+<li>默认分支（一般是<code>master</code>）</li>
+<li><code>gh-pages</code>分支（包含<code>Project Pages sites</code>的仓库）</li>
+</ul>
+</li>
+</ul>
+<p>另外，至少满足以下条件中的一个（主要针对对不是你创建的仓库的Commit）：</p>
+<ul>
+<li><p>仓库的协作者，或者是仓库的组织中的一员</p>
+</li>
+<li><p>Fork的仓库</p>
+</li>
+<li><p>对这个仓库发起过Pull Request或者Issue</p>
+</li>
+<li><p>Star这个仓库</p>
+</li>
+</ul>
+<h4 id="Contributions没被计算的常见原因"><a href="#Contributions没被计算的常见原因" class="headerlink" title="Contributions没被计算的常见原因"></a>Contributions没被计算的常见原因</h4><ul>
+<li><p>进行Commits的Email没有被关联到Github帐号。</p>
+</li>
+<li><p>没在仓库的默认分支进行Commit。</p>
+</li>
+<li><p>不是对独立仓库Commit而是一个Fork仓库</p>
+</li>
+<li><p>提交合并和压合的Pull Request</p>
+</li>
+</ul>
+<h3 id="找回我煮熟的Contributions"><a href="#找回我煮熟的Contributions" class="headerlink" title="找回我煮熟的Contributions"></a>找回我煮熟的Contributions</h3><h4 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h4><p>根据Github官方的解释，我很快找到我的Contributions飞走的原因，那就是Commit的Email地址不对，我的Email为<code>XXX@XX.Local</code>，这样的Email自然Github不认识了。</p>
+<h4 id="对症下药"><a href="#对症下药" class="headerlink" title="对症下药"></a>对症下药</h4><p>首先为了以后的Commits能被正确计算，我先改掉我提交的Eamil地址。</p>
+<ul>
+<li>可以用Github Desktop的GUI界面更改，在偏好设置里</li>
+<li>可以命令行直接改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>那么以前的Contributions怎么办？绝不能就这样让他们飞了啊，想要找回之前的Contributions，就要改掉之前提交记录的Email。</p>
+<p>Github官方也有解决方案<a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a> ，嗯，同样是英文的。。。</p>
+<h5 id="使用脚本更改仓库的Git历史"><a href="#使用脚本更改仓库的Git历史" class="headerlink" title="使用脚本更改仓库的Git历史"></a>使用脚本更改仓库的Git历史</h5><ul>
+<li><p>打开Terminal</p>
+</li>
+<li><p>对你的仓库创建一个新的Clone，并前往目录</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare https://github.com/user/repo.git</span><br><span class="line">cd repo.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>复制粘贴以下脚本，根据你的信息修改以下变量<br><code>OLD_EMAIL</code>,<code>CORRECT_NAME</code>,<code>CORRECT_EMAIL</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">git filter-branch --env-filter &apos;</span><br><span class="line"></span><br><span class="line">OLD_EMAIL=&quot;your-old-email@example.com&quot;</span><br><span class="line"></span><br><span class="line">CORRECT_NAME=&quot;Your Correct Name&quot;</span><br><span class="line"></span><br><span class="line">CORRECT_EMAIL=&quot;your-correct-email@example.com&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$GIT_COMMITTER_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span><br><span class="line"></span><br><span class="line">then</span><br><span class="line"></span><br><span class="line">    export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;</span><br><span class="line"></span><br><span class="line">    export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">    if [ &quot;$GIT_AUTHOR_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]</span><br><span class="line"></span><br><span class="line">then</span><br><span class="line"></span><br><span class="line">    export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;</span><br><span class="line">    export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">&apos; --tag-name-filter cat -- --branches --tags</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按Enter键运行脚本</p>
+</li>
+<li><p>查看更改后的Git历史有没有错误</p>
+</li>
+<li><p>把正确的历史 Push 到 Github</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```        </span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br></pre></td></tr></table></figure>
+<p>  cd ..<br>rm -rf repo.git<br>```  </p>
+</li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰<del>~</del>~</p>
 <h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
 <p><a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a></p>
 
@@ -424,7 +496,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">2.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么样才会被算Contributions"><span class="nav-number">2.</span> <span class="nav-text">怎么样才会被算Contributions?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Issues-and-pull-requests"><span class="nav-number">2.1.</span> <span class="nav-text">Issues and pull requests</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Commits"><span class="nav-number">2.2.</span> <span class="nav-text">Commits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions没被计算的常见原因"><span class="nav-number">2.3.</span> <span class="nav-text">Contributions没被计算的常见原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找回我煮熟的Contributions"><span class="nav-number">3.</span> <span class="nav-text">找回我煮熟的Contributions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定位原因"><span class="nav-number">3.1.</span> <span class="nav-text">定位原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对症下药"><span class="nav-number">3.2.</span> <span class="nav-text">对症下药</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用脚本更改仓库的Git历史"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用脚本更改仓库的Git历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">5.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>
