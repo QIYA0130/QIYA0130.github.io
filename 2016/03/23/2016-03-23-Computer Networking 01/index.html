@@ -1,0 +1,586 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
+本篇内容主要与HTTPS和TCP相关。
+归纳
+数字证书 由权威机构颁布，包含公钥，证书信息等
+数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
+https = http + TLS/SSL 
+客户端发送支持的SSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络知识归纳《一》">
+<meta property="og:url" content="http://yoursite.com/2016/03/23/2016-03-23-Computer Networking 01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
+本篇内容主要与HTTPS和TCP相关。
+归纳
+数字证书 由权威机构颁布，包含公钥，证书信息等
+数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
+https = http + TLS/SSL 
+客户端发送支持的SSL">
+<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络知识归纳《一》">
+<meta name="twitter:description" content="前言最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。
+本篇内容主要与HTTPS和TCP相关。
+归纳
+数字证书 由权威机构颁布，包含公钥，证书信息等
+数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方
+https = http + TLS/SSL 
+客户端发送支持的SSL">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 计算机网络知识归纳《一》 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                计算机网络知识归纳《一》
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T13:25:24+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在投简历求面试，也补补一些相关知识，大学有一门课叫计算机网络，教材是本不错的书，可惜当时没好好学，所以只能现在努力啃，于是归纳一点知识。</p>
+<p>本篇内容主要与HTTPS和TCP相关。</p>
+<h3 id="归纳"><a href="#归纳" class="headerlink" title="归纳"></a>归纳</h3><ul>
+<li>数字证书 由权威机构颁布，包含公钥，证书信息等</li>
+<li>数字签名 对发送的数据hash算法加密形成摘要，对摘要用私钥加密，随数据一起发送给对方</li>
+<li>https = http + TLS/SSL <ul>
+<li>客户端发送支持的SSL协议、加密算法、产生的随机数</li>
+<li>服务端选择SSL协议、加密算法、并将证书和随机数发给客户端</li>
+<li>客户端验证证书有效性，随机生成一个“对称密码”，用服务端证书中的公钥加密生成“预主密码”，将“预主密码”发给客户端</li>
+<li>（可选）如果服务器要求客户的身份认证，用户可以建立一个随机数然后对其进行数据签名，将这个含有签名的随机数和客户自己的证书以及加密过的“预主密码”一起传给服务器</li>
+<li>（可选）如果服务器要求客户的身份认证，服务器必须检验客户证书和签名随机数的合法性；如果验证通过，经行下一步</li>
+<li>服务器用自己的私钥解开加密的“预主密码”，然后执行一系列步骤来产生主通讯密码（客户端也将通过同样的方法产生相同的主通讯密码）</li>
+<li>客户端向服务器发出信息，指明后面的数据通讯将使用主通讯密码为对称密钥，同时通知服务器客户端的握手过程结束。</li>
+<li>服务器向客户端发出信息，指明后面的数据通讯将使用主通讯密码为对称密钥，同时通知客户端服务器端的握手过程结束</li>
+<li>握手结束，接下来的将用主通讯密码对通信数据加密。</li>
+</ul>
+</li>
+<li><p>tcp连接三次握手</p>
+<ul>
+<li>客户端发送SYN，SEQ=x报文给服务器端，进入SYN_SEND状态。</li>
+<li>服务器端收到SYN报文，回应一个SYN ，SEQ=y，ACK(ACK=x+1）报文，进入SYN_RECV状态。</li>
+<li>客户端收到服务器端的SYN报文，回应一个ACK(ACK=y+1）报文，进入Established状态。</li>
+</ul>
+</li>
+<li><p>tcp断开连接四次握手</p>
+<ul>
+<li>某个应用进程首先调用close，称该端执行“主动关闭”（active close）。该端的TCP于是发送一个FIN分节，表示数据发送完毕。</li>
+<li>FIN接收端执行 “被动关闭”（passive close），这个FIN由TCP确认，发回一个ACK，确认序号为收到的序号+1。注意：FIN的接收也作为一个文件结束符（end-of-file）传递给接收端应用进程，放在已排队等候该应用进程接收的任何其他数据之后，因为，FIN的接收意味着接收端应用进程在相应连接上再无额外数据可接收。</li>
+<li>一段时间后，FIN接收端的应用进程将调用close关闭它的套接字。发回FIN给主动关闭方。</li>
+<li>接收这个最终FIN的原发送端TCP（即执行主动关闭的那一端）确认这个FIN，发回ACK报文确认，并将确认序号设置为收到序号+1.</li>
+</ul>
+</li>
+</ul>
+<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p>《计算机网络 自顶向下方法》</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/19/2016-03-19-Reading Note 01/" rel="next" title="《Objective-C 高级编程》第一章读书笔记">
+                <i class="fa fa-chevron-left"></i> 《Objective-C 高级编程》第一章读书笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/28/2016-03-28-Runtime/" rel="prev" title="关于Runtime的一些知识">
+                关于Runtime的一些知识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归纳"><span class="nav-number">2.</span> <span class="nav-text">归纳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">3.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

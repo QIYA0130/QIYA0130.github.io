@@ -1,0 +1,575 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS Code Coverage 调研有感
+Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code Coverage 杂谈">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/2016-03-11-Code Coverage/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="iOS Code Coverage 调研有感
+Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
+<meta property="og:updated_time" content="2016-04-22T16:29:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Code Coverage 杂谈">
+<meta name="twitter:description" content="iOS Code Coverage 调研有感
+Code Coverage 简介Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Code Coverage 杂谈 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Code Coverage 杂谈
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-12T01:31:24+08:00" content="2016-03-12">
+              2016-03-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="iOS-Code-Coverage-调研有感"><a href="#iOS-Code-Coverage-调研有感" class="headerlink" title="iOS Code Coverage 调研有感"></a>iOS Code Coverage 调研有感</h2><hr>
+<h3 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h3><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
+<p>于是就有了现在这篇Blog。</p>
+<h3 id="Xcode7里的Code-Coverage"><a href="#Xcode7里的Code-Coverage" class="headerlink" title="Xcode7里的Code Coverage"></a>Xcode7里的Code Coverage</h3><p>从 Xcode 7 以来便自带了Code Coverage功能，苹果官方的WWDC Session里演示了Unit Test发起Code Coverage的操作。这个操作可以说是很方便很简单（当然是你本身就有写单元测试习惯的前提下，我没这习惯也不太会啊、摔），将项目的Test Scheme中的Gather coverage data选项勾起来，然后跑单元测试即可。</p>
+<p>由于本人不太会写单元测试，于是下了别人写的例子，实际跑了跑，结果发现这个并不准啊，一些用到的函数硬生生的没覆盖到，显示次数为0。这坑啊，可能是功能刚出来，Xcode 7 还存在bug？我猜想是这样。</p>
+<p>由于 Xcode 7 还有一个新功能叫UITest，有Test这个后缀，嗯、感觉也能跑Code Coverage，所以立马实验起来。实验结果同样不尽如人意啊，Bug更大的感觉，一些用Xib绑定起来的方法完全没覆盖上额。</p>
+<p>综上，用 Xocde 7 自带的功能看来是败了。其实就算 Xcode 7 的自带功能没有bug，估计也不会被采用，毕竟最终目标是测试人员真机测试的时候记录覆盖率，测完之后从真机里拿到生成的覆盖率文件，所以不太可能让测试人员连着 Xcode 7 做测试，不太实际。于是转战其他方法。</p>
+<h3 id="GCOV"><a href="#GCOV" class="headerlink" title="GCOV"></a>GCOV</h3><p>有一本书叫做《移动App测试实战》，书中第五章辅助测试方法中第二节代码覆盖率分析中讲解了iOS代码覆盖率技术方案。<br>主要使用了gcno和gcda文件来生成覆盖率数据文件，gcno包含了重建基本块图和相应的块的源码的行号的信息，gcda包含了弧跳变的次数和其他的概要信息，通过GCOV工具将两者结合，能直观的看到那些代码被覆盖到。</p>
+<p>关于GCOV工具，我是用Homebrew安装的，后来找到不用写命令行的CoverStory工具。</p>
+<p>步骤书中很详细，以下简单做了介绍。</p>
+<ul>
+<li>在项目info.plist里增加Application supports iTunes file sharing，设为YES。这一步是为了能通过iTunes共享文件拿到真机中的gcda文件。</li>
+<li><p>如果App不涉及跨App跳转，那么在info.plist设置Application does not run in background为YES，这样App不会后台运行，每次按Home键便会写入gcda文件；如果涉及那边不用设置，而是为App增加一个写gcda文件的功能按钮，写入以下代码，在要更新覆盖率文件时便点击按钮。</p>
+<pre><code>extern void __gcov_flush(void);
+__gcov_flush();
+</code></pre></li>
+<li><p>在项目的Build Setting中将以下两项设置为YES。</p>
+<pre><code>Instrument Program Flow
+Generation Legacy Test Coverage Files
+</code></pre></li>
+<li><p>如果是真机测试，需要在main.m 的 main函数中 </p>
+<pre><code>return UIApplicationMain
+</code></pre><p>这行代码前加以下代码，作用是讲gcda文件生成在iTunes共享文件中，以便获取。</p>
+<pre><code>const char * prefix = &quot;GCOV_PREFIX&quot;;
+const char * prefixValue = [[NSHomeDirectory() stringByAppendingPathComponent:@&quot;Documents/coverageData&quot;] cStringUsingEncoding:NSASCIIStringEncoding];
+const char * prefixStrip = &quot;GCOV_PREFIX_STRIP&quot;;
+const char * prefixStripValue = &quot;1&quot;;
+setenv(prefix, prefixValue, 1);
+setenv(prefixStrip, prefixStripValue, 1);
+</code></pre></li>
+<li><p>以上设置完毕就可以开始实际测试，build项目，在Mac上获取gcno文件，如果模拟器测试，会在同一位置获得gcda文件，如果是真机，那么真机连上电脑，会在iTunes中拿到gcda文件。</p>
+</li>
+<li>拿到gcno和gcda文件，放在同一个文件夹中，就剩下将两者合并的工作，可以用lcov命令行操作也可以装CoverStory这个工具直接查看。</li>
+</ul>
+<p>至此所有流程完毕，但在Xcode 7上还是有Bug，最终文件的line data列的覆盖次数显示得不对，是非常奇怪的数字，Xcode 6就不会如此，猜测Xcode 7 为了支持自带的Covreage功能做了什么修改。</p>
+<p>另用Xcode 7.2.1打包的ipa，真机会出现gcda生成不完全，与gcno不匹配的现象。Xcode 7.3 Beta也不行，但是Xcode7.2 是可以的，这就不知道为何了。。。。<code>2016年4月22日晚补充：真机会出现gcda生成不完全，该问题在Xcode7.3正式版已不会出现；与gcno不匹配的现象，我的实验还会出现</code></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总的来说这次调研不怎么成功吧，一直受到 Xcode 自身的干扰。。。</p>
+<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p>《移动App测试实战》第五章第二节</p>
+<p><a href="https://developer.apple.com/videos/play/wwdc2015/410/" target="_blank" rel="external">WWDC 2015 Session 410 Continuous Integration and Code Coverage in Xcode </a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/05/2016-03-05-First Blog/" rel="next" title="第一篇，初建">
+                <i class="fa fa-chevron-left"></i> 第一篇，初建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/19/2016-03-19-Reading Note 01/" rel="prev" title="《Objective-C 高级编程》第一章读书笔记">
+                《Objective-C 高级编程》第一章读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-Code-Coverage-调研有感"><span class="nav-number">1.</span> <span class="nav-text">iOS Code Coverage 调研有感</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Coverage-简介"><span class="nav-number">1.1.</span> <span class="nav-text">Code Coverage 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xcode7里的Code-Coverage"><span class="nav-number">1.2.</span> <span class="nav-text">Xcode7里的Code Coverage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCOV"><span class="nav-number">1.3.</span> <span class="nav-text">GCOV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">1.5.</span> <span class="nav-text">引用致谢</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
