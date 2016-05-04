@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/22/2016-04-23-Fix Contributions/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
-<meta property="og:updated_time" content="2016-05-04T15:04:23.000Z">
+<meta property="og:updated_time" content="2016-05-04T15:09:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="煮熟的Contributions飞了？">
 <meta name="twitter:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
@@ -339,9 +339,9 @@
 <li><p>查看更改后的Git历史有没有错误</p>
 </li>
 <li><p>把正确的历史 Push 到 Github</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```    </span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```    </span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br></pre></td></tr></table></figure>
 <p>cd ..<br>rm -rf repo.git<br>```  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰<del>~</del>~</p>
 <h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
