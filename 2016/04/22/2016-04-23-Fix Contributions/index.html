@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/22/2016-04-23-Fix Contributions/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
-<meta property="og:updated_time" content="2016-05-04T14:59:50.000Z">
+<meta property="og:updated_time" content="2016-05-04T15:04:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="煮熟的Contributions飞了？">
 <meta name="twitter:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
@@ -272,8 +272,10 @@
 <h3 id="怎么样才会被算Contributions"><a href="#怎么样才会被算Contributions" class="headerlink" title="怎么样才会被算Contributions?"></a>怎么样才会被算Contributions?</h3><p>关于这个Github官方的解释在这里<br><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
 <p>不过呢，是英文的，23333，勉强能看懂，简单翻译一下</p>
 <h4 id="Issues-and-pull-requests"><a href="#Issues-and-pull-requests" class="headerlink" title="Issues and pull requests"></a>Issues and pull requests</h4><ul>
-<li>一年之内执行的</li>
-<li>Fork的仓库不算，要独立的仓库</li>
+<li><p>一年之内执行的</p>
+</li>
+<li><p>Fork的仓库不算，要独立的仓库</p>
+</li>
 </ul>
 <h4 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h4><ul>
 <li><p>一年之内Commit的操作</p>
@@ -284,8 +286,10 @@
 </li>
 <li><p>提交的分支：</p>
 <ul>
-<li>默认分支（一般是<code>master</code>）</li>
-<li><code>gh-pages</code>分支（包含<code>Project Pages sites</code>的仓库）</li>
+<li><p>默认分支（一般是<code>master</code>）</p>
+</li>
+<li><p><code>gh-pages</code>分支（包含<code>Project Pages sites</code>的仓库）</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -313,8 +317,10 @@
 <h3 id="找回我煮熟的Contributions"><a href="#找回我煮熟的Contributions" class="headerlink" title="找回我煮熟的Contributions"></a>找回我煮熟的Contributions</h3><h4 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h4><p>根据Github官方的解释，我很快找到我的Contributions飞走的原因，那就是Commit的Email地址不对，我的Email为<code>XXX@XX.Local</code>，这样的Email自然Github不认识了。</p>
 <h4 id="对症下药"><a href="#对症下药" class="headerlink" title="对症下药"></a>对症下药</h4><p>首先为了以后的Commits能被正确计算，我先改掉我提交的Eamil地址。</p>
 <ul>
-<li>可以用Github Desktop的GUI界面更改，在偏好设置里</li>
-<li>可以命令行直接改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
+<li><p>可以用Github Desktop的GUI界面更改，在偏好设置里</p>
+</li>
+<li><p>可以命令行直接改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>那么以前的Contributions怎么办？绝不能就这样让他们飞了啊，想要找回之前的Contributions，就要改掉之前提交记录的Email。</p>
@@ -333,9 +339,9 @@
 <li><p>查看更改后的Git历史有没有错误</p>
 </li>
 <li><p>把正确的历史 Push 到 Github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push --force --tags origin &apos;refs/heads/*&apos;</span><br><span class="line">```    </span><br><span class="line">* 删掉刚才临时Clone的仓库</span><br></pre></td></tr></table></figure>
 <p>cd ..<br>rm -rf repo.git<br>```  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰<del>~</del>~</p>
 <h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
