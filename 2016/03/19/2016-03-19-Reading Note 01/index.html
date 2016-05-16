@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/19/2016-03-19-Reading Note 01/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="《Objective-C 高级编程》第一章读书笔记，一本看了不知道几遍的神书">
-<meta property="og:updated_time" content="2016-05-04T15:55:56.000Z">
+<meta property="og:updated_time" content="2016-05-16T13:24:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Objective-C 高级编程》第一章读书笔记">
 <meta name="twitter:description" content="《Objective-C 高级编程》第一章读书笔记，一本看了不知道几遍的神书">
@@ -274,10 +274,10 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。</p>
-<h3 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h3><p>自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每次看这本书都会有新的收获，算起来这应该是第三次看这一章的内容了，决定把内容总结一下。</p>
+<h2 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h2><p>自动引用计数：内存管理中对引用采取自动计数的技术，由编译器完成该工作。</p>
 <p>在 MRC 时期（本人没有经历过）iOS程序员要手动管理内存，经常和retain，release，dealloc打交道，如果经验不丰富很容易造成内存泄露。于是有了 ARC 来解放程序员，但是还是应该了解一下其中道理，会有助于平时编程。</p>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><ul>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
 <li><p>当使用 <code>alloc</code>/<code>new</code>/<code>copy</code>/<code>mutableCopy</code> 或 前缀有这些关键字的方法时自己生成并持有对象，当调用系统提供的如<code>NSMutableArray</code>的类方法<code>array</code>，属于持有非自己生成的对象。类方法内部返回对象时会将对象注册到<code>autoreleasepool</code>。</p>
 </li>
 <li><p><code>autorelease</code> 不立即释放，而是注册到<code>autoreleasepool</code>，当pool结束时对对象调用release</p>
@@ -295,7 +295,7 @@
 <li><p>对象作为返回值会被编译器自动注册到<code>autoreleasepool</code></p>
 </li>
 </ul>
-<h3 id="strong"><a href="#strong" class="headerlink" title="strong"></a>strong</h3><p>ARC下默认用该关键字修饰变量，当变量超出作用域，强引用便失效，通过release释放变量</p>
+<h2 id="strong"><a href="#strong" class="headerlink" title="strong"></a>strong</h2><p>ARC下默认用该关键字修饰变量，当变量超出作用域，强引用便失效，通过release释放变量</p>
 <p>以下是一个初始化方法例子</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">id</span> __<span class="keyword">strong</span> obj = [[<span class="built_in">NSObject</span> alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上代码的编译器的模拟代码如下</p>
@@ -308,7 +308,7 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (instancetype)array &#123;</span><br><span class="line">	<span class="keyword">return</span> [[<span class="built_in">NSMutableArray</span> array] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上代码的编译器的模拟代码如下<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> obj = objc_msgSend(<span class="built_in">NSObNSMutableArrayject</span>, <span class="keyword">@selector</span>(alloc));</span><br><span class="line">objc_msgSend(obj, <span class="keyword">@selector</span>(init));</span><br><span class="line"><span class="keyword">return</span> objc_autoreleaseReturnValue(obj);</span><br></pre></td></tr></table></figure></p>
 <p><code>objc_autoreleaseReturnValue()</code>，这个方法是返回注册到<code>autoreleasepool</code>的对象，除此之外它会检查执行命令列表，如果后面紧接着调用了<code>objc_retainAutoreleaseReturnValue()</code>，那么返回的对象就不注册到<code>autoreleasepool</code>，而是直接返回。<code>objc_retainAutoreleaseReturnValue()</code>这个方法即便是没有注册到<code>autoreleasepool</code>的对象也能正确地获取，这两个方法以此来实现直接传递，不用去<code>autoreleasepool</code>绕一圈，算是一种优化。</p>
-<h3 id="weak"><a href="#weak" class="headerlink" title="weak"></a>weak</h3><ul>
+<h2 id="weak"><a href="#weak" class="headerlink" title="weak"></a>weak</h2><ul>
 <li>weak使用一个散列表来维护(类似引用计数表)。对象被废弃时，在weak表中获取废弃对象为键值的记录，将记录中的对象置为nil；从weak表中删除该记录，从引用计数表中删除废弃对象的记录。</li>
 <li>不改变对象的<code>retainCount</code>，但使用时会将对象retain(使用objc_loadWeakRetain方法)并注册到<code>autoreleasepool</code>，用完后马上释放(使用几次就注册几次，所以不要频繁使用<code>weak</code>对象，会增加开销)。这是为了确保weak变量在使用时是存在的。看下面这段代码。</li>
 </ul>
@@ -316,10 +316,12 @@
 <p>你将看到如下输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2，obj1 retainCount = 3</span><br><span class="line">2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3，obj retainCount = 3</span><br><span class="line">2016-03-19 13:40:04.050 DEMO[71249:2320432] obj retainCount = 2</span><br><span class="line">2016-03-19 13:40:04.050 DEMO[71249:2320432] obj1 retainCount = 3</span><br></pre></td></tr></table></figure>
 <p>可以看到weak 对象使用时还是会改变retainCount</p>
-<h3 id="autoreleasing"><a href="#autoreleasing" class="headerlink" title="autoreleasing"></a>autoreleasing</h3><p>等同于 ARC无效时调用对象的autorelease方法。</p>
-<h3 id="Toll-Free-Bridge"><a href="#Toll-Free-Bridge" class="headerlink" title="Toll-Free Bridge"></a>Toll-Free Bridge</h3><p>在OC对象和CF对象互相转换时更改对象的被持有状况</p>
+<h2 id="autoreleasing"><a href="#autoreleasing" class="headerlink" title="autoreleasing"></a>autoreleasing</h2><p>等同于 ARC无效时调用对象的autorelease方法。</p>
+<h2 id="Toll-Free-Bridge"><a href="#Toll-Free-Bridge" class="headerlink" title="Toll-Free Bridge"></a>Toll-Free Bridge</h2><p>在OC对象和CF对象互相转换时更改对象的被持有状况</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__brideg_retain 和 <span class="built_in">CFBridgingRetain</span> 等同于retain操作</span><br><span class="line"></span><br><span class="line">__bridge_transfer 和 <span class="built_in">CFBridgeRelease</span> 等同于release操作</span><br><span class="line"></span><br><span class="line">__bridge 不更改所有权情况，单纯的转换。</span><br></pre></td></tr></table></figure>
-<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p>《Objective-C 高级编程》</p>
+<h2 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h2><blockquote>
+<p>《Objective-C 高级编程》</p>
+</blockquote>
 
       
     </div>
@@ -435,7 +437,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -485,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动引用计数"><span class="nav-number">2.</span> <span class="nav-text">自动引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strong"><span class="nav-number">4.</span> <span class="nav-text">strong</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weak"><span class="nav-number">5.</span> <span class="nav-text">weak</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autoreleasing"><span class="nav-number">6.</span> <span class="nav-text">autoreleasing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Toll-Free-Bridge"><span class="nav-number">7.</span> <span class="nav-text">Toll-Free Bridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">8.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动引用计数"><span class="nav-number">2.</span> <span class="nav-text">自动引用计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">3.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strong"><span class="nav-number">4.</span> <span class="nav-text">strong</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weak"><span class="nav-number">5.</span> <span class="nav-text">weak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autoreleasing"><span class="nav-number">6.</span> <span class="nav-text">autoreleasing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Toll-Free-Bridge"><span class="nav-number">7.</span> <span class="nav-text">Toll-Free Bridge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用致谢"><span class="nav-number">8.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>

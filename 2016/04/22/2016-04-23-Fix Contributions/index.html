@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/22/2016-04-23-Fix Contributions/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
-<meta property="og:updated_time" content="2016-05-04T15:51:16.000Z">
+<meta property="og:updated_time" content="2016-05-16T13:25:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="煮熟的Contributions飞了？">
 <meta name="twitter:description" content="最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录">
@@ -274,17 +274,17 @@
       
 
       
-        <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录</p>
+        <h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>最近突然发现我在Github上的Blog提交都没被计算Contributions，以下是解决过程，特此记录</p>
 <p>这篇主要讲一下我遇到的问题和如何解决：一直在github上写blog，最近发现我每次提交，竟然没有被算contributions，也就是没有出现绿方块，这让我有点郁闷啊，虽说写blog不是会了哪几个绿色方块，但是该有的还是得有啊，没有绿色方块也不方便看自己更新的情况啊。。。。。</p>
-<h3 id="怎么样才会被算Contributions"><a href="#怎么样才会被算Contributions" class="headerlink" title="怎么样才会被算Contributions?"></a>怎么样才会被算Contributions?</h3><p>关于这个Github官方的解释在这里<br><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
+<h2 id="怎么样才会被算Contributions"><a href="#怎么样才会被算Contributions" class="headerlink" title="怎么样才会被算Contributions?"></a>怎么样才会被算Contributions?</h2><p>关于这个Github官方的解释在这里<br><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
 <p>不过呢，是英文的，23333，勉强能看懂，简单翻译一下</p>
-<h4 id="Issues-and-pull-requests"><a href="#Issues-and-pull-requests" class="headerlink" title="Issues and pull requests"></a>Issues and pull requests</h4><ul>
+<h3 id="Issues-and-pull-requests"><a href="#Issues-and-pull-requests" class="headerlink" title="Issues and pull requests"></a>Issues and pull requests</h3><ul>
 <li><p>一年之内执行的</p>
 </li>
 <li><p>Fork的仓库不算，要独立的仓库</p>
 </li>
 </ul>
-<h4 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h4><ul>
+<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
 <li><p>一年之内Commit的操作</p>
 </li>
 <li><p>Commit的Email的地址与Github关联</p>
@@ -311,7 +311,7 @@
 <li><p>Star这个仓库</p>
 </li>
 </ul>
-<h4 id="Contributions没被计算的常见原因"><a href="#Contributions没被计算的常见原因" class="headerlink" title="Contributions没被计算的常见原因"></a>Contributions没被计算的常见原因</h4><ul>
+<h3 id="Contributions没被计算的常见原因"><a href="#Contributions没被计算的常见原因" class="headerlink" title="Contributions没被计算的常见原因"></a>Contributions没被计算的常见原因</h3><ul>
 <li><p>进行Commits的Email没有被关联到Github帐号。</p>
 </li>
 <li><p>没在仓库的默认分支进行Commit。</p>
@@ -321,8 +321,8 @@
 <li><p>提交合并和压合的Pull Request</p>
 </li>
 </ul>
-<h3 id="找回我煮熟的Contributions"><a href="#找回我煮熟的Contributions" class="headerlink" title="找回我煮熟的Contributions"></a>找回我煮熟的Contributions</h3><h4 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h4><p>根据Github官方的解释，我很快找到我的Contributions飞走的原因，那就是Commit的Email地址不对，我的Email为<code>XXX@XX.Local</code>，这样的Email自然Github不认识了。</p>
-<h4 id="对症下药"><a href="#对症下药" class="headerlink" title="对症下药"></a>对症下药</h4><p>首先为了以后的Commits能被正确计算，我先改掉我提交的Eamil地址。</p>
+<h2 id="找回我煮熟的Contributions"><a href="#找回我煮熟的Contributions" class="headerlink" title="找回我煮熟的Contributions"></a>找回我煮熟的Contributions</h2><h3 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h3><p>根据Github官方的解释，我很快找到我的Contributions飞走的原因，那就是Commit的Email地址不对，我的Email为<code>XXX@XX.Local</code>，这样的Email自然Github不认识了。</p>
+<h3 id="对症下药"><a href="#对症下药" class="headerlink" title="对症下药"></a>对症下药</h3><p>首先为了以后的Commits能被正确计算，我先改掉我提交的Eamil地址。</p>
 <ul>
 <li><p>可以用Github Desktop的GUI界面更改，在偏好设置里</p>
 </li>
@@ -332,7 +332,7 @@
 </ul>
 <p>那么以前的Contributions怎么办？绝不能就这样让他们飞了啊，想要找回之前的Contributions，就要改掉之前提交记录的Email。</p>
 <p>Github官方也有解决方案<a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a> ，嗯，同样是英文的。。。</p>
-<h5 id="使用脚本更改仓库的Git历史"><a href="#使用脚本更改仓库的Git历史" class="headerlink" title="使用脚本更改仓库的Git历史"></a>使用脚本更改仓库的Git历史</h5><ul>
+<h4 id="使用脚本更改仓库的Git历史"><a href="#使用脚本更改仓库的Git历史" class="headerlink" title="使用脚本更改仓库的Git历史"></a>使用脚本更改仓库的Git历史</h4><ul>
 <li><p>打开Terminal</p>
 </li>
 <li><p>对你的仓库创建一个新的Clone，并前往目录</p>
@@ -353,9 +353,11 @@
 rm -rf repo.git
 </code></pre></li>
 </ul>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰<del>~</del>~</p>
-<h3 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h3><p><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>按以上步骤执行完之后，我煮熟的Contributions终于回来了，圆满解决困扰<del>~</del>~</p>
+<h2 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h2><blockquote>
+<p><a href="https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/" target="_blank" rel="external">Why are my contributions not showing up on my profile?</a></p>
 <p><a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a></p>
+</blockquote>
 
       
     </div>
@@ -393,6 +395,10 @@ rm -rf repo.git
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/16/2016-05-14-Computer Networking 03/" rel="prev" title="计算机网络知识归纳《三》">
+                计算机网络知识归纳《三》 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -467,7 +473,7 @@ rm -rf repo.git
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -517,7 +523,7 @@ rm -rf repo.git
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么样才会被算Contributions"><span class="nav-number">2.</span> <span class="nav-text">怎么样才会被算Contributions?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Issues-and-pull-requests"><span class="nav-number">2.1.</span> <span class="nav-text">Issues and pull requests</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Commits"><span class="nav-number">2.2.</span> <span class="nav-text">Commits</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contributions没被计算的常见原因"><span class="nav-number">2.3.</span> <span class="nav-text">Contributions没被计算的常见原因</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找回我煮熟的Contributions"><span class="nav-number">3.</span> <span class="nav-text">找回我煮熟的Contributions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定位原因"><span class="nav-number">3.1.</span> <span class="nav-text">定位原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对症下药"><span class="nav-number">3.2.</span> <span class="nav-text">对症下药</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用脚本更改仓库的Git历史"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用脚本更改仓库的Git历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用致谢"><span class="nav-number">5.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么样才会被算Contributions"><span class="nav-number">2.</span> <span class="nav-text">怎么样才会被算Contributions?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Issues-and-pull-requests"><span class="nav-number">2.1.</span> <span class="nav-text">Issues and pull requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commits"><span class="nav-number">2.2.</span> <span class="nav-text">Commits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contributions没被计算的常见原因"><span class="nav-number">2.3.</span> <span class="nav-text">Contributions没被计算的常见原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找回我煮熟的Contributions"><span class="nav-number">3.</span> <span class="nav-text">找回我煮熟的Contributions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定位原因"><span class="nav-number">3.1.</span> <span class="nav-text">定位原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对症下药"><span class="nav-number">3.2.</span> <span class="nav-text">对症下药</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用脚本更改仓库的Git历史"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用脚本更改仓库的Git历史</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用致谢"><span class="nav-number">5.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
             
           </div>
         </section>
