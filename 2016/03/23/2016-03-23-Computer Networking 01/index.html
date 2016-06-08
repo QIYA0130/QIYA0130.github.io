@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/23/2016-03-23-Computer Networking 01/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="补一下计算机网络的知识 Round One">
-<meta property="og:updated_time" content="2016-05-16T13:23:25.000Z">
+<meta property="og:updated_time" content="2016-06-08T12:44:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络知识归纳《一》">
 <meta name="twitter:description" content="补一下计算机网络的知识 Round One">
@@ -282,7 +282,7 @@
 <li>https = http + TLS/SSL<ul>
 <li>客户端发送支持的SSL协议、加密算法、产生的随机数</li>
 <li>服务端选择SSL协议、加密算法、并将证书和随机数发给客户端</li>
-<li>客户端验证证书有效性，随机生成一个“对称密码”，用服务端证书中的公钥加密生成“预主密码”，将“预主密码”发给客户端</li>
+<li>客户端验证证书有效性，随机生成一个“对称密码”，用服务端证书中的公钥加密生成“预主密码”，将“预主密码”发给服务端</li>
 <li>（可选）如果服务器要求客户的身份认证，用户可以建立一个随机数然后对其进行数据签名，将这个含有签名的随机数和客户自己的证书以及加密过的“预主密码”一起传给服务器</li>
 <li>（可选）如果服务器要求客户的身份认证，服务器必须检验客户证书和签名随机数的合法性；如果验证通过，经行下一步</li>
 <li>服务器用自己的私钥解开加密的“预主密码”，然后执行一系列步骤来产生主通讯密码（客户端也将通过同样的方法产生相同的主通讯密码）</li>
@@ -291,15 +291,13 @@
 <li>握手结束，接下来的将用主通讯密码对通信数据加密。</li>
 </ul>
 </li>
-<li><p>tcp连接三次握手</p>
-<ul>
+<li>tcp连接三次握手<ul>
 <li>客户端发送SYN，SEQ=x报文给服务器端，进入SYN_SEND状态。</li>
 <li>服务器端收到SYN报文，回应一个SYN ，SEQ=y，ACK(ACK=x+1）报文，进入SYN_RECV状态。</li>
 <li>客户端收到服务器端的SYN报文，回应一个ACK(ACK=y+1）报文，进入Established状态。</li>
 </ul>
 </li>
-<li><p>tcp断开连接四次握手</p>
-<ul>
+<li>tcp断开连接四次握手<ul>
 <li>某个应用进程首先调用close，称该端执行“主动关闭”（active close）。该端的TCP于是发送一个FIN分节，表示数据发送完毕。</li>
 <li>FIN接收端执行 “被动关闭”（passive close），这个FIN由TCP确认，发回一个ACK，确认序号为收到的序号+1。注意：FIN的接收也作为一个文件结束符（end-of-file）传递给接收端应用进程，放在已排队等候该应用进程接收的任何其他数据之后，因为，FIN的接收意味着接收端应用进程在相应连接上再无额外数据可接收。</li>
 <li>一段时间后，FIN接收端的应用进程将调用close关闭它的套接字。发回FIN给主动关闭方。</li>
