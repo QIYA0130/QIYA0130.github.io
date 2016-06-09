@@ -1,0 +1,733 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一些iOS知识的归纳，不回顾一下快忘了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS Notes 01">
+<meta property="og:url" content="http://yoursite.com/2016/06/08/2016-06-08-iOS Notes 01/index.html">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="一些iOS知识的归纳，不回顾一下快忘了">
+<meta property="og:updated_time" content="2016-06-09T06:47:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS Notes 01">
+<meta name="twitter:description" content="一些iOS知识的归纳，不回顾一下快忘了">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6280845448856995000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> iOS Notes 01 | DEMO </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DEMO</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS Notes 01
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T21:45:34+08:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/08/2016-06-08-iOS Notes 01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/08/2016-06-08-iOS Notes 01/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="UIResponder、UIView、UIControl"><a href="#UIResponder、UIView、UIControl" class="headerlink" title="UIResponder、UIView、UIControl"></a>UIResponder、UIView、UIControl</h2><p>三者的继承关系 UIControl -&gt; UIView -&gt; UIResponder</p>
+<h3 id="UIResponder"><a href="#UIResponder" class="headerlink" title="UIResponder"></a>UIResponder</h3><p>UIResponder称为响应者对象，能够接受并处理UIEvent</p>
+<p>提供诸如 touchesBegan、touchesMoved、touchesEnded 等方法</p>
+<h3 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h3><p>UIView作为UIResponder的子类，可以通过重写touchesBegan、touchesMoved、touchesEnded等方法来处理时间</p>
+<h3 id="UIControl"><a href="#UIControl" class="headerlink" title="UIControl"></a>UIControl</h3><p>UIControl是UIView的子类，我们平时使用的UIButton、UISwitch的直接父类便是UIControl。</p>
+<p>UIControl对touchesBegan、touchesMoved、touchesEnded做一次封装，提供诸如UIControlEventTouchUpInside、UIControlEventTouchUpOutside的事件，让对控件的触摸事件使用更加方便</p>
+<h2 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h2><p>屏幕上的View对用户触摸事件的响应大致分为两个步骤：</p>
+<ul>
+<li>定位最终响应事件的View</li>
+<li>按照响应链找最终能响应事件的控件</li>
+</ul>
+<p>当一个用户触摸屏幕，响应过程便开始了</p>
+<p>在查找View的时候调用了两个重要方法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">- (<span class="built_in">BOOL</span>)pointInside:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>寻找最适合View</li>
+</ol>
+<p>寻找顺序</p>
+<blockquote>
+<p>AppDelegate -&gt; UIApplication -&gt; UIWindow -&gt; UIViewController -&gt; UIView</p>
+</blockquote>
+<p>控件调用<code>hitTest:withEvent:</code>，该方法又调用<code>pointInside:withEvent:</code>方法。当<code>pointInside</code>方法判断触摸点是否在view内并返回结果，<code>hitTest</code>方法根据返回的Bool值做不同的操作，如果返回Yes，则对自己的子View逐层调用<code>hitTest</code>方法得到最终能响应的View（如子View都返回No则返回Self）；如果返回No，则直接返回nil。以上找到了最终最适合的View。</p>
+<ol>
+<li>根据响应链响应事件</li>
+</ol>
+<p>当找到最适合的View之后，便开始让控件响应事件</p>
+<p>响应顺序正好与寻找顺序相反</p>
+<blockquote>
+<p>UIView -&gt; UIViewController -&gt; UIWindow -&gt; UIApplication -&gt; AppDelegate</p>
+</blockquote>
+<p>从最适合View开始逐层往上找父View再到Controller。。。。。找到事件正真的响应者处理事件。</p>
+<h2 id="KVC"><a href="#KVC" class="headerlink" title="KVC"></a>KVC</h2><p><code>Key-Value Coding</code>键值编码机制。</p>
+<p>已KVC给属性设值为例<code>setValue:forKey:</code>，编译如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SEL sel = sel_get_uid (&quot;setValue:forKey:&quot;);</span><br><span class="line"></span><br><span class="line">IMP method = objc_msg_lookup (Object-&gt;isa,sel);</span><br><span class="line"></span><br><span class="line">method(site, sel, @&quot;value&quot;, @&quot;key&quot;);</span><br></pre></td></tr></table></figure>
+<p>一个对象在调用setValue的时候执行的步骤</p>
+<ul>
+<li>根据方法名找到所需要的SEL</li>
+<li>在自己isa指针所指向的类对象里结合SEL，找到具体的方法实现的IMP<ul>
+<li>先找<code>setKey:</code>方法</li>
+<li>setter方法没找到，如果类方法<code>accessInstanceVariablesDirectly</code>返回YES。那么按 <code>_key</code>，<code>_isKey</code>，<code>key</code>，<code>iskey</code>的顺序搜索成员名</li>
+<li>如果没有找到成员变量，调用<code>setValue:forUnderfinedKey:</code></li>
+</ul>
+</li>
+<li>调用IMP</li>
+</ul>
+<h2 id="KVO"><a href="#KVO" class="headerlink" title="KVO"></a>KVO</h2><p><code>Key-Value Observing</code> 让一个对象能够观察另一个对象的属性，当属性改变便收到通知，然后观察者做一些操作。具体的使用就不说了，是观察者模式的一种实施方案（还有通知、delegate）。</p>
+<h3 id="内部实现"><a href="#内部实现" class="headerlink" title="内部实现"></a>内部实现</h3><p>被观察对象的类会被重写，runtime生成一个伪装类来代替原来的类，如果你查看对象的isa指针，会发现isa和原来相比会多一个<code>NSKVONotifying_</code>的前缀。</p>
+<p>这个伪装类会重写一些方法，最重要的便是被观察的属性的<code>setter</code>方法，在<code>setter</code>方法调用了<code>willChangeValueForKey</code>和<code>didChangeValueForKey</code>来做通知。</p>
+<p>当然为了防止重复生成伪装类，原来的类会增加一个<code>_isKVOA</code>来标识这个类是否已被动态生成过KVO伪装类。</p>
+<h3 id="手动通知"><a href="#手动通知" class="headerlink" title="手动通知"></a>手动通知</h3><p>通常情况下，从NSObject继承而来的类都具有KVO自动通知，不需要额外写代码。如果需要手动控制通知（可以减少不必要的通知），那么需要重写<code>automaticallyNotifiesObserversForKey:</code>，为手动通知的属性返回NO。同时用<code>willChangeValueForKey</code>和<code>didChangeValueForKey</code>来触发通知</p>
+<h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p>不通过访问器来改变属性将不能触发通知</p>
+<h2 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h2><p>RunLoop一直以来感觉是个神秘的东西，个人没有实战用过。。。但是不影响去了解一下他的必要性。。。。</p>
+<p>个人觉得他的作用就是起一个Loop循环，让App一直跑着。</p>
+<h3 id="RunLoop-VS-Thread"><a href="#RunLoop-VS-Thread" class="headerlink" title="RunLoop VS Thread"></a>RunLoop VS Thread</h3><p>首先线程和RunLoop一对一存在，但线程不一定有RunLoop，而主线程会默认起一个RunLoop，这个很好理解，主线程如果没有RunLoop，代码一跑完App就自己关了呗。</p>
+<p>线程 和 RunLoop 之间的一对一关系是由一个全局的 Dictionary 维护。线程创建时并不会获取 RunLoop，如果你不主动获取，那RunLoop一直都不会被创建。当你第一次获取时，RunLoop才被创建，线程结束时会销毁RunLoop。</p>
+<p>当你需要一个线程常驻，就可以给线程获取一个RunLoop，通过<code>CFRunLoopGetMain()</code> 和 <code>CFRunLoopGetCurrent()</code></p>
+<h3 id="RunLoop-内部结构"><a href="#RunLoop-内部结构" class="headerlink" title="RunLoop 内部结构"></a>RunLoop 内部结构</h3><p><code>CFRunLoopRef</code></p>
+<p><code>CFRunLoopModeRef</code> : 每个Mode都有一个<code>ModeName</code>，你只能通过<code>ModeName</code>操作<code>Mode</code>,默认预置的<code>Mode</code>有 <code>kCFRunLoopDefaultMode</code> (App平常运行的状态) 、 <code>UITrackingRunLoopMode</code>(追踪 <code>ScrollView</code> 的滑动) 、 <code>kCFRunLoopCommonModes</code> (操作 <code>commonModeItems</code>，或标记一个 <code>Mode</code> 为 <code>Common</code>)</p>
+<p><code>CFRunLoopSourceRef</code> : 有<code>Source0</code> 和 <code>Source1</code>两种。</p>
+<ul>
+<li><code>Source0</code> 只包含了一个回调，不能主动触发事件。使用时，先调用 <code>CFRunLoopSourceSignal(source)</code>，将 <code>Source</code> 标记为待处理，然后手动调用 <code>CFRunLoopWakeUp(runloop)</code> 来唤醒 <code>RunLoop</code>处理事件</li>
+<li><code>Source1</code> 包含了一个 <code>mach_port</code> 和一个回调（函数指针），被用于通过内核和其他线程相互发送消息，能主动唤醒 RunLoop 的线程</li>
+</ul>
+<p><code>CFRunLoopTimerRef</code> : 基于时间的触发器</p>
+<p><code>CFRunLoopObserverRef</code> : 观察者，包含回调，当 RunLoop 的状态发生变化时，观察者能通过回调接受变化</p>
+<p>他们之间的关系是：一个 <code>RunLoop</code> 有若干个 <code>Mode</code>，每个 <code>Mode</code> 又由若干个 <code>Source</code>/<code>Timer</code>/<code>Observer</code> 这样的 <code>item</code>组成</p>
+<h3 id="CommonModes"><a href="#CommonModes" class="headerlink" title="CommonModes"></a>CommonModes</h3><p>个人认为这个是平时最常会用到的东西 : 一个 <code>Mode</code> 可以将自己标记为<code>Common</code>属性（通过将其 ModeName 添加到 RunLoop 的 <code>commonModes</code> 中）。每当 RunLoop 的内容发生变化时，RunLoop 都会自动将 <code>commonModeItems</code> 里的 <code>Source/Observer/Timer</code> 同步到具有 <code>Common</code> 标记的所有Mode里。</p>
+<p><code>kCFRunLoopDefaultMode</code> 和 <code>UITrackingRunLoopMode</code>都已经被标记为<code>Common</code>属性</p>
+<p>实际用到便是把 <code>NSTimer</code> 加到 <code>commonModeItems</code> ，这样在滑动时 <code>Timer</code> 依然能有用</p>
+<h3 id="RunLoop相关实例"><a href="#RunLoop相关实例" class="headerlink" title="RunLoop相关实例"></a>RunLoop相关实例</h3><h4 id="AutoreleasePool"><a href="#AutoreleasePool" class="headerlink" title="AutoreleasePool"></a>AutoreleasePool</h4><p>即将进入<code>RunLoop</code>时会调用 <code>_objc_autoreleasePoolPush()</code> 创建自动释放池。</p>
+<p>准备进入休眠 时调用<code>_objc_autoreleasePoolPop()</code> 和 <code>_objc_autoreleasePoolPush()</code> 释放旧的池并创建新池</p>
+<p>即将退出<code>RunLoop</code>时调用 <code>_objc_autoreleasePoolPop()</code> 来释放自动释放池。</p>
+<h4 id="界面Update"><a href="#界面Update" class="headerlink" title="界面Update"></a>界面Update</h4><p>当在操作<code>UI</code>时，或者手动调用<code>setNeedsLayout</code>、<code>setNeedsDisplay</code>方法后，这个 <code>UIView</code>、<code>CALayer</code> 就被标记为待处理，并被提交到一个全局的容器去。</p>
+<p>即将进入休眠 和 即将退出Loop 时，回调去执行一个函数遍历所有待处理的 <code>UIView</code>、<code>CALayer</code> 以执行实际的绘制和调整，更新 UI 界面。</p>
+<h2 id="继承的访问权限"><a href="#继承的访问权限" class="headerlink" title="继承的访问权限"></a>继承的访问权限</h2><p>首先三种访问关键字<code>public</code>、<code>protected</code>、<code>private</code>，访问权限如下</p>
+<p><code>public</code> ：在哪里都可以访问</p>
+<p><code>protected</code> ：只能在本类和子类访问</p>
+<p><code>private</code> ：只能在本类访问</p>
+<p><code>Class</code>继承默认是private</p>
+<table>
+<thead>
+<tr>
+<th>父类中成员变量访问权限</th>
+<th style="text-align:right">继承方式</th>
+<th style="text-align:center">子类中成员变量访问权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td style="text-align:right">public</td>
+<td style="text-align:center">public</td>
+</tr>
+<tr>
+<td>public</td>
+<td style="text-align:right">protected</td>
+<td style="text-align:center">protected</td>
+</tr>
+<tr>
+<td>public</td>
+<td style="text-align:right">private</td>
+<td style="text-align:center">private</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:right"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>protected</td>
+<td style="text-align:right">public</td>
+<td style="text-align:center">protected</td>
+</tr>
+<tr>
+<td>protected</td>
+<td style="text-align:right">protected</td>
+<td style="text-align:center">protected</td>
+</tr>
+<tr>
+<td>protected</td>
+<td style="text-align:right">private</td>
+<td style="text-align:center">private</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:right"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>private</td>
+<td style="text-align:right">public</td>
+<td style="text-align:center">子类不能访问</td>
+</tr>
+<tr>
+<td>private</td>
+<td style="text-align:right">protected</td>
+<td style="text-align:center">子类不能访问</td>
+</tr>
+<tr>
+<td>private</td>
+<td style="text-align:right">private</td>
+<td style="text-align:center">子类不能访问</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/27/2016-05-27-GCD 01/" rel="next" title="GCD">
+                <i class="fa fa-chevron-left"></i> GCD
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
+          <p class="site-description motion-element" itemprop="description">终其一生爱优雅</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DEMO0130" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIResponder、UIView、UIControl"><span class="nav-number">1.</span> <span class="nav-text">UIResponder、UIView、UIControl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIResponder"><span class="nav-number">1.1.</span> <span class="nav-text">UIResponder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView"><span class="nav-number">1.2.</span> <span class="nav-text">UIView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIControl"><span class="nav-number">1.3.</span> <span class="nav-text">UIControl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应链"><span class="nav-number">2.</span> <span class="nav-text">响应链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KVC"><span class="nav-number">3.</span> <span class="nav-text">KVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KVO"><span class="nav-number">4.</span> <span class="nav-text">KVO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内部实现"><span class="nav-number">4.1.</span> <span class="nav-text">内部实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动通知"><span class="nav-number">4.2.</span> <span class="nav-text">手动通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tip"><span class="nav-number">4.3.</span> <span class="nav-text">Tip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RunLoop"><span class="nav-number">5.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RunLoop-VS-Thread"><span class="nav-number">5.1.</span> <span class="nav-text">RunLoop VS Thread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RunLoop-内部结构"><span class="nav-number">5.2.</span> <span class="nav-text">RunLoop 内部结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonModes"><span class="nav-number">5.3.</span> <span class="nav-text">CommonModes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RunLoop相关实例"><span class="nav-number">5.4.</span> <span class="nav-text">RunLoop相关实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoreleasePool"><span class="nav-number">5.4.1.</span> <span class="nav-text">AutoreleasePool</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#界面Update"><span class="nav-number">5.4.2.</span> <span class="nav-text">界面Update</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的访问权限"><span class="nav-number">6.</span> <span class="nav-text">继承的访问权限</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'd3mo';
+      var disqus_identifier = '2016/06/08/2016-06-08-iOS Notes 01/';
+      var disqus_title = 'iOS Notes 01';
+      var disqus_url = 'http://yoursite.com/2016/06/08/2016-06-08-iOS Notes 01/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
