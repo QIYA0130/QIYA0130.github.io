@@ -86,13 +86,13 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/28/2016-03-28-Runtime/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="关于Runtime知识的一些个人归纳">
-<meta property="og:image" content="http://yoursite.com/../../../../../images/runtime02.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../images/runtime01.jpg">
-<meta property="og:updated_time" content="2016-05-16T13:23:14.000Z">
+<meta property="og:image" content="http://yoursite.com/../../../../../images/RunTime02.png">
+<meta property="og:image" content="http://yoursite.com/../../../../../images/RunTime01.jpg">
+<meta property="og:updated_time" content="2016-07-02T07:32:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Runtime的一些知识">
 <meta name="twitter:description" content="关于Runtime知识的一些个人归纳">
-<meta name="twitter:image" content="http://yoursite.com/../../../../../images/runtime02.png">
+<meta name="twitter:image" content="http://yoursite.com/../../../../../images/RunTime02.png">
 
 
 
@@ -279,7 +279,7 @@
       
         <h2 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h2><h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>每个对象实例都有一个isa指针，指向自己的类对象（单例）。类对象的元数据保存了方法列表，实例变量列表，cache（指向最近使用过的方法的地址），superclass指针（指向父类的类对象），同时也有一个isa指针，指向元类对象。元类对象的元数据保存了类方法列表，同时也有一个superclass指针，直接指向最顶层类的元类对象。最顶层类的元类对象的isa指针指向自己，superclass指针指向类对象，类对象的superclass指针为nil。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class isa; <span class="comment">// 指向metaclass  </span></span><br><span class="line"></span><br><span class="line">    Class superclass;  <span class="comment">// 指向父类Class</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name;  <span class="comment">// 类名</span></span><br><span class="line">    uint32_t version;  <span class="comment">// 类的版本信息</span></span><br><span class="line">    uint32_t info;     <span class="comment">// 一些标识信息，标明是普通的Class还是metaclass</span></span><br><span class="line">    uint32_t instance_size;         <span class="comment">// 该类的实例变量大小(包括从父类继承下来的实例变量);</span></span><br><span class="line">    <span class="keyword">struct</span> old_ivar_list *ivars;    <span class="comment">//类中成员变量的信息</span></span><br><span class="line">    <span class="keyword">struct</span> old_method_list **methodLists;    类中方法列表</span><br><span class="line">    Cache cache;    查找方法的缓存，用于提升效率</span><br><span class="line">    <span class="keyword">struct</span> old_protocol_list *protocols;  <span class="comment">// 存储该类遵守的协议  </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> old_method_list &#123;</span><br><span class="line">    <span class="keyword">void</span> *obsolete;      <span class="comment">//废弃的属性</span></span><br><span class="line">    <span class="keyword">int</span> method_count;    <span class="comment">//方法的个数</span></span><br><span class="line">    <span class="comment">/* variable length structure */</span></span><br><span class="line">    <span class="keyword">struct</span> old_method method_list[<span class="number">1</span>];    <span class="comment">//方法的首地址</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> old_method &#123;</span><br><span class="line">    SEL method_name;     <span class="comment">//函数的SEL</span></span><br><span class="line">    <span class="keyword">char</span> *method_types;  <span class="comment">//函数的类型</span></span><br><span class="line">    IMP method_imp;      <span class="comment">//函数指针</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img src="../../../../../images/runtime02.png" alt="Runtime_02"></p>
+<p><img src="../../../../../images/RunTime02.png" alt="RunTime_02"></p>
 <h3 id="selector"><a href="#selector" class="headerlink" title="selector"></a>selector</h3><p>一种不透明的类型，它代表着一个方法选择器。<code>SEL</code>本质是一个int类型的地址，指向存储的方法名</p>
 <h3 id="objc-msgSend"><a href="#objc-msgSend" class="headerlink" title="objc_msgSend()"></a>objc_msgSend()</h3><p>对象调方法其实是发消息，具体调用哪一个方法在运行时决定。<br>现在<code>cache</code>里找，没找到通过<code>selector</code>先从自身类对象的<code>methodList</code>查找是否有该<code>selector</code>的<code>method</code>（存放着<code>selector</code>,<code>IMP</code>，<code>IMP</code>是函数指针，指向具体要执行的函数的地址），没找到就向上一级父类找。如果最终找到，为降低查找次数会将这个<code>method</code>加入<code>cache</code>，下次调用就不用再来找一遍了。</p>
 <p>如果没找到进入消息转发流程。</p>
@@ -298,7 +298,7 @@
 <li><code>class_replaceMethod</code> 来修改类，</li>
 <li><code>method_setImplementation</code> 来直接设置某个方法的IMP</li>
 </ul>
-<h2 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h2><p>先看一张图<br><img src="../../../../../images/runtime01.jpg" alt="Runtime_01"></p>
+<h2 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h2><p>先看一张图<br><img src="../../../../../images/RunTime01.jpg" alt="RunTime_01"></p>
 <h3 id="Method-Resolution"><a href="#Method-Resolution" class="headerlink" title="Method Resolution"></a>Method Resolution</h3><p>首先，<code>Objective-C</code> 运行时会调用 <code>+resolveInstanceMethod:</code><br>或者 <code>+resolveClassMethod:</code>，让你有机会提供一个函数实现。如果你添加了函数并返回 YES， 那运行时系统就会重新启动一次消息发送的过程；如果 resolve 方法返回 NO ，运行时就会移到下一步：Message Forwarding</p>
 <h3 id="Fast-forwarding"><a href="#Fast-forwarding" class="headerlink" title="Fast forwarding"></a>Fast forwarding</h3><p>如果目标对象实现了 <code>-forwardingTargetForSelector:</code> ，Runtime 这时就会调用这个方法，给你把这个消息转发给其他对象的机会。只要这个方法返回的不是 nil 和 self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象。否则，就会继续 Normal Fowarding 。</p>
 <h3 id="Normal-forwarding"><a href="#Normal-forwarding" class="headerlink" title="Normal forwarding"></a>Normal forwarding</h3><p>它会发送 <code>-methodSignatureForSelector:</code>消息获得函数的参数和返回值类型。</p>
@@ -428,7 +428,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -438,7 +438,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
