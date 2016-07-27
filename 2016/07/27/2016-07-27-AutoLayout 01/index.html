@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,AutoLayout," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="第一篇Blog的雄心壮志">
+<meta name="description" content="前同事问关于约束的事，于是来一发Tips">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇，初建">
-<meta property="og:url" content="http://yoursite.com/2016/03/05/2016-03-05-First Blog/index.html">
+<meta property="og:title" content="AutoLayout Tips">
+<meta property="og:url" content="http://yoursite.com/2016/07/27/2016-07-27-AutoLayout 01/index.html">
 <meta property="og:site_name" content="DEMO">
-<meta property="og:description" content="第一篇Blog的雄心壮志">
-<meta property="og:updated_time" content="2016-05-16T13:24:38.000Z">
+<meta property="og:description" content="前同事问关于约束的事，于是来一发Tips">
+<meta property="og:updated_time" content="2016-07-27T15:54:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇，初建">
-<meta name="twitter:description" content="第一篇Blog的雄心壮志">
+<meta name="twitter:title" content="AutoLayout Tips">
+<meta name="twitter:description" content="前同事问关于约束的事，于是来一发Tips">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> 第一篇，初建 | DEMO </title>
+  <title> AutoLayout Tips | DEMO </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -227,7 +227,7 @@
             
             
               
-                第一篇，初建
+                AutoLayout Tips
               
             
           </h1>
@@ -239,8 +239,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-05T08:31:24+08:00" content="2016-03-05">
-              2016-03-05
+            <time itemprop="dateCreated" datetime="2016-07-27T23:52:25+08:00" content="2016-07-27">
+              2016-07-27
             </time>
           </span>
 
@@ -250,8 +250,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/05/2016-03-05-First Blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/05/2016-03-05-First Blog/" itemprop="commentsCount"></span>
+                <a href="/2016/07/27/2016-07-27-AutoLayout 01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/27/2016-07-27-AutoLayout 01/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -274,9 +274,30 @@
       
 
       
-        <h2 id="这是第一篇Blog哦"><a href="#这是第一篇Blog哦" class="headerlink" title="这是第一篇Blog哦"></a>这是第一篇Blog哦</h2><p>一直没想着搭Blog，觉得有点太Public，I am a private person。</p>
-<p>但是觉得作为一个程序猿，真的应该认真做点神马了，搭个Blog也算是激励自己平时多看多做多积累吧。</p>
-<p>这个Blog用了onevcat大大开源的主题，很好用啊，之前鼓捣另一个主题一上午没成功，换成这个主题马上搞定了，人品也是差，总之远程感谢onevcat大大~~~</p>
+        <h2 id="AutoLayout-Tips"><a href="#AutoLayout-Tips" class="headerlink" title="AutoLayout Tips"></a>AutoLayout Tips</h2><h2 id="黄金公式"><a href="#黄金公式" class="headerlink" title="黄金公式"></a>黄金公式</h2><p><code>firstItem.attribute relatedBy secondItem.attribute * multiplier + constant</code></p>
+<ol>
+<li>公式中进行约束的<code>firstItem.attribute</code>和<code>secondItem.attribute</code>的<code>attribute</code>可以是不同的，比如说view1的Top和View2的Bottom进行约束（嗯，我知道这大家都知道。。。。我就解释一下。。。）</li>
+<li>公式中可以存在 <code>firstItem == secondItem</code></li>
+<li>公式中multiplier是个好东西，比如想设置宽是高的几分之几，用上这个属性就轻松加easy了。不过用官方的VFL语言写约束的时候貌似不能设置这个东东。。。</li>
+</ol>
+<h2 id="Content-Hugging-Priority-amp-Content-Compression-Resistance-Priority"><a href="#Content-Hugging-Priority-amp-Content-Compression-Resistance-Priority" class="headerlink" title="Content Hugging Priority &amp; Content Compression Resistance Priority"></a>Content Hugging Priority &amp; Content Compression Resistance Priority</h2><p>通俗的理解一下，这两个优先级属性控制的是一个控件<code>压缩</code>和<code>拉伸</code>的优先级。</p>
+<h3 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h3><p>两个UILabel <code>A</code>和<code>B</code>，他们生活在同一水平线上，约束大概是这个样子 <code>@&quot;H:|-15-[A]-15-[B]-15-|&quot;;</code></p>
+<p>这个时候默认情况下，两个Label的<code>Content Hugging Priority</code> 和 <code>Content Compression Resistance Priority</code>都是一样的，于是约束就会华丽丽的报错，如果用的是Xib或者SB那么约束马上会提示错误。</p>
+<p>报错的原因是啥呢？</p>
+<p>首先有一个叫<code>intrinsic content size</code>的东东，控件的size能由里面的内容计算得到，比如说UILabel。</p>
+<p>我们知道当UILabel里的text大于size值，会有字符串截断显示现象。</p>
+<p>于是又以下三种情况</p>
+<ol>
+<li><code>A</code>和<code>B</code>的<code>intrinsic content size</code> 加上左右的间距<code>15</code> 正好等于 父控件宽度，完美</li>
+<li><code>A</code>和<code>B</code>的<code>intrinsic content size</code> 加上左右的间距<code>15</code> 小于 父控件宽度，sad</li>
+<li><code>A</code>和<code>B</code>的<code>intrinsic content size</code> 加上左右的间距<code>15</code> 大于 父控件宽度，sad</li>
+</ol>
+<p>第2、3种情况出现时，约束就不知道到底谁的<code>intrinsic content size</code>优先级更高，于是报错</p>
+<p>这个时候就可以通过<code>Content Hugging Priority</code> 和 <code>Content Compression Resistance Priority</code>来明确告诉约束</p>
+<p><code>Content Hugging Priority</code> 是抗拉伸优先级，数值越大越不容易被拉伸，适用于情况2<br><code>Content Compression Resistance Priority</code> 是抗压缩优先级，数值越大越不容易压缩，适用于情况3</p>
+<p>由于三种情况我们都要完美适配，所以一旦出现这种布局，控件的<code>Content Hugging Priority</code> 和 <code>Content Compression Resistance Priority</code>都需要被设置</p>
+<h2 id="父视图Size自适应内部子视图"><a href="#父视图Size自适应内部子视图" class="headerlink" title="父视图Size自适应内部子视图"></a>父视图Size自适应内部子视图</h2><p>这个呢其实也很简单，往上看黄金公式，让父视图的<code>Leading、Trailing、Bottom、Top</code>在约束中处于<code>firstItem.attribute</code>就行了</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p><code>option</code> + <code>command</code> + <code>=</code> ： 在使用Xib和SB时，让一个控件的Frame update by Constraint</p>
 
       
     </div>
@@ -296,18 +317,26 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/AutoLayout/" rel="tag">#AutoLayout</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/02/2016-07-02-Special Theory of Relativity 01/" rel="next" title="假设光速不变？">
+                <i class="fa fa-chevron-left"></i> 假设光速不变？
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/12/2016-03-11-Code Coverage/" rel="prev" title="Code Coverage 杂谈">
-                Code Coverage 杂谈 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -432,7 +461,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是第一篇Blog哦"><span class="nav-number">1.</span> <span class="nav-text">这是第一篇Blog哦</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoLayout-Tips"><span class="nav-number">1.</span> <span class="nav-text">AutoLayout Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#黄金公式"><span class="nav-number">2.</span> <span class="nav-text">黄金公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-Hugging-Priority-amp-Content-Compression-Resistance-Priority"><span class="nav-number">3.</span> <span class="nav-text">Content Hugging Priority & Content Compression Resistance Priority</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举个🌰"><span class="nav-number">3.1.</span> <span class="nav-text">举个🌰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父视图Size自适应内部子视图"><span class="nav-number">4.</span> <span class="nav-text">父视图Size自适应内部子视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-number">5.</span> <span class="nav-text">快捷键</span></a></li></ol></div>
             
           </div>
         </section>
@@ -552,9 +581,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'd3mo';
-      var disqus_identifier = '2016/03/05/2016-03-05-First Blog/';
-      var disqus_title = '第一篇，初建';
-      var disqus_url = 'http://yoursite.com/2016/03/05/2016-03-05-First Blog/';
+      var disqus_identifier = '2016/07/27/2016-07-27-AutoLayout 01/';
+      var disqus_title = 'AutoLayout Tips';
+      var disqus_url = 'http://yoursite.com/2016/07/27/2016-07-27-AutoLayout 01/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
