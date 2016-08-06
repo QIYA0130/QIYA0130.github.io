@@ -86,14 +86,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/06/2016-08-06-Cocoapods Note/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="记把CocoaPods玩坏又救活的辛酸历程">
-<meta property="og:image" content="http://yoursite.com/(../../../../../images/CocoaPodsNote01.jpg">
-<meta property="og:image" content="http://yoursite.com/(../../../../../images/CocoaPodsNote02.jpg">
-<meta property="og:image" content="http://yoursite.com/(../../../../../images/CocoaPodsNote03.jpg">
-<meta property="og:updated_time" content="2016-08-06T04:15:16.000Z">
+<meta property="og:image" content="http://yoursite.com/../../../../../images/CocoaPodsNote01.jpg">
+<meta property="og:image" content="http://yoursite.com/../../../../../images/CocoaPodsNote02.jpg">
+<meta property="og:image" content="http://yoursite.com/../../../../../images/CocoaPodsNote03.jpg">
+<meta property="og:updated_time" content="2016-08-06T04:47:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论被CocoaPods虐狗">
 <meta name="twitter:description" content="记把CocoaPods玩坏又救活的辛酸历程">
-<meta name="twitter:image" content="http://yoursite.com/(../../../../../images/CocoaPodsNote01.jpg">
+<meta name="twitter:image" content="http://yoursite.com/../../../../../images/CocoaPodsNote01.jpg">
 
 
 
@@ -289,14 +289,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/git clone https://github.com/CocoaPods/Specs.git master</span><br></pre></td></tr></table></figure>
 <p>等了一会，开始有反应了，那个激动啊</p>
 <p>然后运行结果如下图</p>
-<p><img src="(../../../../../images/CocoaPodsNote01.jpg" alt="CocoaPodsNote_01">)</p>
+<p><img src="../../../../../images/CocoaPodsNote01.jpg" alt="CocoaPodsNote_01"></p>
 <p>看到最后一行<code>Setup completed</code>就大功告成，可以轻松愉快的<code>pod install</code>了</p>
 <h3 id="pod-search"><a href="#pod-search" class="headerlink" title="pod search"></a>pod search</h3><p>在开心一会后，又发现<code>pod search</code>也失效了，如下图</p>
-<p><img src="(../../../../../images/CocoaPodsNote02.jpg" alt="CocoaPodsNote_02">)</p>
+<p><img src="../../../../../images/CocoaPodsNote02.jpg" alt="CocoaPodsNote_02"></p>
 <p>炒鸡郁闷，只能继续Google，发现另一个issues：<a href="https://github.com/CocoaPods/CocoaPods/issues/4865" target="_blank" rel="external">CocoaPods/issues/4865</a></p>
 <p>于是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm ~/Library/Caches/CocoaPods/search_index.json</span><br></pre></td></tr></table></figure></p>
 <p>运行结果如图</p>
-<p><img src="(../../../../../images/CocoaPodsNote03.jpg" alt="CocoaPodsNote_03">)</p>
+<p><img src="../../../../../images/CocoaPodsNote03.jpg" alt="CocoaPodsNote_03"></p>
 <p>然后用<code>pod search AFNetworking</code>做了一下尝试，问题解决，喜大普奔啊。。。。</p>
 <h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><blockquote>
 <p><a href="https://github.com/CocoaPods/CocoaPods/issues/5278" target="_blank" rel="external">CocoaPods/issues/5278</a></p>
