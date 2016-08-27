@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,CodeCoverage," />
+  <meta name="keywords" content="iOS,Networking,iPv6," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="最近做CodeCoverage有感">
+<meta name="description" content="大苹果强推的iPv6就这点事">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Code Coverage 杂谈">
-<meta property="og:url" content="http://yoursite.com/2016/03/12/2016-03-11-Code Coverage/index.html">
+<meta property="og:title" content="iPv6 那点事儿">
+<meta property="og:url" content="http://yoursite.com/2016/08/28/2016-08-28-iPv6 Note/index.html">
 <meta property="og:site_name" content="DEMO">
-<meta property="og:description" content="最近做CodeCoverage有感">
-<meta property="og:updated_time" content="2016-07-02T08:12:14.000Z">
+<meta property="og:description" content="大苹果强推的iPv6就这点事">
+<meta property="og:updated_time" content="2016-08-27T17:58:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code Coverage 杂谈">
-<meta name="twitter:description" content="最近做CodeCoverage有感">
+<meta name="twitter:title" content="iPv6 那点事儿">
+<meta name="twitter:description" content="大苹果强推的iPv6就这点事">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> Code Coverage 杂谈 | DEMO </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> iPv6 那点事儿 | DEMO </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -227,7 +227,7 @@
             
             
               
-                Code Coverage 杂谈
+                iPv6 那点事儿
               
             
           </h1>
@@ -239,8 +239,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-12T01:31:24+08:00" content="2016-03-12">
-              2016-03-12
+            <time itemprop="dateCreated" datetime="2016-08-28T01:55:43+08:00" content="2016-08-28">
+              2016-08-28
             </time>
           </span>
 
@@ -250,8 +250,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/12/2016-03-11-Code Coverage/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/12/2016-03-11-Code Coverage/" itemprop="commentsCount"></span>
+                <a href="/2016/08/28/2016-08-28-iPv6 Note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/28/2016-08-28-iPv6 Note/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -274,41 +274,26 @@
       
 
       
-        <h2 id="Code-Coverage-简介"><a href="#Code-Coverage-简介" class="headerlink" title="Code Coverage 简介"></a>Code Coverage 简介</h2><p>Code Coverage 顾名思义 代码覆盖率，一般指一个测试流程后，该测试所走过的代码率，以此可以检验测试的是否全面，版本是否可以发布。为什么我回去接触这个呢？首先，Xcode 7 有这个新功能，之前关注过，后来技术主管又叫我调研一下这个东东，目标是：以后测试人员测试的时候，生成覆盖率数据，来查看测试是否到位，是否足以测出代码硬伤bug。</p>
-<p>于是就有了现在这篇Blog。</p>
-<h2 id="Xcode7里的Code-Coverage"><a href="#Xcode7里的Code-Coverage" class="headerlink" title="Xcode7里的Code Coverage"></a>Xcode7里的Code Coverage</h2><p>从 Xcode 7 以来便自带了Code Coverage功能，苹果官方的WWDC Session里演示了Unit Test发起Code Coverage的操作。这个操作可以说是很方便很简单（当然是你本身就有写单元测试习惯的前提下，我没这习惯也不太会啊、摔），将项目的Test Scheme中的<code>Gather coverage data</code>选项勾起来，然后跑单元测试即可。</p>
-<p>由于本人不太会写单元测试，于是下了别人写的例子，实际跑了跑，结果发现这个并不准啊，一些用到的函数硬生生的没覆盖到，显示次数为0。这坑啊，可能是功能刚出来，Xcode 7 还存在bug？我猜想是这样。</p>
-<p>由于 Xcode 7 还有一个新功能叫UITest，有Test这个后缀，嗯、感觉也能跑Code Coverage，所以立马实验起来。实验结果同样不尽如人意啊，Bug更大的感觉，一些用Xib绑定起来的方法完全没覆盖上额。</p>
-<p>综上，用 Xocde 7 自带的功能看来是败了。其实就算 Xcode 7 的自带功能没有bug，估计也不会被采用，毕竟最终目标是测试人员真机测试的时候记录覆盖率，测完之后从真机里拿到生成的覆盖率文件，所以不太可能让测试人员连着 Xcode 7 做测试，不太实际。于是转战其他方法。</p>
-<h2 id="GCOV"><a href="#GCOV" class="headerlink" title="GCOV"></a>GCOV</h2><p>有一本书叫做《移动App测试实战》，书中第五章辅助测试方法中第二节代码覆盖率分析中讲解了iOS代码覆盖率技术方案。<br>主要使用了<code>gcno</code>和<code>gcda</code>文件来生成覆盖率数据文件，<code>gcno</code>包含了重建基本块图和相应的块的源码的行号的信息，<code>gcda</code>包含了弧跳变的次数和其他的概要信息，通过GCOV工具将两者结合，能直观的看到那些代码被覆盖到。</p>
-<p>关于GCOV工具，我是用Homebrew安装的，后来找到不用写命令行的CoverStory工具。</p>
-<p>步骤书中很详细，以下简单做了介绍。</p>
-<ul>
-<li>在项目info.plist里增加Application supports iTunes file sharing，设为YES。这一步是为了能通过iTunes共享文件拿到真机中的gcda文件。</li>
-<li>如果App不涉及跨App跳转，那么在info.plist设置Application does not run in background为YES，这样App不会后台运行，每次按Home键便会写入gcda文件；如果涉及那边不用设置，而是为App增加一个写gcda文件的功能按钮，写入以下代码，在要更新覆盖率文件时便点击按钮。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extern void __gcov_flush(void);</span><br><span class="line">__gcov_flush();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在项目的Build Setting中将以下两项设置为YES。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Instrument Program Flow</span><br><span class="line">Generation Legacy Test Coverage Files</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果是真机测试，需要在main.m 的 main函数中</li>
-</ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="built_in">UIApplicationMain</span></span><br></pre></td></tr></table></figure>
-<p>  这行代码前加以下代码，作用是讲<code>gcda</code>文件生成在iTunes共享文件中，以便获取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const char * prefix = &quot;GCOV_PREFIX&quot;;</span><br><span class="line">const char * prefixValue = [[NSHomeDirectory() stringByAppendingPathComponent:@&quot;Documents/coverageData&quot;] cStringUsingEncoding:NSASCIIStringEncoding];</span><br><span class="line">const char * prefixStrip = &quot;GCOV_PREFIX_STRIP&quot;;</span><br><span class="line">const char * prefixStripValue = &quot;1&quot;;</span><br><span class="line">setenv(prefix, prefixValue, 1);</span><br><span class="line">setenv(prefixStrip, prefixStripValue, 1);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>以上设置完毕就可以开始实际测试，build项目，在Mac上获取gcno文件，如果模拟器测试，会在同一位置获得gcda文件，如果是真机，那么真机连上电脑，会在iTunes中拿到gcda文件。</li>
-<li>拿到gcno和gcda文件，放在同一个文件夹中，就剩下将两者合并的工作，可以用lcov命令行操作也可以装CoverStory这个工具直接查看。</li>
-</ul>
-<p>至此所有流程完毕，但在Xcode 7上还是有Bug，最终文件的line data列的覆盖次数显示得不对，是非常奇怪的数字，Xcode 6就不会如此，猜测Xcode 7 为了支持自带的Covreage功能做了什么修改。</p>
-<p>另用Xcode 7.2.1打包的ipa，真机会出现gcda生成不完全，与gcno不匹配的现象。Xcode 7.3 Beta也不行，但是Xcode7.2 是可以的，这就不知道为何了。。。。<code>2016年4月22日晚补充：真机会出现gcda生成不完全，该问题在Xcode7.3正式版已不会出现；与gcno不匹配的现象，我的实验还会出现</code></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说这次调研不怎么成功吧，一直受到 Xcode 自身的干扰。。。</p>
-<h2 id="引用致谢"><a href="#引用致谢" class="headerlink" title="引用致谢"></a>引用致谢</h2><blockquote>
-<p>《移动App测试实战》第五章第二节</p>
-<p><a href="https://developer.apple.com/videos/play/wwdc2015/410/" target="_blank" rel="external">WWDC 2015 Session 410 Continuous Integration and Code Coverage in Xcode </a></p>
+        <h2 id="iPv6-那点事"><a href="#iPv6-那点事" class="headerlink" title="iPv6 那点事"></a>iPv6 那点事</h2><h2 id="iPv4-和-iPv6"><a href="#iPv4-和-iPv6" class="headerlink" title="iPv4 和 iPv6"></a>iPv4 和 iPv6</h2><h3 id="为什么有iPv6？"><a href="#为什么有iPv6？" class="headerlink" title="为什么有iPv6？"></a>为什么有iPv6？</h3><p>原因很显然，因为iPv4不够用啦，当初设计iPv4是32位，显然是不够全世界那么多人、机构配一个IP的，于是iPv6闪亮登场</p>
+<h3 id="iPv4"><a href="#iPv4" class="headerlink" title="iPv4"></a>iPv4</h3><p>iPv4是32位，十六进制表示法：<code>XX:XX:XX:XX</code></p>
+<h3 id="iPv6"><a href="#iPv6" class="headerlink" title="iPv6"></a>iPv6</h3><p>iPv6是128位，十六进制表示法：<code>XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX</code>，当有一段连续的<code>0</code>，可以用<code>:</code>压缩表示，比如 <code>FF01:0:0:0:0:0:0:1101 → FF01::1101</code></p>
+<h2 id="iPv4-iPv6-映射规则"><a href="#iPv4-iPv6-映射规则" class="headerlink" title="iPv4 iPv6 映射规则"></a>iPv4 iPv6 映射规则</h2><blockquote>
+<p>64:ff9b::IPv4 = IPv6</p>
 </blockquote>
+<h2 id="DNS64"><a href="#DNS64" class="headerlink" title="DNS64"></a>DNS64</h2><p>在iPv6设备环境下，当传统DNS服务器把域名转换成iPv4地址传回来，这时候就需要把IPv4地址通过映射规则转换成一个看着像IPv6地址的地址</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>把iPv4地址映射成iPv6地址</p>
+<h3 id="运作方式"><a href="#运作方式" class="headerlink" title="运作方式"></a>运作方式</h3><ol>
+<li>判断IP，如果是iPv4，那么执行IP地址转换；如果是iPv6，不用转换</li>
+<li>根据<code>映射规则</code>，映射即可</li>
+</ol>
+<h2 id="NAT64"><a href="#NAT64" class="headerlink" title="NAT64"></a>NAT64</h2><p>在iPv6设备环境下，不管原IP地址是iPv6还是iPv4，如果不做转换，访问地址就真的变成iPv6格式的地址了，那些是iPv4的路由器显然就不认识你访问的是啥了，所以当真的要去访问外网资源时，还需要把IP地址转换成原IP地址</p>
+<h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>把IP映射成原IP地址，然后使用原IP地址调用API</p>
+<h3 id="运作方式-1"><a href="#运作方式-1" class="headerlink" title="运作方式"></a>运作方式</h3><ol>
+<li>通过<code>映射规则</code>，我们知道iPv4转换成iPv6后，前缀就是<code>64:ff9b::</code></li>
+<li>通过判断前缀，如果前缀等于<code>64:ff9b::</code>，那么执行IP地址转换；如果不等于，说明原IP就是iPv6格式的，不用转换</li>
+<li>根据<code>映射规则</code>，反向映射即可</li>
+<li>使用映射判断后的IP地址访问外网资源</li>
+</ol>
 
       
     </div>
@@ -332,7 +317,9 @@
           
             <a href="/tags/iOS/" rel="tag">#iOS</a>
           
-            <a href="/tags/CodeCoverage/" rel="tag">#CodeCoverage</a>
+            <a href="/tags/Networking/" rel="tag">#Networking</a>
+          
+            <a href="/tags/iPv6/" rel="tag">#iPv6</a>
           
         </div>
       
@@ -341,17 +328,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/05/2016-03-05-First Blog/" rel="next" title="第一篇，初建">
-                <i class="fa fa-chevron-left"></i> 第一篇，初建
+              <a href="/2016/08/06/2016-08-06-React Native Tips/" rel="next" title="React Native路上的坑">
+                <i class="fa fa-chevron-left"></i> React Native路上的坑
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/19/2016-03-19-Reading Note 01/" rel="prev" title="《Objective-C 高级编程》第一章读书笔记">
-                《Objective-C 高级编程》第一章读书笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -476,7 +459,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Coverage-简介"><span class="nav-number">1.</span> <span class="nav-text">Code Coverage 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xcode7里的Code-Coverage"><span class="nav-number">2.</span> <span class="nav-text">Xcode7里的Code Coverage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCOV"><span class="nav-number">3.</span> <span class="nav-text">GCOV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用致谢"><span class="nav-number">5.</span> <span class="nav-text">引用致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iPv6-那点事"><span class="nav-number">1.</span> <span class="nav-text">iPv6 那点事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPv4-和-iPv6"><span class="nav-number">2.</span> <span class="nav-text">iPv4 和 iPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么有iPv6？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么有iPv6？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iPv4"><span class="nav-number">2.2.</span> <span class="nav-text">iPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iPv6"><span class="nav-number">2.3.</span> <span class="nav-text">iPv6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPv4-iPv6-映射规则"><span class="nav-number">3.</span> <span class="nav-text">iPv4 iPv6 映射规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS64"><span class="nav-number">4.</span> <span class="nav-text">DNS64</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">4.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运作方式"><span class="nav-number">4.2.</span> <span class="nav-text">运作方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT64"><span class="nav-number">5.</span> <span class="nav-text">NAT64</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能-1"><span class="nav-number">5.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运作方式-1"><span class="nav-number">5.2.</span> <span class="nav-text">运作方式</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -596,9 +579,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'd3mo';
-      var disqus_identifier = '2016/03/12/2016-03-11-Code Coverage/';
-      var disqus_title = 'Code Coverage 杂谈';
-      var disqus_url = 'http://yoursite.com/2016/03/12/2016-03-11-Code Coverage/';
+      var disqus_identifier = '2016/08/28/2016-08-28-iPv6 Note/';
+      var disqus_title = 'iPv6 那点事儿';
+      var disqus_url = 'http://yoursite.com/2016/08/28/2016-08-28-iPv6 Note/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
