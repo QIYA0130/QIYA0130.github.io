@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="记录React Native踩的坑？会一直Update?">
 <meta property="og:image" content="http://yoursite.com/../../../../../images/Flux.png">
-<meta property="og:updated_time" content="2016-09-15T12:54:06.000Z">
+<meta property="og:updated_time" content="2016-09-15T12:55:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native路上的坑">
 <meta name="twitter:description" content="记录React Native踩的坑？会一直Update?">
@@ -337,14 +337,16 @@
 <p>在iOS里可以方便的设置抗压缩和抗拉伸优先级，但是Flexbox好像没有这种东西。<br>我的解决方案是设置<code>flex</code>, 一个设置<code>1</code>,一个设置<code>-1</code>。</p>
 <p>但其实这不是一个完美的解决方案，不能解决类似<strong><em>三个<code>UILabel</code>并排</em></strong>的情况，我还在摸索中。。。。</p>
 <ul>
-<li><code>ScrollView</code> 多出一些额外高度<br>比如<code>ScrollView</code>明明设置了满屏，但却距离顶部有莫名其妙的20点的距离。</li>
+<li><code>ScrollView</code> 多出一些额外高度</li>
 </ul>
+<p>比如<code>ScrollView</code>明明设置了满屏，但却距离顶部有莫名其妙的20点的距离。</p>
 <p>这个时候应该设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">automaticallyAdjustContentInsets=&#123;false&#125;</span><br></pre></td></tr></table></figure></p>
 <p>另外如果你想要设置这个Inset，有一个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contentInset &#123;top: number, left: number, bottom: number, right: number&#125;</span><br></pre></td></tr></table></figure></p>
 <p>于是那么干 contentInset={40, 0, 0, 0}</p>
 <ul>
-<li><code>ScrollView</code> 嵌套多个 <code>ListView</code><br>当我这么干的时候，我发现<code>ListView</code>的高度不对了，每个<code>ListView</code>的高度都一样，不是根据<code>DataSource</code>来适配高度的。<br>整个就很怪异了，有一些ListView因为<code>DataSource</code>数据量大，可以在内部滑动；一些<code>ListView</code>明明不需要那么高，也显示那个高度。</li>
+<li><code>ScrollView</code> 嵌套多个 <code>ListView</code></li>
 </ul>
+<p>当我这么干的时候，我发现<code>ListView</code>的高度不对了，每个<code>ListView</code>的高度都一样，不是根据<code>DataSource</code>来适配高度的。<br>整个就很怪异了，有一些ListView因为<code>DataSource</code>数据量大，可以在内部滑动；一些<code>ListView</code>明明不需要那么高，也显示那个高度。</p>
 <p>解决方案是给ListView的<code>felx</code>设置为<code>-1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">style=&#123;&#123;flex: -1&#125;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>我也不知道为什么不设置会出现那种怪异的景象。</p>
 <h3 id="InteractionManager避免阻塞动画交互"><a href="#InteractionManager避免阻塞动画交互" class="headerlink" title="InteractionManager避免阻塞动画交互"></a><code>InteractionManager</code>避免阻塞动画交互</h3><p>有时一些操作是非常耗时的，这时候动画交互就会很卡顿，比如push新页面的动画，这时候就可以祭出杀器<code>InteractionManager</code>。</p>
