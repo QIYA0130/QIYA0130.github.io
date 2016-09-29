@@ -1,0 +1,694 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,React Native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前几天弄了下RN的热更新，是时候来一发了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 之 热更新实践">
+<meta property="og:url" content="http://yoursite.com/2016/09/29/2016-09-29-React Native HotFix/index.html">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="前几天弄了下RN的热更新，是时候来一发了">
+<meta property="og:updated_time" content="2016-09-29T15:52:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native 之 热更新实践">
+<meta name="twitter:description" content="前几天弄了下RN的热更新，是时候来一发了">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6280845448856995000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> React Native 之 热更新实践 | DEMO </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DEMO</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我有🍭、抱你可以嘛？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Native 之 热更新实践
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-29T22:52:42+08:00" content="2016-09-29">
+              2016-09-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/29/2016-09-29-React Native HotFix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/29/2016-09-29-React Native HotFix/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>macOS Sierra、Xcode 8</p>
+<h2 id="Code-Push的使用"><a href="#Code-Push的使用" class="headerlink" title="Code-Push的使用"></a><code>Code-Push</code>的使用</h2><ol>
+<li><p>注册codePush账户<br><code>code-push register</code></p>
+<p>这步会直接打开一个网页，我选了<code>Github</code>账户登录，然后你会得到一个<code>Access-Key</code>，以后登录的时候可以用</p>
+</li>
+<li><p>添加codePush应用<br><code>code-push app add &lt;AppName&gt;</code></p>
+</li>
+<li><p>查看应用<br><code>code-push app ls</code></p>
+</li>
+<li><p>查看应用的环境信息<br><code>code-push deployment list &lt;AppName&gt; --format json</code></p>
+</li>
+<li><p>给应用添加测试环境<br><code>code-push deployment add &lt;AppName&gt; &lt;DeploymentName&gt;</code></p>
+</li>
+<li><p>查看发布的热更新的历史版本<br><code>code-push deployment history &lt;AppName&gt; &lt;DeploymentName&gt;</code></p>
+</li>
+<li><p>回退版本<br><code>code-push rollback &lt;AppName&gt; &lt;DeploymentName&gt;</code><br>回退到之前的一个版本</p>
+</li>
+<li><p>登录/退出<br><code>code-push login</code><br><code>code-push logout</code></p>
+</li>
+</ol>
+<h2 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h2><p>网上普遍有两种热更新工具可用，分别是<code>react-native-code-push</code>和<code>react-native-pushy</code>。<br>这边没有做太多研究，直接使用了<code>react-native-code-push</code>做尝试，所以本篇Blog也是讲述围绕<code>react-native-code-push</code>做RN热更新的实践。<em>maybe 以后尝试一下<code>react-native-pushy</code></em></p>
+<h2 id="热更新实现过程"><a href="#热更新实现过程" class="headerlink" title="热更新实现过程"></a>热更新实现过程</h2><h3 id="安装react-native-code-push"><a href="#安装react-native-code-push" class="headerlink" title="安装react-native-code-push"></a>安装<code>react-native-code-push</code></h3><ol>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g code-push-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>Code-Push</code>账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push register</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加自己的App</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push app add &lt;AppName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="在项目中集成react-native-code-push"><a href="#在项目中集成react-native-code-push" class="headerlink" title="在项目中集成react-native-code-push"></a>在项目中集成<code>react-native-code-push</code></h3><h4 id="Xcode-工程文件的相关配置"><a href="#Xcode-工程文件的相关配置" class="headerlink" title="Xcode 工程文件的相关配置"></a>Xcode 工程文件的相关配置</h4><ol>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-code-push</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拖入工程<br>在项目根目录下文件夹<code>react-native-code-push</code>中的<code>CodePush.xcodeproj</code>直接拉入项目中。</p>
+</li>
+<li><p>添加Link<br><code>CodePush.xcodeproj/Products</code>中的<code>libCodePush.a</code>直接拖入工程<code>Build Phase</code>Tab下的的<code>Link Binary With Libraries</code>中。</p>
+<p><code>Link Binary With Libraries</code>中加入<code>libz.tbd</code></p>
+</li>
+<li><p>增加<code>Header Search Path</code>设置<br><code>Build Settings</code>Tab下的<code>Header Search Paths</code>那一项中加入<code>$(SRCROOT)/../node_modules/react-native-code-push</code>，<strong>注意</strong>要选择<code>recursive</code>。</p>
+</li>
+<li><p>修改加载<code>RN Module</code>的文件的代码</p>
+<p> 引入<code>#import &quot;CodePush.h&quot;</code></p>
+<p> 更改加载路径</p>
+<p> <code>NSURL *jsCodeLocation = [CodePush bundleURL];</code></p>
+</li>
+<li><p>增加<code>CodePushDeploymentKey</code><br>使用命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-push deployment ls &lt;AppName&gt; --displayKeys</span><br></pre></td></tr></table></figure>
+<p>查出需要的<code>deployment</code>的<code>Key</code>值，在<code>info.plist</code>文件中添加<code>CodePushDeploymentKey</code>并且把对应的<code>deployment</code>的值填入。</p>
+<p>这个值很重要，在发布热更新的时候会根据这个<code>CodePushDeploymentKey</code>对App进行定向更新。</p>
+</li>
+<li><p>设置<code>Bundle versions string</code></p>
+<p>设置<code>Info.plist</code>中将<code>Bundle versions string, short</code>的值。</p>
+<p>这个值很重要，在发布热更新的时候会根据这个版本号对App进行定向更新。</p>
+</li>
+</ol>
+<h4 id="RN代码的配置"><a href="#RN代码的配置" class="headerlink" title="RN代码的配置"></a><code>RN代码的配置</code></h4><p>在js文件中引入（我的项目文件是index.ios.js）</p>
+<p><code>import codePush from &quot;react-native-code-push&quot;;</code></p>
+<p>在componentDidMount调用sync方法，当你的App启动的时候会在后台更新</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">    codePush.sync();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="发布热跟新版本"><a href="#发布热跟新版本" class="headerlink" title="发布热跟新版本"></a>发布热跟新版本</h3><h4 id="打Bundle包"><a href="#打Bundle包" class="headerlink" title="打Bundle包"></a>打<code>Bundle</code>包</h4><ul>
+<li><p>无图片资源<br><code>react-native bundle --platform ios --entry-file index.ios.js --bundle-output main.js --dev false</code></p>
+</li>
+<li><p>有图片资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle \</span><br><span class="line">--platform ios \</span><br><span class="line">--entry-file index.ios.js \</span><br><span class="line">--bundle-output ./release/main.jsbundle \</span><br><span class="line">--assets-dest ./release \</span><br><span class="line">--dev false</span><br></pre></td></tr></table></figure>
+<p><code>release</code>是图片资源的文件夹</p>
+</li>
+</ul>
+<h4 id="Code-Push-发布"><a href="#Code-Push-发布" class="headerlink" title="Code Push 发布"></a>Code Push 发布</h4><p><code>code-push release &lt;appName&gt; &lt;jsBundleFilePath&gt; &lt;targetBinaryVersion&gt; --deploymentName</code></p>
+<p>例如<br><code>code-push release MyProject main.jsbundle 1.0.0</code><br><code>code-push release MyProject -d Staging main.jsbundle 1.0.0</code></p>
+<h2 id="真机测试"><a href="#真机测试" class="headerlink" title="真机测试"></a>真机测试</h2><p>一个iOS程序要真机测试，有两种方法，打ipa包安装到手机上；Mac连上手机，直接Xcode运行。</p>
+<p>因为我没有$99的开发者账号，所以采用第二种方式测试。</p>
+<p><strong>这里有一个重要Tip</strong><br><strong>这里有一个重要Tip</strong><br><strong>这里有一个重要Tip</strong><br>Xcode直接真机运行的时候，要将<code>Scheme</code>改成<code>Release</code>模式，如果使用<code>Debug</code>模式运行到手机上，发布的热更新版本将不会被更新到手机上。</p>
+<p>除此之外，和平时真机运行没什么区别了，把<code>Release</code>版本安装到手机上，发布热更新版本，等待<code>code-push</code>平台处理，然后重启应用两次，就能看到更新后的效果了。</p>
+<p>为什么是两次，因为第一次启动download更新包，第二次启动才执行更新包的代码。</p>
+<h2 id="遇到的问题解决Tips"><a href="#遇到的问题解决Tips" class="headerlink" title="遇到的问题解决Tips"></a>遇到的问题解决Tips</h2><h3 id="RCTWebSocket"><a href="#RCTWebSocket" class="headerlink" title="RCTWebSocket"></a>RCTWebSocket</h3><p>做这个实践的时候，新建了一个新的RN工程，<code>RCTWebSocket</code>在Xcode8上直接编译不通过。</p>
+<p>在<a href="https://github.com/facebook/react-native/issues/8584" target="_blank" rel="external">issue #8584</a>找到了解决方案，详见<strong>TimBroddin</strong>的回答</p>
+<h3 id="RCTLog报错"><a href="#RCTLog报错" class="headerlink" title="RCTLog报错"></a>RCTLog报错</h3><p><code>[tid:com.facebook.react.RCTExceptionsManagerQueue] Unhandled JS Exception: Module RCTLog is not a registered callable module.</code></p>
+<p><a href="https://github.com/facebook/react-native/issues/8663" target="_blank" rel="external">issue #8863</a>给出了解决方案。<br>在<code>index.ios.js</code>中导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var RCTLog = require(&apos;RCTLog&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>Yup，不管你工程用的是ES5写法还是ES6写法，都要这么导入</p>
+<h3 id="热更新包名字不重复"><a href="#热更新包名字不重复" class="headerlink" title="热更新包名字不重复"></a>热更新包名字不重复</h3><p>每次打包的热更新包的名字不能重复</p>
+<h3 id="App-Version格式"><a href="#App-Version格式" class="headerlink" title="App Version格式"></a>App Version格式</h3><p>Version格式必须类似<code>1.0.0</code>，不能<code>1.0</code>，当然也不能是<code>1.0.0.0</code><del>~</del>~~</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p><a href="https://github.com/coderwin/CodePushCN" target="_blank" rel="external">Code Push 文档</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/React-Native/" rel="tag">#React Native</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/28/2016-08-28-iPv6 Note/" rel="next" title="iPv6 那点事儿">
+                <i class="fa fa-chevron-left"></i> iPv6 那点事儿
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
+          <p class="site-description motion-element" itemprop="description">终其一生爱优雅</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DEMO0130" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行环境"><span class="nav-number">1.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Push的使用"><span class="nav-number">2.</span> <span class="nav-text">Code-Push的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案选择"><span class="nav-number">3.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#热更新实现过程"><span class="nav-number">4.</span> <span class="nav-text">热更新实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装react-native-code-push"><span class="nav-number">4.1.</span> <span class="nav-text">安装react-native-code-push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在项目中集成react-native-code-push"><span class="nav-number">4.2.</span> <span class="nav-text">在项目中集成react-native-code-push</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode-工程文件的相关配置"><span class="nav-number">4.2.1.</span> <span class="nav-text">Xcode 工程文件的相关配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RN代码的配置"><span class="nav-number">4.2.2.</span> <span class="nav-text">RN代码的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布热跟新版本"><span class="nav-number">4.3.</span> <span class="nav-text">发布热跟新版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打Bundle包"><span class="nav-number">4.3.1.</span> <span class="nav-text">打Bundle包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-Push-发布"><span class="nav-number">4.3.2.</span> <span class="nav-text">Code Push 发布</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真机测试"><span class="nav-number">5.</span> <span class="nav-text">真机测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题解决Tips"><span class="nav-number">6.</span> <span class="nav-text">遇到的问题解决Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RCTWebSocket"><span class="nav-number">6.1.</span> <span class="nav-text">RCTWebSocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RCTLog报错"><span class="nav-number">6.2.</span> <span class="nav-text">RCTLog报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热更新包名字不重复"><span class="nav-number">6.3.</span> <span class="nav-text">热更新包名字不重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-Version格式"><span class="nav-number">6.4.</span> <span class="nav-text">App Version格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">7.</span> <span class="nav-text">引用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'd3mo';
+      var disqus_identifier = '2016/09/29/2016-09-29-React Native HotFix/';
+      var disqus_title = 'React Native 之 热更新实践';
+      var disqus_url = 'http://yoursite.com/2016/09/29/2016-09-29-React Native HotFix/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
