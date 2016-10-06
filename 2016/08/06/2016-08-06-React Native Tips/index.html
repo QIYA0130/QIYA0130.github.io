@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="记录React Native踩的坑？会一直Update?">
 <meta property="og:image" content="http://yoursite.com/../../../../../images/Flux.png">
-<meta property="og:updated_time" content="2016-10-06T14:28:08.000Z">
+<meta property="og:updated_time" content="2016-10-06T14:28:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native路上的坑">
 <meta name="twitter:description" content="记录React Native踩的坑？会一直Update?">
@@ -354,6 +354,7 @@
 <p>不过整个<code>ListView</code>第一次加载还是会把一百多个小标签一次性渲染，这个暂时没想到办法，网上也有说渐进式渲染，滑到哪里渲染到哪里，但是暂时没去研究，只能是<code>TODO</code>了。。。。</p>
 <h3 id="Navigator-禁止侧滑手势"><a href="#Navigator-禁止侧滑手势" class="headerlink" title="Navigator 禁止侧滑手势"></a>Navigator 禁止侧滑手势</h3><p>直接上代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Navigator</span><br><span class="line">  configureScene=&#123;() =&gt; (&#123;</span><br><span class="line">    ...Navigator.SceneConfigs.FloatFromBottom,</span><br><span class="line">    gestures: &#123;&#125;, // or null</span><br><span class="line">  &#125;)</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p><em>重要的是<code>gesture</code>的设置</em></p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><blockquote>
 <p>一直<del>可能</del>未完待续。。。。。。。。。。。</p>
 </blockquote>
