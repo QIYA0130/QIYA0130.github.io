@@ -1,0 +1,642 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,LLDB," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="打印视图层级这个相信很多人都会了，是ta是ta就是ta recursiveDescription
+用法大概就是如下123po [self.view recursiveDescription]po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]
+Expression大法本篇Blog基本会围绕这个命令展开，这个命">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLDB奇巧淫技">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/2016-11-15-LLDB 01/index.html">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="打印视图层级这个相信很多人都会了，是ta是ta就是ta recursiveDescription
+用法大概就是如下123po [self.view recursiveDescription]po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]
+Expression大法本篇Blog基本会围绕这个命令展开，这个命">
+<meta property="og:updated_time" content="2016-11-15T12:54:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LLDB奇巧淫技">
+<meta name="twitter:description" content="打印视图层级这个相信很多人都会了，是ta是ta就是ta recursiveDescription
+用法大概就是如下123po [self.view recursiveDescription]po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]
+Expression大法本篇Blog基本会围绕这个命令展开，这个命">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6280845448856995000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> LLDB奇巧淫技 | DEMO </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DEMO</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我有🍭、抱你可以嘛？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LLDB奇巧淫技
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T20:48:12+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/2016-11-15-LLDB 01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-LLDB 01/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="打印视图层级"><a href="#打印视图层级" class="headerlink" title="打印视图层级"></a>打印视图层级</h2><p>这个相信很多人都会了，是ta是ta就是ta <code>recursiveDescription</code></p>
+<p>用法大概就是如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">po [self.view recursiveDescription]</span><br><span class="line"></span><br><span class="line">po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]</span><br></pre></td></tr></table></figure></p>
+<h2 id="Expression大法"><a href="#Expression大法" class="headerlink" title="Expression大法"></a>Expression大法</h2><p>本篇Blog基本会围绕这个命令展开，这个命令是一个神奇的命令。<br>由于本人才疏学浅，并不知道该怎么介绍这个命令，只能一言以蔽之，他的功能是 <strong>执行一个表达式</strong></p>
+<p>用这个命令基本上就可以玩出花了，普通的方法函数都可以在LLDB调用了。</p>
+<h3 id="UI样式更新"><a href="#UI样式更新" class="headerlink" title="UI样式更新"></a>UI样式更新</h3><p>首先本人钟爱使用Xcode自带的<code>Debug View Hierarchy</code>功能，于是讲一下如何在该Debud过程中动态修改UI。</p>
+<p>简述一下过程就是：<strong>获取对象</strong> -&gt; <strong>对对象调用方法（更改样式）</strong> -&gt; <strong>渲染</strong></p>
+<ol>
+<li><strong>获取对象</strong><br>选中 需要修改的控件<br>查看 右侧栏中的<code>Object inspector</code>，这里你能看到一个<code>Address</code>属性，有了这个可谓成功了一半，接下来就是coding。<br>这里先假设这个<code>Address</code>是<code>0x7fcef0c19290</code></li>
+<li><p><strong>对对象调用方法（更改样式）</strong><br>比如说我想要改背景颜色，可以这样<code>e (void)[0x7fcef0c19290 setBackgroundColor:[UIColor blueColor]]</code>。<br>这是比较随意直接的一种写法，也可以一步一步写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">e UIView * $myView = (UIView *)0x7fcef0c19290</span><br><span class="line"></span><br><span class="line">e $myView.backgroundColor = [UIColor yellowColor]</span><br><span class="line">//下面这句和上一句的意思一样，你懂得</span><br><span class="line">//e (void)[$myView setBackgroundColor:[UIColor yellowColor]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>渲染</strong><br>然后到这里，你会发现并没什么卵用，是的，还差最后一步，渲染。<br><code>e (void)[CATransaction flush]</code><br>邦邦，是不是可以看到背景颜色变掉了</p>
+</li>
+</ol>
+<p>以上可以在第2步中玩出花来，就看你怎么玩了</p>
+<h4 id="强行刷新约束"><a href="#强行刷新约束" class="headerlink" title="强行刷新约束"></a>强行刷新约束</h4><p>于是我就要讲述一下我玩的恶趣味，能改背景颜色等基础样式觉得不过瘾，我就是想能改约束玩玩。</p>
+<p>首先很天真，把<code>Masonry</code>的代码直接打进去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e (void)[$view mas_updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make.height.equalTo(@20);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure></p>
+<p><code>LLDB</code>妥妥的告诉我诸如<code>unrecognize、undefined</code>等信息。</p>
+<p>于是好吧，我想用原生的约束方法总行了吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e NSLayoutConstraint * $constraint = [NSLayoutConstraint constraintWithItem:$view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0f constant:100.0f]</span><br></pre></td></tr></table></figure></p>
+<p>结果<code>LLDB</code>说我不认识<code>NSLayoutAttributeHeight、NSLayoutRelationEqual</code>，我次奥，好的算你横，我把枚举对应的数值查了出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e NSLayoutConstraint* $constraint = [NSLayoutConstraint constraintWithItem:$test attribute:8 relatedBy:0 toItem:nil attribute:8 multiplier:1 constant:80.0f]</span><br></pre></td></tr></table></figure>
+<p>ok，这个约束变量总算是生成了，不容易，然后就是加约束了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e (void)[$view addConstraint:$constraint]</span><br></pre></td></tr></table></figure></p>
+<p>好吧，加是加上去了，但是妥妥的约束冲突啊，本来就已经有一个高度约束了呀，于是继续<br>获取原来的约束列表，然后新建变量指向原有的那个约束，删除之，搞定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">po [$view constraints]</span><br><span class="line">e NSLayoutConstraint* $oldConstraint = (NSLayoutConstraint*)0x6080000b34a0</span><br><span class="line">e (void)[$test removeConstraint:$oldConstraint]</span><br><span class="line">e (void)[CATransaction flush]</span><br></pre></td></tr></table></figure></p>
+<p>然后通过指向新约束的指针可以愉快的改<code>constant</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e $constraint.constant = 20</span><br><span class="line">e (void)[CATransaction flush]</span><br></pre></td></tr></table></figure></p>
+<p>当然如果你只是要修改约束，可以直接从新建一个变量指向<code>[$view constraints]</code>里的某个约束，然后愉快的修改，不用这么麻烦删掉原来的、创建新的、加上新约束，简直<code>妈的智障</code></p>
+<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>这个代码提示几乎不支持啊，是我使用方式不对吗？？？？</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p><a href="https://objccn.io/issue-19-2/" target="_blank" rel="external">ObjC 中国</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/LLDB/" rel="tag">#LLDB</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/29/2016-09-29-React Native HotFix/" rel="next" title="React Native 之 热更新实践">
+                <i class="fa fa-chevron-left"></i> React Native 之 热更新实践
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
+          <p class="site-description motion-element" itemprop="description">终其一生爱优雅</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DEMO0130" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#打印视图层级"><span class="nav-number">1.</span> <span class="nav-text">打印视图层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expression大法"><span class="nav-number">2.</span> <span class="nav-text">Expression大法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI样式更新"><span class="nav-number">2.1.</span> <span class="nav-text">UI样式更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强行刷新约束"><span class="nav-number">2.1.1.</span> <span class="nav-text">强行刷新约束</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吐槽"><span class="nav-number">3.</span> <span class="nav-text">吐槽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'd3mo';
+      var disqus_identifier = '2016/11/15/2016-11-15-LLDB 01/';
+      var disqus_title = 'LLDB奇巧淫技';
+      var disqus_url = 'http://yoursite.com/2016/11/15/2016-11-15-LLDB 01/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
