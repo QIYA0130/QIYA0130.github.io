@@ -1,0 +1,660 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,Cocoapods,Static Library," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="基于 Cocoapods 的 pod 二进制化与原码切换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pod">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/2018-03-03-Pod Framework/index.html">
+<meta property="og:site_name" content="DEMO">
+<meta property="og:description" content="基于 Cocoapods 的 pod 二进制化与原码切换">
+<meta property="og:updated_time" content="2018-03-02T17:44:07.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pod">
+<meta name="twitter:description" content="基于 Cocoapods 的 pod 二进制化与原码切换">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6280845448856995000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Pod | DEMO </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">DEMO</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我有🍭、抱你可以嘛？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Pod
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-03T00:46:41+08:00" content="2018-03-03">
+              2018-03-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/03/2018-03-03-Pod Framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/03/2018-03-03-Pod Framework/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00000-背景"><a href="#0x00000-背景" class="headerlink" title="0x00000 背景"></a>0x00000 背景</h2><p>随着业务发展、组件越早越多，Xcode 日常跑 app耗时越来越长，降低了效率。<br>于是提出以下需求</p>
+<ul>
+<li>pod 库二进制化来提升编译速度</li>
+<li>提供切换回源码的开关，以便 debug 所需</li>
+<li>二进制化不受 pod 库之间依赖的影响<br>（即当 A 依赖 B，A 打出 framewoek 后，即使 B 更新版本，A 不用重新二进制化）</li>
+</ul>
+<h2 id="0x010000-业内现有方案"><a href="#0x010000-业内现有方案" class="headerlink" title="0x010000 业内现有方案"></a>0x010000 业内现有方案</h2><p><a href="https://www.jianshu.com/p/5338bc626eaf?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案 - 简书</a><br><a href="https://www.jianshu.com/p/85c97dc9ab83?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案及详细教程二之subspecs篇 - 简书</a></p>
+<p>看了这两篇 Blog 的方案，博主写的很详细，膜拜一下<br>但是不方便的是，需要手动去建 target、加资源什么的<br>然后通过这个 target 来打出 framewoek<br>emmmmmm，hin 麻烦</p>
+<p>然后有人指点直接利用 cocoapods 来管理生成target、添加资源就行了，不用手动去做</p>
+<p>详细研究后，发现连这一步都省了，可以直接利用 cocoapods 打出 framework</p>
+<h2 id="0x020000-改进方案"><a href="#0x020000-改进方案" class="headerlink" title="0x020000 改进方案"></a>0x020000 改进方案</h2><p><strong>去掉为了打出 framework 而做的额外工作，实现一个命令出 framework 的效果</strong></p>
+<h3 id="0x020100-遇到问题及解决"><a href="#0x020100-遇到问题及解决" class="headerlink" title="0x020100 遇到问题及解决"></a>0x020100 遇到问题及解决</h3><ol>
+<li><p>二进制库的制作</p>
+<p><strong>pod package</strong> 默认打包会把dependency的源码打入pod库，不适合，在主工程集成会导致重复、版本不一致等问题。</p>
+<p>发现了 pod package 有两个参数</p>
+<p><code>--no-mangle</code>    //表示不使用name mangling技术</p>
+<p><code>--exclude-deps</code> //不包含依赖的符号表</p>
+<p>这简直是一个神器了咯，直接出 framework。可行</p>
+<p><strong>Carthage</strong> 打的是动态库，不适合，动态库调用静态库会有问题。不可行（貌似现在支持静态库了，还没研究）</p>
+<p><strong>脚本</strong> 利用 cocoapods 生成 target，跑脚本生成模拟器和真机的 framework，合并 framework。 可行（脚本就不放了）</p>
+</li>
+</ol>
+<ol>
+<li><p>主工程的集成（static or dynamic）</p>
+<p>static framework :</p>
+<p>不使用use_framework! ： build 提示找不到依赖库的framework，因为脚本打包出的pod framework的时候link的应该是framework</p>
+<p>使用use_framework! ： pods.xocdeporoject下没有该二进制pod的target，导致pods间调用时的头文件都找不到</p>
+<p>static library ： 集成时 提示 The ‘Pods-CardApp’ target has libraries with conflicting names: libPodDemo.a，暂时不知道原因</p>
+</li>
+<li><p>resource</p>
+</li>
+</ol>
+<h3 id="0x020200-方案核心"><a href="#0x020200-方案核心" class="headerlink" title="0x020200 方案核心"></a>0x020200 方案核心</h3><ol>
+<li>正常开发 pod</li>
+<li>使用 pod package 打出 static framework</li>
+<li>通过 podspec 控制 framework 和 源码</li>
+<li>主工程在 podfile 里使用参数集成 pod</li>
+</ol>
+<h3 id="0x020300-详细实现"><a href="#0x020300-详细实现" class="headerlink" title="0x020300 详细实现"></a>0x020300 详细实现</h3><p>假设 pod 是 PodDemo<br>主工程是 AppDemo</p>
+<p>出于实际情况的考虑，兼容其他项目组的开发，pod 库 默认还是使用源码，按项目的需要开启二进制集成的开关。</p>
+<h4 id="0x020301-打framework"><a href="#0x020301-打framework" class="headerlink" title="0x020301 打framework"></a>0x020301 打framework</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用源码打framework</span></span><br><span class="line">pod package PodDemo.podspec --force --embedded --no-mangle --exclude-deps --spec-sources=私库地址,https://github.com/CocoaPods/Specs.git</span><br></pre></td></tr></table></figure>
+<h4 id="0x020302-podspec"><a href="#0x020302-podspec" class="headerlink" title="0x020302 podspec"></a>0x020302 podspec</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to run `pod lib lint PodDemo.podspec' to ensure this is a</span></span><br><span class="line"><span class="comment"># valid spec before submitting.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Any lines starting with a # are optional, but their use is encouraged</span></span><br><span class="line"><span class="comment"># To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">Pod::Spec.new <span class="keyword">do</span> <span class="params">|s|</span></span><br><span class="line">  s.name             = <span class="string">'PodDemo'</span></span><br><span class="line">  s.version          = <span class="string">'0.1.1'</span></span><br><span class="line">  s.summary          = <span class="string">'A short description of PodDemo.'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This description is used to generate tags and improve search results.</span></span><br><span class="line"><span class="comment">#   * Think: What does it do? Why did you write it? What is the focus?</span></span><br><span class="line"><span class="comment">#   * Try to keep it short, snappy and to the point.</span></span><br><span class="line"><span class="comment">#   * Write the description between the DESC delimiters below.</span></span><br><span class="line"><span class="comment">#   * Finally, don't worry about the indent, CocoaPods strips it!</span></span><br><span class="line"></span><br><span class="line">  s.description      = &lt;&lt;-DESC</span><br><span class="line"><span class="symbol">TODO:</span> Add long description of the pod here.</span><br><span class="line">                       DESC</span><br><span class="line"></span><br><span class="line">  s.homepage         = <span class="string">'http://git.xxx.com/PodDemo'</span></span><br><span class="line">  <span class="comment"># s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'</span></span><br><span class="line">  s.license          = &#123; <span class="symbol">:type</span> =&gt; <span class="string">'MIT'</span>, <span class="symbol">:file</span> =&gt; <span class="string">'LICENSE'</span> &#125;</span><br><span class="line">  s.author           = &#123; <span class="string">'QiYa'</span> =&gt; <span class="string">''</span> &#125;</span><br><span class="line">  s.source           = &#123; <span class="symbol">:git</span> =&gt; <span class="string">'http://git.xxx.com/PodDemo.git'</span>, <span class="symbol">:tag</span> =&gt; s.version.to_s &#125;</span><br><span class="line"></span><br><span class="line">  s.ios.deployment_target = <span class="string">'8.0'</span></span><br><span class="line">  s.requires_arc   = <span class="literal">true</span></span><br><span class="line">  s.xcconfig = &#123; <span class="string">"OTHER_LDFLAGS"</span> =&gt; <span class="string">"-ObjC -lc++"</span>&#125;</span><br><span class="line"></span><br><span class="line">  s.frameworks = <span class="string">'UIKit'</span>, <span class="string">'JavaScriptCore'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.resource_bundles = &#123;</span></span><br><span class="line">  <span class="comment">#   'PodDemo' =&gt; ['PodDemo-iOS/PodDemo/Assets/Resource.bundle','PodDemo-iOS/PodDemo/Assets/Media.xcassets']</span></span><br><span class="line">  <span class="comment"># &#125;</span></span><br><span class="line">  s.resources = [<span class="string">'PodDemo-iOS/PodDemo/Assets/Resource.bundle'</span>,<span class="string">'PodDemo-iOS/PodDemo/Assets/Media.xcassets'</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment">#cocoapods下载到缓存的时候两种格式的文件都下载，包括资源文件</span></span><br><span class="line">  <span class="comment">#s.preserve_paths = "PodDemo-iOS/PodDemo/Classes/**/*","PodDemo-0.1.1/ios/PodDemo.framework",'PodDemo-iOS/PodDemo/Assets/Resource.bundle','PodDemo-iOS/PodDemo/Assets/Media.xcassets'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  s.frameworks = <span class="string">'UIKit'</span>, <span class="string">'Foundation'</span></span><br><span class="line">  s.dependency <span class="string">'YYModel'</span></span><br><span class="line">  s.dependency <span class="string">'YYCache'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.source_files = 'PodDemo-iOS/PodDemo/Classes/**/*'</span></span><br><span class="line">  <span class="comment"># s.public_header_files = 'PodDemo-iOS/PodDemo/Classes/**/*.h'</span></span><br><span class="line">  <span class="keyword">if</span> ENV[<span class="string">'IS_BINARY'</span>]==<span class="string">"1"</span> <span class="params">||</span> ENV[<span class="string">"PodDemo_BINARY"</span>]==<span class="string">"1"</span></span><br><span class="line">    puts <span class="string">'-------------------------------------------------------------------'</span></span><br><span class="line">    puts <span class="string">'Notice:pod is binary now'</span></span><br><span class="line">    puts <span class="string">'-------------------------------------------------------------------'</span></span><br><span class="line">    s.ios.vendored_framework = <span class="string">'PodDemo/Binary/PodDemo.framework'</span></span><br><span class="line">    s.ios.public_header_files = <span class="string">'PodDemo/Binary/PodDemo.framework/Headers/*.h'</span></span><br><span class="line">    s.ios.source_files = <span class="string">'PodDemo/Binary/PodDemo.framework/Headers/*.h'</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">     puts <span class="string">'-------------------------------------------------------------------'</span></span><br><span class="line">     puts <span class="string">'Notice:pod is source now'</span></span><br><span class="line">     puts <span class="string">'-------------------------------------------------------------------'</span></span><br><span class="line">     s.source_files = <span class="string">'PodDemo-iOS/PodDemo/Classes/**/*'</span></span><br><span class="line">     s.public_header_files = <span class="string">'PodDemo-iOS/PodDemo/Classes/**/*.h'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>用环境变量区分binary和source</li>
+<li>bundle资源的写法格式要注意</li>
+<li><del>用<code>s.preserve_paths</code>  使 cocoapods下载到缓存的时候两种格式的文件都下载，方便主工程切换，不用clean pod chche</del></li>
+<li>默认使用源码，和其他项目兼容</li>
+</ul>
+<h4 id="0x020303-podfile"><a href="#0x020303-podfile" class="headerlink" title="0x020303 podfile"></a>0x020303 podfile</h4><p><strong>PodDemo podfile</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'PodDemo_Example'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  pod <span class="string">'PodDemo'</span>, <span class="symbol">:path</span> =&gt; <span class="string">'../../'</span></span><br><span class="line">  pod <span class="string">'YYModel'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>AppDemo podfile</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'AppDemo'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  pod <span class="string">'PodDemo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="0x020304-在主工程切换"><a href="#0x020304-在主工程切换" class="headerlink" title="0x020304 在主工程切换"></a>0x020304 在主工程切换</h4><ol>
+<li><p>pod cache clean XXX</p>
+</li>
+<li><p>delete pods/XXX</p>
+</li>
+</ol>
+<p>3.<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IS_BINARY=1 pod install</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">XXX_BINARY=1 pod install</span><br></pre></td></tr></table></figure></p>
+<p>稳定后，可以直接把参数写在podfile里<br>使用source不用加参数，照常使用<br>使用binary加参数</p>
+<h2 id="0x030000-展望"><a href="#0x030000-展望" class="headerlink" title="0x030000 展望"></a>0x030000 展望</h2><ol>
+<li>源码和二进制之间的切换还是略显麻烦，想办法改进下</li>
+</ol>
+<h2 id="0x040000-引用"><a href="#0x040000-引用" class="headerlink" title="0x040000 引用"></a>0x040000 引用</h2><p><a href="https://www.zybuluo.com/qidiandasheng/note/595740" target="_blank" rel="external">Pod二进制化 - 作业部落 Cmd Markdown 编辑阅读器</a><br><a href="https://www.jianshu.com/p/cc0686896fc1" target="_blank" rel="external">iOS组件化开发中的资源文件管理方案 - 简书</a></p>
+<p><a href="https://www.jianshu.com/p/5338bc626eaf?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案 - 简书</a><br><a href="https://www.jianshu.com/p/85c97dc9ab83?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案及详细教程二之subspecs篇 - 简书</a></p>
+<p><a href="https://www.jianshu.com/p/77a2a9be167f" target="_blank" rel="external">Let us write swift（解决use_framework!时第三方库是static… - 简书</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/Cocoapods/" rel="tag">#Cocoapods</a>
+          
+            <a href="/tags/Static-Library/" rel="tag">#Static Library</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/07/2017-09-07-Principles of Computer 01/" rel="next" title="原码、补码、反码和位运算">
+                <i class="fa fa-chevron-left"></i> 原码、补码、反码和位运算
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/03/2018-03-03-PodAutoRelease Shell/" rel="prev" title="PodAutoRelease">
+                PodAutoRelease <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="DEMO" />
+          <p class="site-author-name" itemprop="name">DEMO</p>
+          <p class="site-description motion-element" itemprop="description">终其一生爱优雅</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DEMO0130" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00000-背景"><span class="nav-number">1.</span> <span class="nav-text">0x00000 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x010000-业内现有方案"><span class="nav-number">2.</span> <span class="nav-text">0x010000 业内现有方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x020000-改进方案"><span class="nav-number">3.</span> <span class="nav-text">0x020000 改进方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x020100-遇到问题及解决"><span class="nav-number">3.1.</span> <span class="nav-text">0x020100 遇到问题及解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x020200-方案核心"><span class="nav-number">3.2.</span> <span class="nav-text">0x020200 方案核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x020300-详细实现"><span class="nav-number">3.3.</span> <span class="nav-text">0x020300 详细实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x020301-打framework"><span class="nav-number">3.3.1.</span> <span class="nav-text">0x020301 打framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x020302-podspec"><span class="nav-number">3.3.2.</span> <span class="nav-text">0x020302 podspec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x020303-podfile"><span class="nav-number">3.3.3.</span> <span class="nav-text">0x020303 podfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x020304-在主工程切换"><span class="nav-number">3.3.4.</span> <span class="nav-text">0x020304 在主工程切换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x030000-展望"><span class="nav-number">4.</span> <span class="nav-text">0x030000 展望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x040000-引用"><span class="nav-number">5.</span> <span class="nav-text">0x040000 引用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DEMO</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'd3mo';
+      var disqus_identifier = '2018/03/03/2018-03-03-Pod Framework/';
+      var disqus_title = 'Pod';
+      var disqus_url = 'http://yoursite.com/2018/03/03/2018-03-03-Pod Framework/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
