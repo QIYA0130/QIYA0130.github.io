@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/03/2018-03-03-PodAutoRelease Shell/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="批量发布 pod 的脚本">
-<meta property="og:updated_time" content="2018-03-02T17:51:24.364Z">
+<meta property="og:updated_time" content="2018-03-03T04:22:57.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="批量发布pod库">
 <meta name="twitter:description" content="批量发布 pod 的脚本">
@@ -276,8 +276,22 @@
       
         <h2 id="0x00-背景"><a href="#0x00-背景" class="headerlink" title="0x00 背景"></a>0x00 背景</h2><p>每当一个开发周期完毕，app 发掉版本后，此次修改的 pod 库也需要发布，这时候人力一个一个去发，耗时耗力</p>
 <p>于是弄个脚本来做这种事</p>
-<h2 id="0x01-脚本"><a href="#0x01-脚本" class="headerlink" title="0x01 脚本"></a>0x01 脚本</h2><pre><code class="shell">
-</code></pre>
+<h2 id="0x01-前期准备"><a href="#0x01-前期准备" class="headerlink" title="0x01 前期准备"></a>0x01 前期准备</h2><p><strong>fastlane</strong><br>这里使用 <code>fastlane</code> 来提供 <code>pod</code> 发布的一些具体 <code>action</code> 功能，如 <code>pod lint</code>、<code>version increase</code>、<code>pod push</code><br>所以每个 <code>pod</code> 库里都需要进入 <code>fastfile</code> 文件来响应这些功能<br>而包含这些执行发布 <code>action</code> 的文件以引入形式引入到 pod 库里的 <code>fastfile</code> 文件</p>
+<h2 id="0x02-最终方案"><a href="#0x02-最终方案" class="headerlink" title="0x02 最终方案"></a>0x02 最终方案</h2><h3 id="0x0201-shell-脚本"><a href="#0x0201-shell-脚本" class="headerlink" title="0x0201 shell 脚本"></a>0x0201 shell 脚本</h3><p>脚本思路是这样</p>
+<ol>
+<li>从主工程 <code>podfile</code> 中筛选出需要发布的 <code>pod，存放到一个数组中</code></li>
+<li>在主工程文件下生成一个 <code>podRepos</code> 文件夹用来存放 <code>pod repo</code>，循环3-8步</li>
+<li>获取数组中的 <code>pod</code> 信息，将 pod clone 下来，进入对应的 pod 目录</li>
+<li>检出响应的 <code>feature</code> 分支，执行 <code>pod lint</code> ，通过则继续，不通过则回到第3步继续下一个 <code>pod</code></li>
+<li>合到 <code>develop</code>，合到 <code>master</code></li>
+<li><code>increse version</code></li>
+<li><code>pod push</code></li>
+<li><code>develop</code> 合 <code>master</code></li>
+<li>回到 <code>podRepos</code> 目录</li>
+<li>所有发完后删除 <code>podRepos</code> 文件</li>
+</ol>
+<p>这里脚本还差最后一步没有实现，<br>所有 pod 发完后，主工程 <code>podfile</code> 文件应该将对应 <code>pod</code> 的 <code>feature</code> 指定给删掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">### 0x0201 fastlane 文件</span><br><span class="line">```ruby</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -443,7 +457,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-背景"><span class="nav-number">1.</span> <span class="nav-text">0x00 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-脚本"><span class="nav-number">2.</span> <span class="nav-text">0x01 脚本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-背景"><span class="nav-number">1.</span> <span class="nav-text">0x00 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-前期准备"><span class="nav-number">2.</span> <span class="nav-text">0x01 前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-最终方案"><span class="nav-number">3.</span> <span class="nav-text">0x02 最终方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x0201-shell-脚本"><span class="nav-number">3.1.</span> <span class="nav-text">0x0201 shell 脚本</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
