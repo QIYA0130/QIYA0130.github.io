@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/03/2018-03-03-Pod Framework/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="基于 Cocoapods 的 pod 二进制化与源码切换">
-<meta property="og:updated_time" content="2018-03-03T04:05:20.178Z">
+<meta property="og:updated_time" content="2018-03-03T04:26:57.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pod 二进制化">
 <meta name="twitter:description" content="基于 Cocoapods 的 pod 二进制化与源码切换">
@@ -295,8 +295,6 @@
 <p><strong>Carthage</strong> 打的是动态库，不适合，动态库调用静态库会有问题。不可行（貌似现在支持静态库了，还没研究）</p>
 <p><strong>脚本</strong> 利用 cocoapods 生成 target，跑脚本生成模拟器和真机的 framework，合并 framework。 可行（脚本就不放了）</p>
 </li>
-</ol>
-<ol>
 <li><p>主工程的集成（static or dynamic）</p>
 <p><strong>static framework</strong> :</p>
 <p>不使用<code>use_framework!</code> ： build 提示找不到依赖库的framework，因为脚本打包出的pod framework的时候link的应该是framework，这个问题通过<code>pod package</code>解决</p>
@@ -304,14 +302,14 @@
 <p><strong>static library</strong> ： 集成时 提示 The ‘Pods-CardApp’ target has libraries with conflicting names: libPodDemo.a，暂时不知道原因</p>
 </li>
 <li><p>资源文件读取问题</p>
-</li>
-</ol>
 <p>主要就是路径的问题</p>
 <p>这里给两篇 Blog，给出多种解决方案，可以按照自己的需求来选择，这里还涉及到了是否使用了 <code>!use_framework</code></p>
 <p><a href="https://www.zybuluo.com/qidiandasheng/note/595740" target="_blank" rel="external">Pod二进制化 - 作业部落 Cmd Markdown 编辑阅读器</a><br><a href="https://www.jianshu.com/p/cc0686896fc1" target="_blank" rel="external">iOS组件化开发中的资源文件管理方案 - 简书</a></p>
 <p>总结来说就是</p>
 <p><code>s.resource</code> 编译后资源文件会在AppDemo.app目录下<br><code>s.resource</code> + <code>use_framework!</code> 编译后资源文件会在AppDemo.app/Frameworks/PodDemo.framework目录下</p>
 <p><code>s.resource_bundles</code> 编译后资源文件会在AppDemo.app下的PodDemo.bundle目录下<br><code>s.resource_bundles</code> + <code>use_framework!</code> 编译后资源文件会在AppDemo.app/Frameworks/PodDemo.framework下的PodDemo.bundle目录下</p>
+</li>
+</ol>
 <h3 id="0x020200-方案核心"><a href="#0x020200-方案核心" class="headerlink" title="0x020200 方案核心"></a>0x020200 方案核心</h3><ol>
 <li>正常开发 pod</li>
 <li>使用 pod package 打出 static framework</li>
