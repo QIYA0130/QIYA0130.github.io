@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/03/2018-03-03-PodAutoRelease Shell/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="批量发布 pod 的脚本">
-<meta property="og:updated_time" content="2018-03-06T15:44:43.304Z">
+<meta property="og:updated_time" content="2018-03-06T15:49:37.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="批量发布pod库">
 <meta name="twitter:description" content="批量发布 pod 的脚本">
@@ -276,9 +276,10 @@
       
         <h2 id="0x00-背景"><a href="#0x00-背景" class="headerlink" title="0x00 背景"></a>0x00 背景</h2><p>每当一个开发周期完毕，app 发掉版本后，此次修改的 pod 库也需要发布，这时候人力一个一个去发，耗时耗力</p>
 <p>于是弄个脚本来做这种事</p>
-<h2 id="0x01-前期准备"><a href="#0x01-前期准备" class="headerlink" title="0x01 前期准备"></a>0x01 前期准备</h2><p><strong>fastlane</strong></p>
+<h2 id="0x01-前期准备"><a href="#0x01-前期准备" class="headerlink" title="0x01 前期准备"></a>0x01 前期准备</h2><p><strong>pod-template</strong><br>标准化创建 pod 的一个模板，可以在官方的基础上增加自己的配置</p>
+<p><strong>fastlane</strong></p>
 <p>fastlane 是一个强大的工具，几乎承包了开发过程中需要用到的命令，pod 发布的命令他也集成了，我们可以通过他来实现 pod 的发布</p>
-<p>由于每个 pod 都需要用到 fastlane 的功能，所以每个 pod 库中都需要一个 fastfile 文件，这个需求可以配置到 pod-template 中去，这样新建 pod 的时候就不用手动来创建这样一个文件了</p>
+<p>由于每个 pod 都需要用到 fastlane 的功能，所以每个 pod 库中都需要一个 fastfile 文件，这个需求可以配置到上面说的 pod-template 中去，这样新建 pod 的时候就不用手动来创建这样一个文件了</p>
 <p>需要用到的发布功能通过 <code>fastlane</code> 来提供 <code>pod</code> 发布的一些具体 <code>action</code> 功能，如 <code>pod lint</code>、<code>version increase</code>、<code>pod push</code>，我们写在一个统一的文件里</p>
 <p>当你写好这样一个 fastfile 文件的时候，我们不需要 copy 到每个 pod 库中，我们使用 fastlane 的 import 功能来使每个子 pod 库复用这份文件，这份文件会放在远程某个 git 中，将来需要增加修改功能，也只要在这份文件中修改，引用了这份文件的子 pod 就能使用到正确的功能。</p>
 <h2 id="0x02-最终方案"><a href="#0x02-最终方案" class="headerlink" title="0x02 最终方案"></a>0x02 最终方案</h2><h3 id="0x0201-shell-脚本"><a href="#0x0201-shell-脚本" class="headerlink" title="0x0201 shell 脚本"></a>0x0201 shell 脚本</h3><p>脚本思路是这样</p>
