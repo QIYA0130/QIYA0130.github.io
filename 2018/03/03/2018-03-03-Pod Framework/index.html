@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,Cocoapods,Static Library," />
+  <meta name="keywords" content="iOS,Static Library,Cocoapods," />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/03/2018-03-03-Pod Framework/index.html">
 <meta property="og:site_name" content="DEMO">
 <meta property="og:description" content="基于 Cocoapods 的 pod 二进制化与源码切换">
-<meta property="og:updated_time" content="2018-03-22T13:12:39.023Z">
+<meta property="og:updated_time" content="2018-03-22T13:22:35.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pod 二进制化">
 <meta name="twitter:description" content="基于 Cocoapods 的 pod 二进制化与源码切换">
@@ -274,7 +274,8 @@
       
 
       
-        <h2 id="0x00000-背景"><a href="#0x00000-背景" class="headerlink" title="0x00000 背景"></a>0x00000 背景</h2><p>随着业务发展、组件越早越多，Xcode 日常跑 app耗时越来越长，降低了效率。<br>于是提出以下需求</p>
+        <h2 id="0x00000-背景"><a href="#0x00000-背景" class="headerlink" title="0x00000 背景"></a>0x00000 背景</h2><p>随着业务发展、组件越早越多，Xcode 日常跑 app耗时越来越长，降低了效率。<br>这里也可以看看 Joy 大神写的两篇 Blog，讲了app 编译加载的流程，很棒<br><a href="https://www.jianshu.com/p/d5cf01424e92" target="_blank" rel="external">点击 Run 之后发生了什么？ - 简书</a><br><a href="https://www.jianshu.com/p/8498cec10a41" target="_blank" rel="external">趣探 Mach-O：加载过程 - 简书</a></p>
+<p>于是提出以下需求</p>
 <ul>
 <li>pod 库二进制化来提升编译速度</li>
 <li>提供切换回源码的开关，以便 debug 所需</li>
@@ -347,7 +348,8 @@
 <h2 id="0x030000-展望"><a href="#0x030000-展望" class="headerlink" title="0x030000 展望"></a>0x030000 展望</h2><ol>
 <li>源码和二进制之间的切换还是略显麻烦，想办法改进下</li>
 </ol>
-<h2 id="0x040000-引用"><a href="#0x040000-引用" class="headerlink" title="0x040000 引用"></a>0x040000 引用</h2><p><a href="https://www.zybuluo.com/qidiandasheng/note/595740" target="_blank" rel="external">Pod二进制化 - 作业部落 Cmd Markdown 编辑阅读器</a><br><a href="https://www.jianshu.com/p/cc0686896fc1" target="_blank" rel="external">iOS组件化开发中的资源文件管理方案 - 简书</a></p>
+<h2 id="0x040000-引用"><a href="#0x040000-引用" class="headerlink" title="0x040000 引用"></a>0x040000 引用</h2><p><a href="https://www.jianshu.com/p/d5cf01424e92" target="_blank" rel="external">点击 Run 之后发生了什么？ - 简书</a><br><a href="https://www.jianshu.com/p/8498cec10a41" target="_blank" rel="external">趣探 Mach-O：加载过程 - 简书</a></p>
+<p><a href="https://www.zybuluo.com/qidiandasheng/note/595740" target="_blank" rel="external">Pod二进制化 - 作业部落 Cmd Markdown 编辑阅读器</a><br><a href="https://www.jianshu.com/p/cc0686896fc1" target="_blank" rel="external">iOS组件化开发中的资源文件管理方案 - 简书</a></p>
 <p><a href="https://www.jianshu.com/p/5338bc626eaf?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案 - 简书</a><br><a href="https://www.jianshu.com/p/85c97dc9ab83?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="external">iOS CocoaPods组件平滑二进制化解决方案及详细教程二之subspecs篇 - 简书</a></p>
 <p><a href="https://www.jianshu.com/p/77a2a9be167f" target="_blank" rel="external">Let us write swift（解决use_framework!时第三方库是static… - 简书</a></p>
 
@@ -373,9 +375,9 @@
           
             <a href="/tags/iOS/" rel="tag">#iOS</a>
           
-            <a href="/tags/Cocoapods/" rel="tag">#Cocoapods</a>
-          
             <a href="/tags/Static-Library/" rel="tag">#Static Library</a>
+          
+            <a href="/tags/Cocoapods/" rel="tag">#Cocoapods</a>
           
         </div>
       
